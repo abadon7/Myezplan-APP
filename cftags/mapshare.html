@@ -1,0 +1,458 @@
+<style>
+#sharit_table th{ text-align:left !important; cursor:pointer; padding-left:38px;}
+#sharit_table2 th{ text-align:left !important; cursor:pointer; padding-left:20px;}
+#sharit_table2 td{ text-align:center !important;}
+/*#share-box-1{ padding-bottom:20px;}*/
+.round{border: solid medium #F2F2F2;
+		border-radius: 20px 20px 20px 20px;
+		-moz-border-radius: 20px;
+		-webkit-border-radius: 20px;
+		background-color:#17375E;
+		margin-top:20px;
+		height:35px;
+		color:white;
+		vertical-align:middle;}
+#shareform-2{ width:100%;}
+.intinerary_opt{ text-align:center;}
+.gray_border {border: 1px solid #ddd; border-radius: 10px 10px 10px 10px; width:80%; margin:0 auto;}
+.center_item{ margin:0 auto; padding-bottom:10px;}
+</style>
+<script type="text/javascript">
+$(document).ready(function(e) {
+	$(".radiotr").click(function () {
+	   $(this).find('input:radio').prop("checked", true);
+	});
+	$(".hide_int_opt").click(function () {
+	   $(".intinerary_opt").show(250);
+	});
+	$(".hide_int_opt_comp").click(function () {
+	   $(".intinerary_opt").hide(250);
+	});
+	$(".show_sop").hide();
+		$(".share_submit_2").hide();
+			$(".round").click(function(){
+				$(".show_sop").hide();
+				$('.'+$(this).attr('id')).slideToggle(250);
+				if($(this).attr('name')=="siagree1"){
+					$(".share_submit_2").hide();
+					}
+				else{
+					$(".share_submit_2").show();
+					}
+		});
+});
+</script>
+<div id="share-box" class="popup-inside popup-inside-round" style="max-width:300px;">
+	<div id="header" class="box-header">
+		<a href="#" class="close"  alt="Close Window" >X</a><img src="images/logomyezplan.png" class="img_logo" title="myezplan" alt="myezplan" />
+		<h1 class="maintitle"><span class="capitalize_red">S</span>hare</h1>
+		<div id="title-box-1" class="textcenter "><!-- <a href="javascript:;" class="linkblue1" style="margin-left: -30px;">Show me + Options !!</a>--></div>
+		<div id="title-box-2" class="textcenter "><!-- <a href="javascript:;" class="linkblue1" style="margin-left: -30px;">Wait !! take me back.</a>--></div>
+	</div>
+	<div id="body" class="box-body">
+		<div id="share-box-1" class="sharebox">
+        	
+			<table id="sharit_table" style="text-align:center !important;" class="body-table" cellpadding="0" cellspacing="0">
+				<tr>
+					<th class="round siagree1" id="show_sop1" name="siagree1" width="40%"  style="/*border-right: dotted gray thin;*/">1 - To another site                    
+                    </th>                                  					
+				</tr>             
+				<tr class=" show_sop show_sop1" >
+					<td style="text-align:center;/*border-right: dotted gray thin;*/">
+						
+						<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+						<a id="share-box-facebook-e" href="#share-facebook" target="_blank"><img src="images/facebook.png" alt="share in Facebook" /></a>
+						<a id="share-box-twitter-e" href="#share-twitter" target="_blank"><img src="images/twitter.png" alt="share in Twitter" /></a>
+						<a id="share-box-blogger-e" href="#share-blogger" target="_blank"><img src="images/blogger.png" alt="share in Blogger" /></a>
+                        
+					</td>					
+                    </tr>
+                    <tr>
+                  <!--   <th>
+                    <br />                    
+                    </th>
+                    </tr>-->
+                    <tr>
+                    <th class="round siagree1" id="show_sop2" name="siagree1" width="58%">
+                    
+                    2 - E-Mail</th>
+                    </tr>
+                    <tr class="show_sop show_sop2">
+					<td>
+						<form name="shareform-1" id="shareform-1" onsubmit="return false;">
+						<table width="80%" style=" margin:0 auto;">
+							<tr>
+								<td>From: <span class="required">*</span></td>
+                            </tr>
+							<tr>
+								<td class="input_td"><input name="share_emailfrom" id="share_emailfrom" class="input input-190" type="text" /></td>
+							</tr>
+							<tr>
+								<td>Email to: <span class="required">*</span></td>
+                            </tr>
+							<tr>    
+								<td class="input_td"><input name="share_emailto" id="share_emailto" class="input input-190" type="email" /></td>
+							</tr>
+							<tr>
+								<td>Message: <span class="required">*</span></td>
+                            </tr>
+							<tr>    
+								<td class="input_td"><textarea name="share_emailmessage" id="share_emailmessage" class="input textarea-190"></textarea></td>
+							</tr>
+							<tr>
+								<td id="siagree1" colspan="2">
+									<div id="message-share-1" class="message">
+										<span id="messageerror-share-1" class="message-error"></span>
+									</div>
+									<div class="message-agree share_submit_1"><input id="share_checkagree_1" name="share_checkagree_1" type="checkbox" /> &nbsp;I agree to the <br /> <a target="_blank" href="privacypolicy.cfm">Privacy Policy</a> <br />and  <a href="termsofuse.cfm" target="_blank">Terms of Use</a> </div>
+									<a id="share-box-mail-e" name="share-box-mail-e" href="#share-mail"></a>
+									<input name="share_option" id="share_option"  type="hidden" value="" />
+									<input id="share_submit_1" name="share_submit_1" type="submit" value="Share" class="submit-button submit-buttondisabled share_submit_1"  alt="Share Information" style="width:100px;" data-url="" /><br />
+								</td>
+							</tr>
+						</table>
+						</form>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="share-box-2" class="sharebox">
+			<form name="shareform-2" id="shareform-2">
+				<input id="sharelink" name="sharelink" type="hidden" value="" />
+				<input id="sharelinkgpx" name="sharelinkgpx" type="hidden" value="" />
+				<table id="sharit_table2" class="body-table" cellpadding="0" cellspacing="0">
+					<tr class="radiotr" >
+						<th id="show_sop3" class="round"><input name="share_send" id="share_sendsms_radio" type="radio" value="sharesendsms" /><label for="share_sendsms_radio"> 3 - SMS</label></th>
+					</tr>
+					<tr class=" show_sop show_sop3">
+						
+						<td><p style="margin-bottom:4px;">Provider:<br />
+						<select name="share_sendsmsprovider" id="share_sendsmsprovider" class="input input-190" style="width: 170px;">
+							<option value="">Choose Provider...</option>
+							<option value="tmomail.net">T-Mobile</option>
+							<option value="vmobl.com">Virgin Mobile</option>
+							<option value="cingularme.com">Cingular</option>
+							<option value="messaging.sprintpcs.com">Sprint</option>
+							<option value="vtext.com">Verizon</option>
+							<option value="messaging.nextel.com">Nextel</option>
+							<option value="email.uscc.net">US Cellular</option>
+							<option value="tms.suncom.com">SunCom</option>
+							<option value="ptel.net">Powertel</option>
+							<option value="txt.att.net">AT&quot;T</option>
+							<option value="message.alltel.com">Alltel</option>
+							<option value="MyMetroPcs.com">Metro PCS</option>
+                            <option value="clarocolombia.com.co">Claro(Colombia)</option>
+						</select>
+						</p>
+						<p style="margin-bottom:4px;">
+						Phone Number:<br />
+						<input type="tel" name="share_sendsmsnumber" id="share_sendsmsnumber" class="input input-190" style="width: 170px;" maxlength="10" />
+						</p>
+						<p>
+						Sender Name:<br />
+						<input type="text" name="share_sendsmssender" id="share_sendsmssender" class="input input-190" style="width: 170px;" maxlength="15" />
+						</p>
+                      	</td>
+                        </tr>
+						<tr class="radiotr">
+  						<th id="show_sop4" class="round" ><input name="share_send" id="share_sendcargps_radio" type="radio" value="sharesendcargps" /><label for="share_sendcargps_radio"> 4 - Car (GPS)</label></th>
+						</tr>
+						<tr class="show_sop show_sop4">
+						<td>
+							<select name="share_sendcargps" id="share_sendcargps" class="input input-190" style="width: 170px; display:none;">
+								<option value="">Choose one option...</option>
+							</select>
+							<span id="cargps_info"></span>
+							<script>
+								$.ajax({
+									type: "POST",
+									url: "http://myezplan.com/mobile/appdata/data_ajax/mappopup_maps.cfm?action=app_textlinks",
+									async:false, 
+									cache:false,
+									success: function(data){
+										var links = data.split(",");								
+										$("#cargps_info").html(links[0]);
+									}
+								});
+							</script>
+                        </td>
+						</tr>
+						<tr class="radiotr">
+						<th id="show_sop5" class="round" ><input name="share_send" id="share_sendmobilegps_radio" type="radio" value="sharesendmobilegps" /><label for="share_sendmobilegps_radio"> 5 - Mobile (GPS)</label></th>
+						</tr>
+						<tr class="show_sop show_sop5">
+                        <td>
+							<select name="share_sendmobilegps" id="share_sendmobilegps" class="input input-190" style="width: 170px; display:none;">
+								<option value="">Choose one option...</option>
+							</select>
+							<span id="mgps_info"></span>
+							<script>
+								$.ajax({
+									type: "POST",
+									url: "http://myezplan.com/mobile/appdata/data_ajax/mappopup_maps.cfm?action=app_textlinks",
+									async:false, 
+									cache:false,
+									success: function(data){
+										var links = data.split(",");								
+										$("#mgps_info").html(links[1]);
+									}
+								});
+							</script>
+						</td>
+					</tr>
+				</table>
+				<div id="message-share-2" class="message">
+					<span id="messageerror-share-2" class="message-error"></span>
+				</div>
+				<div class="message-agree share_submit_2"><input id="share_checkagree_2" name="share_checkagree_2" type="checkbox" value="1" /> <label for="share_checkagree_2">I agree to the <a target="_blank" href="privacypolicy.cfm">Privacy Policy</a> and  <a href="termsofuse.cfm" target="_blank">Terms of Use</a> </label></div>
+				<input id="share_submit_2" name="share_submit_2" type="submit" value="Share" class="submit-button submit-buttondisabled share_submit_2"  alt="Share Information" style="width:100px;"  /><br />
+			</form>
+		</div>
+	</div>
+	<div id="footer" class="box-footer">
+	</div>
+</div>
+<div id="saveplan-box" class="popup-inside popup-inside-round">
+	<div id="box-header" class="box-header"><a href="#" class="close"  alt="Close Window" >X</a><h1><span class="capitalize_red">N</span>ame your plan</h1></div>
+	<div id="box-body" class="box-body">
+		<form id="saveplan" onsubmit="return false;">
+		<table class="" style="margin: 0 auto; width:280px">
+			<tr>
+				<td colspan="2"><input name="saveplan_name" id="saveplan_name" type="text" autocomplete="off" maxlength="80" class="input" style="width:87%;" /><br /></td>
+			</tr>
+			<tr>
+				<td style="width:40%; text-align:center;">
+              
+				<label for="saveplan_shareit"class="cursor" ><input name="saveplan_shareit" id="saveplan_shareit" type="checkbox" value="1" checked="checked" class="cursor" /> Share It </label>
+				</td>
+				<td class="cursor"  style="float:right;">
+				<!-- <input name="saveplan_addtoitinerary" id="saveplan_addtoitinerary" type="checkbox" value="1" checked="checked" class="cursor hide_int_opt" /> Add to itinerary </label> -->
+                <form action="">
+                <label for="saveplan_addtoitinerary"  class="cursor"  style="/*float:right;*/"><input name="saveplan_addtoitinerary" id="saveplan_addtoitinerary" type="radio" value="1" checked="checked" class="cursor hide_int_opt_comp " /> New itinerary </label><br />
+                <label for="saveplan_addtoitinerary2"  class="cursor"  style="/*float:right;*/"><input name="saveplan_addtoitinerary" id="saveplan_addtoitinerary2" type="radio" value="1" checked="checked" class="cursor hide_int_opt" /> Add to itinerary </label>
+
+</form>
+				</td>
+			</tr>
+            </table>
+            <div class="gray_border intinerary_opt">
+            <table class="center_item">
+            <tr  class="intinerary_opt">
+            	<td style="padding-top:10px;" colspan="2">Save to date:</td>
+            </tr>
+            <tr class="intinerary_opt">
+            	<td colspan="2">
+			<cfset fechaactual = dateformat(now(),"mm/dd/yyyy")>
+            <input type="text" value="" id="Datepicker_" readonly="readonly" style="width:100px;">
+			<script type="text/javascript">
+					  var currentDate = new Date()
+					  var day = currentDate.getDate()
+					  var month = currentDate.getMonth() + 1
+					  var year = currentDate.getFullYear()
+					  $("#Datepicker_").val( month + "/" + day + "/" + year )
+					</script>
+           	    </td>
+            </tr>
+            <tr class="intinerary_opt">
+                <td colspan="2">Save to itinerary:</td>
+            </tr>
+            <tr class="intinerary_opt">
+            
+            <td colspan="2" align="center">
+            <div id="search_itinerary">
+            <select id="sel-itinerary">
+            <option value="">Choose One...</option>
+            </select>
+            </div>
+            </td>
+            </tr>
+		</table> 
+        </div>
+		<div id="message-saveplan" class="message">
+			<span id="messageerror-saveplan" class="message-error"></span>
+		</div>
+		<br />
+        <input style=" margin-bottom:10px;" id="saveplan_submit" name="saveplan_submit" type="submit" value="Save" class="submit-button"  alt="Name your plan" style="width:100px;"  /><br />
+		</form>
+	</div>
+</div>
+<div id="stepitinerary-box" class="popup-inside popup-inside-round">
+	<div class="box-header">
+	<a href="#" class="close" alt="Close Window" >X</a><img src="images/logomyezplan.png" class="img_logo" title="myezplan" alt="myezplan" />
+	<h1><span class="capitalize_red">M</span>y Itinerary</h1>
+	<span class="box-header-subtitle">What would you like to do?</span>
+	</div>
+	<div class="box-body body-rounded-10">
+		<ul class="myitinerary-step-list">
+			<li><a href="#" id="stepitinerary-box-seeit">See It</a></li>
+			<li><a href="#" id="stepitinerary-box-addthisplan">Add this Plan</a></li>
+			<li><a href="myaccount.cfm#MySavedPlans">Add/View Saved Plans</a></li>
+			<li><a href="myaccount.cfm#MyPurchasedDeals">Add/View Purchased Deals</a></li>
+		</ul>
+	</div>
+	<div class="box-footer">
+		<div id="message-stepitinerary" class="message">
+			<span id="messageerror-stepitinerary" class="message-error"></span>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$(window).load(function(e) {
+	/* Click Close button saveplan-box */
+	$('#saveplan-box a.close').click( function() { 
+		closePopup();
+		return false;
+	});
+
+	/* Click Close button share-box */
+	$('#share-box a.close').click( function() { 
+		closePopup();
+		return false;
+	});
+	/* Click check agree [shareform-1]  */
+	$('#share_checkagree_1').click(function() {
+		$("#share_submit_1").addClass("submit-buttondisabled");
+		if(this.checked){
+			$("#share_submit_1").removeClass("submit-buttondisabled");
+		}
+		return;
+	});
+	/* Click Submit form [shareform-1] */
+	$('input#share_submit_1').click( function(e) {
+		e.preventDefault();
+		var _ca = $('#share_checkagree_1');
+		var _message = $("#messageerror-share-1");
+		var _share_emailfrom = $.trim($("#share_emailfrom").val());
+		var _share_emailto = $.trim($("#share_emailto").val());
+		var _share_message = $.trim($("#share_emailmessage").val());
+		var _str_mail_s = $("#sharelink").val();
+		var _share_option = $.trim($("#share_option").val());
+		emptyMessageError(_message);
+		/* verify checkAgree */
+		if( !( $(_ca).is(':checked') ) ){
+			return;
+		}
+		/* verify all inputs */
+		if(_share_emailfrom=="" || _share_emailto=="" || _share_message==""){
+			showMessageError(_message,"All information must be complete.<br />Please try again",300);
+			hideMessageError(_message,false,300);
+			return false;
+		}
+		/* validate Email To */
+		if(!validateEmail(_share_emailto))
+		{
+			showMessageError(_message,"Email not valid. Please try again",300);
+			hideMessageError(_message,false,300);
+			return false;
+		}
+
+		//return false;
+		var _urlconfig={sharefrom:_share_emailfrom,shareemailto:_share_emailto,sharemessage:_share_message,sharelink:_str_mail_s,shareoption:_share_option};
+		$.ajax({
+			type: "POST",
+			url: "data_ajax/share_sendbyemail.cfm",
+			async:false,
+			cache:false,
+			data:_urlconfig,
+			error: function(xhr, ajaxOptions, thrownError){
+				showMessageError(_message,thrownError,300);
+				hideMessageError(_message,false,300);
+			},
+			success: function(datos){
+				showMessageError(_message,datos,300);
+				hideMessageError(_message,true,300);
+			}
+		});
+	});
+	
+	/* Click check agree [shareform-2]  */
+	$('#share_checkagree_2').click(function() {
+		$("#share_submit_2").addClass("submit-buttondisabled");
+		if(this.checked){
+			$("#share_submit_2").removeClass("submit-buttondisabled");
+		}
+		return;
+	});
+	/* Click Submit form [shareform-2] */
+	$('input#share_submit_2').click( function(e) {
+		e.preventDefault();
+		var _thisform = $(this).closest('form');
+		var _ca = $('#share_checkagree_2');
+		var _message = $("#messageerror-share-2");
+		var _inputselected = $("#shareform-2 input:radio[name=share_send]:checked");
+		var _share_sendsmsprovider = $("#share_sendsmsprovider");
+		var _share_sendsmsnumber = $("#share_sendsmsnumber");
+		var _share_sendsmssender = $("#share_sendsmssender");
+		var _share_sendcargps = $("#share_sendcargps");
+		var _share_sendmobilegps = $("#share_sendmobilegps");
+		emptyMessageError(_message);
+		/* verify checkAgree */
+		if( !( $(_ca).is(':checked') ) ){
+			return;
+		}
+		/* verify input radio [name=share_send] */
+		switch(_inputselected.val()){
+			case "sharesendsms":
+				var _share_sendsmsnumber_val=formatPhoneNumber($.trim(_share_sendsmsnumber.val()));
+				_share_sendsmsnumber.val(_share_sendsmsnumber_val);
+				
+				if(_share_sendsmsprovider.val()==""){
+					$(_share_sendsmsprovider).focus();
+					showMessageError(_message,"Please select a mobile provider",300);
+				}else if( _share_sendsmsnumber_val == "" ){
+					$(_share_sendsmsnumber).focus();
+					showMessageError(_message,"Please write one mobile phone number",300);
+				}else if(_share_sendsmsnumber_val.length != 10){
+					$(_share_sendsmsnumber).focus();
+					showMessageError(_message,"mobile phone number must have 10 digits",300);
+				}else if(_share_sendsmssender.val()==""){
+					$(_share_sendsmssender).focus();
+					showMessageError(_message,"Please write a name from sender",300);
+				}
+				break;
+			case "sharesendcargps":
+				if( $.trim(_share_sendcargps.val()) == "" ){
+					$(_share_sendcargps).focus();
+					showMessageError(_message,"Please select one option for your Car GPS",300);
+				}
+				break;
+			case "sharesendmobilegps":
+				/*
+				if( $.trim(_share_sendmobilegps.val()) == "" ){
+					$(_share_sendmobilegps).focus();
+					showMessageError(_message,"Please select one option for your Mobile GPS",300);
+				}
+				*/
+				var _sharelinkgpx = $("#sharelinkgpx").val();
+				var _url="gpxexport.cfm?mou=at&mapurl="+_sharelinkgpx;
+				location.replace(_url);
+				return false;
+				break;
+			default:
+				showMessageError(_message,"Please select one option",300);
+				break;
+		}
+		hideMessageError(_message,false,300);
+		if( $.trim( _message.text() ) != "" ){
+			return false;
+		}
+		var urlconfig = _thisform.serializeToObject();
+		$.ajax({
+			type: "POST",
+			url: "data_ajax/share_sendother.cfm",
+			async:false,
+			cache:false,
+			data: urlconfig,
+			error: function(xhr, ajaxOptions, thrownError){
+				showMessageError(_message,thrownError,300);
+				hideMessageError(_message,false,300);
+			},
+			success: function(datos){
+				showMessageError(_message,datos,300);
+				hideMessageError(_message,true,300);
+			}
+		});
+	});
+
+});
+</script>

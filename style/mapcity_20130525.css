@@ -1,0 +1,35 @@
+@charset "utf-8";
+.linkmapplace{ font-size:80%; float:right;}
+#real_body #real_body_middle{ text-align:left;}
+
+.middle_body { }
+.middle_body .middle_body_left  { width:202px; margin:0 0 0 22px; }
+.middle_body .middle_body_right { width:746px; margin:0 0 0 18px; }
+.middle_body .middle_body_left, .middle_body .middle_body_right{  float:left; }
+.middle_body .middle_body_left .left_box { width:202px; margin:0 0 0 22px; }
+.left_box #plansbycity { margin:6px 5px 8px 0; }
+.left_box #plansbycity_select { padding:5px 0; }
+.left_box .select { width:100%; }
+.left_box #places { height:250px; margin-right:5px; margin-bottom:5px }
+.left_box #places_list { height:inherit; overflow-y:auto;}
+.left_box #plansbycity, .left_box #places_list { padding-left:5px; font-size: 13px;}
+
+#real_body #real_body_middle #middle_mapandcheck #left_check, 
+#real_body #real_body_middle #middle_mapandcheck #right_map_box, 
+#real_body #real_body_middle #middle_mapandcheck #right_bottom_steps { float:none;}
+#real_body #real_body_middle #middle_mapandcheck #left_check { width: 100%; margin: 0;}
+.dd-options{ max-height:250px;}
+div.popup-inside-absolute{position:absolute;top:40%;}
+
+#places_list {height:100%; overflow-y:auto;}
+#places_list .table {width:100%;padding:0;border-collapse:collapse;}
+/*
+#places_list .table td, places_list .table th{padding:0;}
+*/
+#places_list #menu_place_table {}
+#places_list #menu_place_table .tc {text-align:center;background-color:lightgray;padding:0 0 3px 0;}
+#places_list #menu_place_table .t1 {width:20px; text-align:center;} 
+#places_list #menu_place_table .t2 {width:30px; text-align:center;}
+#places_list #menu_place_table .t3 {}
+#places_list #menu_place_table .t3:hover {background-color: #F3F3F3;}
+#places_list #menu_place_table .t4 {width:14px; text-align:left;}

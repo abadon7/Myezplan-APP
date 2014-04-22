@@ -1,0 +1,62 @@
+*{margin:0;padding:0;font-family:Arial, Helvetica, sans-serif;}
+html,body{background-color:white;}
+table{border-collapse:collapse;}
+
+#wrap{background-color:#FFFFFF;padding-top:20px;text-align:left;width:100%;}
+#wrapper, #wrapper-print {background-color:#FFFFFF;border:1px solid #EBF1DE;margin:0 auto;width:1000px;}
+#wrapper {border-radius:30px 30px 30px 30px;-moz-border-radius:30px 30px 30px 30px;padding:5px 10px;}
+#wrapper-print {text-align:left;border-width:0;}
+#wrapper-print a, #wrapper-print td {font-size:xx-large;font-weight:bold;color:#4F6228;}
+#wrapper-print a, #fieldsetprintoptions {margin-left:20px;}
+#fieldsetprintoptions {display:inline-block;padding:2px 0 2px 8px;/*border-width:0;*/}
+#fieldsetprintoptions legend{font-weight:bold;padding:0 4px}
+#fieldsetprintoptions label {margin:2px 6px;2px 0px}
+#headerpage{height:auto;text-align:center;position:relative;padding:10px 0;}
+#headerpage #myezplan{float:right;margin:0 198px 0 0;font-size:20px;font-weight:bold;}
+#headerpage #fecha{float:right;width:150px;font-size:18px;font-weight:bold;}
+
+/* print mapcity */
+#map_canvas.mapcity{width:930px;height:580px;z-index:999;border:0px solid #FFFFFF;margin:0 0 0 30px;border-radius:20px 20px 20px 20px;}
+/* print mapcity */
+
+/* print maps */
+#overlay_map{width:128px;height:128px;border:solid 3px gray;border-width:3px 3px 3px 3px;}
+.table_content {width:100%;}
+.table_content .trtitulo {font-size:12px;font-weight:bold;}
+.table_content td, .table_content th{padding:6px 0;}
+.table_content .iconaddress {width:60px;margin-left:5px;}
+.table_content .iconmap {width:60px;}
+.table_content .placeinfo {width:170px;}
+.table_content .placedetail {font-size:20px;font-weight:bold;}
+.table_content .placedetailtd {text-align:justify;vertical-align:top;padding-left:40px;}
+.table_content .placedetailtd a{color:blue;}
+.table_content .saving {width:90px;}
+.table_content .time {width:90px;}
+.table_content .savingtd, .table_content .timetd {font-size:110%;font-weight:bold;}
+.total_savings {font-size:20px;font-weight:bold;}
+
+.iconmap-img {max-width:40px;max-height:40px;}
+#average_text {width:904px;margin:20px 0 0 40px;border:1px solid #EBF1DE;text-align:justify;padding:8px;font-size:11px;}
+.printtiles1 {page-break-before:always;margin-top:20px;margin-bottom:10px;padding:7px 0;background-color:lightgray;border-bottom:solid 1px lightgray;font-size:20px;font-weight:bold;}
+#walking_text {width:904px;margin:20px 0 0 40px; text-align:justify;padding:8px;font-size:11px;}
+#credits {width:300px;margin:0 auto;padding-bottom:10px;}
+/* print maps */
+
+/* google directions */
+.adp-directions{width:100%;}
+/* google directions */
+
+/* itinerary */
+.myitin .daybox div.daybox-content{background-color:transparent !important;margin:10px 0 !important;color:black !important;border-color:black !important;}
+.myitin .daybox div.daybox-content .usernote{min-height:1em;vertical-align:text-top;}
+.myitin	.daybox div.daybox-content .button-title {color:transparent; margin:1px; padding:6px 10px;}
+.myitin	.daybox div.daybox-content.daybox-deal .button-title { min-width:140px;}
+.myitin	.daybox div.daybox-content .imgqrcode {float:right;text-align:center;font-weight:bold;}
+.myitin	.daybox div.daybox-content .imgqrcode img{border:0; margin:0; padding:0;}
+.myitin .daybox-content h2 {cursor:default;}
+.myitin .daybox-plan {background-color:transparent !important;color:black !important;}
+.myitin .daybox-title {background-color:lightgray;}
+/* itinerary */
+.placedetailtd ul.icons {float:none;display:inline-block;list-style-type:none;}
+.placedetailtd ul.icons li{float:left;margin-right:0;line-height:0;padding:1px 1px 1px 12px;}
+.placedetailtd ul.icons li img{display:inline-block;max-height:18px;}

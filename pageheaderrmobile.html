@@ -1,0 +1,28 @@
+
+			<div id="real_body_header" class="real_body_header">
+				<a id="header_cart_button">
+				</a>
+				<a href="index.cfm" style="float:left;margin-left: 0px;">
+					<img id="pageheaderlogo" src="" <!---title="Return to Home"---> alt="myezplan.com Deals and Tours all across United States" style="max-width: 70px;">
+               
+				</a>
+                <script type="text/javascript">
+				var clogo = $.cookie("PAGELOGO");
+				if(clogo && clogo!=''){
+				$('#pageheaderlogo').attr('src',clogo);
+				}
+				else{$('#pageheaderlogo').attr('src','images/logo_border.png');}
+                </script>
+            
+				<div>
+					<cfinclude template="headmenu.cfm">
+				</div>
+			<!---	<div id="title" style="/*float: left*/">
+					<h1 style="text-align:center;"><cfoutput>#PageHeaderTitle#</cfoutput></h1>
+				</div>--->
+				<div id="big_box_header"></div>
+				<div class="clearboth"></div>
+                <div id="title" style="/*float: left*/">
+					<h1 id="header_text" style="text-align:center;"><cfoutput>#PageHeaderTitle#</cfoutput></h1>
+				</div>
+			</div><!-- header -->

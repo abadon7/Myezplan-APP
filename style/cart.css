@@ -1,0 +1,75 @@
+@charset "utf-8";
+/* CSS Document */
+.cart-fieldset{ width:100%; margin:0 auto; border-radius: 15px; border-color:#fefefe; color:black; padding:10px 0; text-align:start;}
+.cart-fieldset:after{display:block;}
+.cart-fieldset legend{ text-align: center; padding:5px 25px 5px 25px; background-color:#4F6228; color:#FFFFFF; border-radius: 15px; font-size:20px; font-weight:bold; border:4px solid #efefef;}
+.cart-page {font-size:.85em !important; min-height:150px;}
+.cart-page-p {margin:0 30px;}
+.cart-page .group1-title{color:#699BD9; font-size:18px; font-weight:bold; margin:5px 0 0 60px;}
+.cart-page .cart-summary .cart-city{}
+.cart-page .cart-summary .cart-city .cart-city-item{ margin-bottom:10px;}
+.cart-page a.close { float:right; margin-right:-34px; margin-top:-15px; font-family:Verdana, Geneva, sans-serif; font-weight:bolder; font-size:x-large; color:#807C7C; display:inline-block;}
+.cart-summary-table td{ padding:5px 0; }
+.cart-page .cart-total{}
+.cart-page .cart-total .inputtotals{ width:10em;; text-align:right; padding:5px 15px 5px !important; border-width:thin;}
+.cart-page .cart-total .inputcoupon{ width:9em;; text-align:center; padding:5px 15px 5px !important; border-width:thin;}
+.cart-total-table td{ padding:5px 0; }
+.cart-total-table th{ text-align:right; }
+.ui-widget input {}
+
+#cartmissingdeals-fieldset { margin-top:8px;}
+#cartmissingdeals-fieldset .listitemsmissingdeals { list-style:none;}
+#cartmissingdeals-fieldset .listitemsmissingdeals li { min-width:200px; max-width:200px; height:220px; overflow:hidden; display:inline-block; text-align:center; margin:0 0 20px 22px; float:left; border:1px solid #ddd; border-radius:10px 10px 10px 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px 10px 10px 10px; padding:10px 5px 5px; }
+#cartmissingdeals-fieldset .listitemsmissingdeals li img {max-height:150px; min-height:100px; max-width:180px;  min-width:150px; border:0;}
+/*
+#videobox{ background-image:url(../images/videobox.png); height:334px; width:580px; margin:40px 0 40px 135px; padding:9px 0 0 0px;}
+.cajitas{ background-image:url(../images/cartboxes1.png); width:869px; height:142px; margin:5px 0 0 45px; text-align:left;}
+.titulo_cajita{ color:#699BD9; font-size:18px; font-weight:bold; margin:5px 0 0 60px; text-align:left; width:850px;}
+.t_p{ width:200px; }
+.tf_name{ position:absolute; margin:18px 0 0 65px; color:#000000; font-size:18px; font-weight:bold;}
+.tf_quantity{ position:absolute; margin:18px 0 0 513px; color:#000000; font-size:18px; font-weight:bold;}
+.tf_price{ position:absolute; margin:18px 0 0 630px; color:#000000; font-size:18px; font-weight:bold;}
+.tf_subtotal{ position:absolute; margin:18px 0 0 720px; color:#000000; font-size:18px; font-weight:bold;}
+.tf_adult{ position:absolute; margin:50px 0 0 440px; color:#000000; font-size:17px; font-weight:500;}
+.tf_child{ position:absolute; margin:80px 0 0 440px; color:#000000; font-size:17px;  font-weight:500;}
+.tf_child_desc{ position:absolute; margin:100px 0 0 433px; color:#000000; font-size:11px; }
+.if_name{ position:absolute; margin:52px 0 0 70px; width:340px; height:20px; border:none; }
+.if_quantity1{ position:absolute;  margin:52px 0 0 520px; width:80px; height:20px;  border:none; }
+.if_quantity2{ position:absolute;  margin:82px 0 0 520px; width:80px; height:20px;  border:none; }
+.if_price1{ position:absolute;  margin:52px 0 0 621px; width:80px; height:20px; border:none;  }
+.if_price2{ position:absolute;  margin:82px 0 0 621px; width:80px; height:20px; border:none;  }
+.if_subt1{ position:absolute;  margin:52px 0 0 718px; width:80px; height:20px;  border:none; }
+.if_subt2{ position:absolute;  margin:82px 0 0 718px; width:80px; height:20px; border:none;  }
+.tf_cerrar{ position:absolute; width:20px; height:20px; margin:10px 0 0 840px; cursor:pointer;}
+#continueshop{ background-image:url(../images/continueshop.png); width:230px; height:45px; position:absolute; margin:-10px 0 0 730px; cursor:pointer; }
+#box_apply{ position:absolute; margin:10px 0 0 380px; background-image:url(../images/applybut.png); width:241px; height:31px;}
+#mixed_cont{ height:300px; color:#000000; text-align:left; font-size:15px;}
+#mixed_cont a{ color:#6598D8;}
+#coupon_t{ position:absolute; margin:15px 0 0 650px;}
+#coupon_i{  position:absolute; margin:10px 0 0 755px; background-image:url(../images/cajas_mix.png); width:155px; height:30px;}
+
+#taxes_t{ position:absolute; margin:55px 0 0 660px;}
+#taxes_i{  position:absolute; margin:50px 0 0 755px; background-image:url(../images/cajas_mix.png); width:155px; height:30px;}
+
+#retail_t{ position:absolute; margin:95px 0 0 610px;}
+#retails_i{  position:absolute; margin:90px 0 0 755px; background-image:url(../images/cajas_mix.png); width:155px; height:30px;}
+
+.if_apply{ position:absolute; margin:5px 0 0 5px ; width:160px; height:20px; border:none;}
+.if_coupons{ margin:4px 0 0 4px; height:20px; border:none;}
+#apply_b{ height:28px; margin:1px 0 0 170px; position:absolute; width:70px; cursor:pointer;}
+
+#mysavings_t{ position:absolute; margin:130px 0 0 550px;}
+#mysavings_i{ position:absolute; margin:130px 0 0 756px; background-image:url(../images/cajas_mix2.png); width:153px; height:39px;}
+.if_saving{ height: 28px; margin: 5px 0 0 5px; width: 140px; border:none;}
+
+#myprice_t{ position:absolute; margin:180px 0 0 595px;}
+#myprice_i{ position:absolute; margin:180px 0 0 756px; background-image:url(../images/cajas_mix2.png); width:153px; height:39px;}
+
+#give{ position:absolute; margin:192px 0 0 80px;}
+#give2{ position:absolute; margin:218px 0 0 80px;}
+
+#give_ch{ position:absolute; margin:195px 0 0 60px;}
+#agree_ch{ position:absolute; margin:220px 0 0 60px;}
+*/
+/*
+*/

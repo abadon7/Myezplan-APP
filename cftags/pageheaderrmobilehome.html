@@ -1,0 +1,64 @@
+			<div id="real_body_header" class="real_body_header">
+				<a id="header_cart_button">
+					<cfif isdefined('session.uid')>
+						<!---<img src="images/cart.png" alt="cart" onclick="goToCart();">--->
+					</cfif>
+				</a>
+				<a id="logo_pp" href="index.html" style="float:left;margin-left: 0px;">
+					<img src="images/logo_border.png"  alt="myezplan.com Deals and Tours all across United States" width="100px" height="66px">
+				</a>
+				<div id="btn_more_login" style="margin-right:35px;" ><a style="float:right;" id="menu_icon" style="text-align:right;" href="#menu" data-ajax="false">
+					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAPAQMAAADTSA1RAAAABlBMVEX///9PYihMerhcAAAAAXRSTlMAQObYZgAAABJJREFUCJlj+P//AAMMIwMixAHm9RivXlHwOQAAAABJRU5ErkJggg==">
+				</a></div>
+				<img id="map-top-button-faq" src="images/faq.png" width="35px" height="35" style="vertical-align:middle;float:right;" class="cursor" />
+				<br>
+				<br>
+				<div style=" float:right">
+					<a id="button-searchhotdeals" class="button-round-2 button-round-red2">Hot Deals</a>
+                </div>
+				<div>
+				<div id="headmenu_div">
+				</div>
+				</div>
+				<div id="title" style="float: left">
+					<!---<h1><cfoutput>#PageHeaderTitle#</cfoutput></h1>--->
+				</div>
+				<div id="big_box_header"></div>
+				<div class="clearboth"></div>
+			</div><!-- header -->
+			<script>
+				if(cf_sid!=""){
+						var data = "cftags/headmenu.html ."+faqpage+" .sessionOn";
+				}
+				else {
+						var data = "cftags/headmenu.html ."+faqpage+" .sessionOff";
+				}	
+				$( "#headmenu_div" ).load( data );
+				$("#btn_more_login").click(function(e){
+					 //alert("buttom working");
+				 });
+			</script>
+				<script>
+			</script>
+<script>
+$(window).load(function() {
+	$("#menu").mmenu({
+		classes: "myez",
+		position:"right",
+		zposition:"front",
+		moveBackground	: false,
+		header     	 	: true,
+		searchfield 	: true,
+		counters    	: true,
+		onClick	: {
+			blockUI		: true,
+			close		: true,
+			setSelected	: false
+		}  
+	}, {
+	   // configuration:
+	   labelClass     : "label_menu",
+	});
+	$("#template_top_menu").show();
+});	
+</script>

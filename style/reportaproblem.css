@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+fieldset{margin:0 21px; /*width:100%; margin:0 auto;*/ border-radius: 15px; border-color:#fefefe; color:black; font-size:0.8em; padding:10px 0;}
+legend{ margin-left:230px; padding:5px 25px 5px 25px; background-color:#4F6228; color:#FFFFFF; border-radius:15px;font-size:1.4em;font-weight:bold; border:4px solid #efefef;}
+#divformcontent {margin:0 auto;width:96%;}
+#divformcontent .title {margin:5px 0 10px;font-weight:bold;color:#C00;font-size:1.4em;text-align:center;}
+#divformcontent dl{width:100%;overflow:hidden;padding:5px 0;}
+/*#divformcontent dl:first-child{border-top:1px double #ccc;}*/
+#divformcontent dd, #divformcontent dt {min-height:18px;}
+#divformcontent dt{float:left;clear:left;width:14%;min-width:8em;text-align:right;font-weight:bold;color:#C00;font-size:1.15em;}
+#divformcontent dt:after {content:":";}
+#divformcontent dd {float:left;text-align:left;padding:0 0 0 0.5em;}
+#divformcontent dd.dd_info{width:32%;}
+#divformcontent dd.dd_input{width:52%;}
+#divformcontent dd input.inputbox{width:100%;}
+#divformcontent dd textarea.inputbox{width:100%; height:90px;}
+#divformcontent #detail_servicesbutton img, #detail_transportationbutton img { max-height:16px; }
+

@@ -1,0 +1,28 @@
+/* general */
+body{ font-family:Verdana, Arial, Helvetica, sans-serif;}
+a{color:#999999; text-decoration:none;}
+a.linkblue1 {color:#2288EE !important;}
+h1{ font-size:30px; color:#4F6228;}
+h3.h3_footer{ color:#FFFFFF; float:left; margin:10px 0 0 30px;}
+h3.h3_footer_follow{ color:#FFFFFF; float:left; margin:10px 0 0 40px;}
+/* general */
+
+.alone_menu li{ font-size:12px;}
+.alone_menu ul.alone_top_menu li a:hover{ text-decoration:underline; }
+.alone_menu ul.alone_bottom_menu li a:hover{ /*text-decoration:underline;*/}
+
+a.splash_continue_link{ font-size:25px; font-weight:bold; text-decoration:underline; }
+#real_body #real_body_middle #real_body_middle_inner_right #map_preview_box a.splash_continue_link{ color:#000000; }
+
+#real_body ul#template_top_menu li a{ font-weight:bold; font-size:14px; text-decoration:none; color:#FFFFFF;}
+#real_body ul#template_top_menu li a:hover{ background-color:#C3D69B; }
+
+#real_body #real_body_middle #middle_mapandcheck #left_check #box_start_end span{ color:#000000; font-weight:bold; }
+#real_body #real_body_middle #middle_mapandcheck #left_check #box_step_4 span#draw_text{ color:#000000; font-weight:bold;}
+
+/* Clase especiales */
+.category_title{ font-size:18px; }
+.capitalize_red{ color:#C00000; font-weight:bold;}
+.capitalize{text-transform:capitalize;}
+.copyright { font-size: small; color: #999; }
+/* Clase especiales */

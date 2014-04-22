@@ -1,0 +1,395 @@
+<style type="text/css">
+
+.Wrapper {
+	 
+    width:90%;
+    max-width:560px;
+    padding-top:56.25%;
+    position:relative;
+}
+
+.videoWrapper {
+	 
+    width:90%;
+    max-width:560px;
+    padding-top:56.25%;
+    position:relative;
+}
+#roadmapplace-boxmedia iframe {
+	
+	top: 0;
+	left: 0;
+	width: 100%;
+	height:300px;
+	
+}
+#roadmapplace-boxmedia2 iframe {
+	
+	top: 0;
+	left: 0;
+	width: 100%;
+	
+	
+}
+#roadmapplace-boxmedia3 iframe {
+	
+	top: 0;
+	left: 0;
+	width: 100%;
+	height:300px;
+	
+}
+#roadmapplace-box{
+	/*overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+	height:100%;*/
+	/*z-index:1508 !important;
+	display:block !important;*/
+	
+	}
+	
+#roadmapplace-boxmedia2{
+	padding:10px;
+	width:90%;
+	height:450px;
+	max-height:420px;
+	
+	}
+#roadmapplace-boxmedia{
+	padding:10px;
+	width:87.6%;
+	height:360px;
+	
+	}	
+	
+#loader_div{
+	position:fixed;
+	left:50%;
+	top:50%;
+	z-index:100002;
+	}	
+div.popup-inside_f { display:none; background: #fff;  /*padding: 10px;*/ border: 2px solid #ddd; float: left; position: absolute; top: 0; left: 0; right:0; max-width:730px;  margin: 0 auto; /*margin-left:-45%;*/ width:90%;  z-index: 1502; }
+div.popup-inside_f a.closesmall { float: right; margin: 10px 15px 0 0; font-family:Verdana, Geneva, sans-serif; font-weight:bolder; font-size:22px; color: #807C7C;}
+</style>
+
+<div id="citymap-box" class="popup-inside popup-inside-round" style="z-index: 1503;">
+	<div id="header" class="box-header"><a href="#" class="close" title="" alt="Close Window alt" >X</a><img width="70px" height="70px" src="images/logomyezplan.png" class="img_logo" alt="myezplan" /><h1 id="citymap_img_cityname">...</h1></div>
+	<div id="body" class="box-body" style="padding: 0 10px 10px 10px;">
+		<img id="citymap_img_map_preview" src="" alt="myezplan.com Preview Tour Map" width="100%" height="auto" />
+	</div>
+</div>
+<div id="faq-box" class="popup-inside popup-inside-round" style="max-width:300px !important;text-align:left;">
+	<div id="box-header" class="box-header"><a href="#" class="close" title="" alt="" >X</a><img width="70px" height="70px" src="images/logomyezplan.png" class="img_logo" alt="myezplan" /><h1><span class="capitalize_red">H</span>elp !</h1>
+	<span style="margin-left:15px;">How It Works</span>
+	</div>
+	<div id="box-body" class="box-body" style="padding:0 10px 10px; margin:0;text-align: left;"></div>
+</div>
+<div id="new_plan" class="popup-inside popup-inside-round" style=" min-height:200px;width:420px; padding:10px;text-align:left;">
+	<div id="box-header" class="box-header"><a href="#" class="close" title="" alt="" >X</a><img width="70px" height="70px" src="images/logomyezplan.png" class="img_logo" alt="myezplan" /></div><!---//<h1><span class="capitalize_red">H</span>elp !</h1>
+//	<span style="margin-left:15px;">How It Works</span>--->
+<!---	
+	<div id="box-body" class="box-body" style="padding:0 10px 10px; margin:0;text-align: left;"></div>--->
+</div>
+<div id="myeztravel-faq" class="popup-inside-faq" style=" display:none; width:90%; max-width:300px;margin:0 auto;right:0;left:0;top:2px; position:absolute;">
+</div>
+<div id="audiotour-box" class="popup-inside popup-inside-round centerligthbox" style="text-align:left;">
+	<div id="box-header" class="box-header"><a href="#" class="close" title="" alt="" >X</a><img width="70px" height="70px" src="images/logomyezplan.png" class="img_logo" alt="myezplan" /><h1 style="font-size:25px;"><span class="capitalize_red">A</span>udio Tour</h1>
+	</div>
+	<div id="box-body" class="box-body" style="padding:0 10px 20px; margin:0;text-align:center; max-height:450px; overflow-y:auto;"></div>
+</div>
+<div id="myuserplan-box" class="popup-inside popup-inside-round">
+	<div id="box-header" class="box-header"><a href="#" class="close" title="" alt="" >X</a><img width="70px" height="70px" src="images/logomyezplan.png" class="img_logo" alt="myezplan" /><h1><span class="capitalize_red">M</span>y Plans</h1></div>
+	<div id="box-body" class="box-body " style="/*width:700px; max-height: 225px; overflow-y:auto;*/"></div>
+	<div id="box-footer" class="box-footer">
+		<div id="message-myuserplan" class="message">
+			<span id="messageerror-myuserplan" class="message-error"></span>
+		</div>
+	</div>
+</div>
+<div id="menuhome-box" class="popup-inside popup-inside-round">
+	<div id="header" class="box-header">
+		<a href="#" class="close" title="" alt="" >X</a>
+		<img width="70px" height="70px" src="images/logomyezplan.png" class="img_logo" alt="myezplan" />
+		<h1><span class="capitalize_red">C</span>hange Plan</h1>
+	</div>
+	<div id="body" class="box-body body-rounded-10" style="font-size:20px;">
+		<table border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<th>Country</th>
+				<th width="10">&nbsp;</th>
+				<th>City</th>
+			</tr>
+			<tr>
+				<td>
+					<select id="menuhome-selectcountry" class="input" style="width:22em;" disabled >
+					<option value="">Choose One ... </option>
+					</select>
+				</td>
+				<td>&nbsp;</td>
+				<td>
+					<select id="menuhome-selectcity" class="input" style="width:22em;" disabled >
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th colspan="3" style="padding-top:10px;">Plan</th>
+			</tr>
+			<tr>
+				<th colspan="3">
+					<select id="menuhome-selectplan" class="input" style="width:22em;" disabled >
+					</select>
+				</th>
+			</tr>
+		</table>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:8px;">
+			<tr>
+				<td width="30%" align="left"><span id="menuhome-viewdeals" class="button-round-2 button-round-red2">View Hot Deals</span></td>
+				<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="menuhome-viewmap" class="button-round-2 button-round-blue2">View Map</span></td>
+				<td width="30%" align="right"><span id="menuhome-viewmaps" class="button-round-2 button-round-blue2">View Plan</span></td>
+			</tr>
+		</table>
+	</div>
+	<div id="footer" class="box-footer">
+		<div id="message-menuhome" class="message">
+			<span id="messageerror-menuhome" class="message-error"></span>
+		</div>
+	</div>
+</div>
+<div id="loader_div">
+<img id="input_td_loading" width="32px" height="32px" class="load_img" style="display:none;" src="images/icons/32/loader1.gif" />
+</div>
+<div id="roadmapplace-box" class="popup-inside popup-inside-round  ">
+	
+	<div id="box-header" class="box-header"><a href="#" class="closesmall" title="" alt="" >X</a></div>
+	<div id="box-body" class="box-body" style="padding:0 10px 3px; margin:0;"></div>
+</div>
+<div id="roadmapplace-boxmedia" class="popup-inside popup-inside-round videoWrapper">
+	<div id="box-header" class="box-header"><a href="#" class="closesmall" title="" alt="" >X</a></div>
+	<div id="box-body" class="box-body" style="padding:0 10px 10px; margin:0;">
+		<iframe width="560"  frameborder="0" allowfullscreen></iframe>
+	</div>
+</div>
+<div id="roadmapplace-boxmedia2" class="popup-inside popup-inside-round videoWrapper" style="height:500;">
+	<div id="box-header" class="box-header"><a href="#" class="closesmall" title="" alt="" >X</a></div>
+	<div id="box-body" class="box-body" style="padding:0 10px 10px; margin:0;">
+		<iframe width="560" height="450" frameborder="0" allowfullscreen></iframe>
+	</div>
+</div>
+<div id="roadmapplace-boxmedia_f" class="popup-inside_f popup-inside-round" >
+	<div id="box-header" class="box-header" align="right"><a href="#" class="closesmall" title="" alt="" >X</a></div>
+	<div id="box-body" class="box-body" style="padding:0 10px 10px; margin:0;">
+		<iframe width="560" height="450" frameborder="0" allowfullscreen></iframe>
+	</div>
+</div>
+<div id="roadmapplace-boxmedia3" class="popup-inside popup-inside-round" style="height:350;">
+	<div id="box-header" class="box-header"><a href="#" class="closesmall" title="" alt="" >X</a></div>
+	<div id="box-body" class="box-body" style="padding:0 10px 10px; margin:0;">
+		<iframe width="560" height="315" frameborder="0" allowfullscreen></iframe>
+	</div>
+</div>
+<div id="roadmapplace-boxmedia_m" class="popup-inside popup-inside-round" style="height:500;">
+	<div id="box-header" class="box-header"><a href="#" class="closesmall" title="" alt="" >X</a></div>
+	<div id="box-body" class="box-body" style="padding:0 10px 10px; margin:0;">
+		<iframe width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+	</div>
+</div>
+<div id="boxaudiotour" class="popup-inside popup-inside-round" style="height:330px; width:560px;margin:0 auto;right:0;left:0;top:50px; position:absolute;">
+	<div id="box-header" class="box-header" align="right"><a href="#" class="closesmall  capitalize_red" title="Close Window" alt="Close Window" ><span style="color:#999999;">X</span></a></div>
+	<div id="box-body" class="box-body" style="padding:0 10px 10px; margin:0;">
+		<iframe width="700" height="550" frameborder="0" allowfullscreen></iframe>
+	</div>
+</div>
+<div id="menusearchdeals-box" class="popup-inside popup-inside-round">
+	<div id="header" class="box-header" style="text-align:center;"><a href="#" class="close" title="" alt="" >X</a><img width="70px" height="70px" src="images/logomyezplan.png" class="img_logo" alt="myezplan" />
+    <div style="/*margin-left:90px;*/; width:80%; margin:0 auto;"><h1 style=" font-size:25px !important;/*margin-top:-10px; margin-right:80px;*/"><span class="capitalize_red">H</span>ot Deals</h1></div>
+	<p id="deal_title_popup" style="font-size:20px; font-weight:bold; width:80%; margin:0 auto;">(by City or Area)</p>
+	</div>
+	<div id="body" class="box-body body-rounded-10" style=" font-size:20px;">
+		<table border="0" cellspacing="0" cellpadding="0" style="width:100%; text-align:center;">
+			<tr>
+				<th>Country</th>
+				<th width="10">&nbsp;</th>
+				
+			</tr>
+			<tr>
+				<td>
+					<select id="menusearchdeals-selectcountry" class="input" style="width:100%;" disabled >
+					<option value="">Choose One ... </option>
+					</select>
+				</td>
+            </tr>
+            <th>City</th>
+            <tr> 
+               
+				
+				<td>
+					<select id="menusearchdeals-selectcity" class="input" style="width:100%;" disabled >
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th style="padding-top:10px;">Area</th>
+			</tr>
+			<tr>
+				<td >
+					<select id="menusearchdeals-selectplan" class="input" style="width:100%;" disabled >
+					</select>
+				</td>
+			</tr>
+		</table>
+		<!---<span id="menuhome-viewmap" class="button-round-2 button-round-blue2" style="/*float:left;*/ margin-top:10px;">View Map</span>--->
+        <div id="message-menusearchdeals" class="message">
+			<span id="messageerror-menusearchdeals" class="message-error"></span>
+		</div>
+        <div id="message-menusearchdeals" class="message">
+		<span id="menusearchdeals-send" class="button-round-2 button-round-red2" style="/*float:right;*/ margin-top:10px;">View Hot Deals</span>
+		<br class="clearright" />
+	</div>
+	<div id="footer" class="box-footer">
+		<!---<div id="message-menusearchdeals" class="message">
+			<span id="messageerror-menusearchdeals" class="message-error"></span>
+		</div>--->
+	</div>
+</div>
+<div id="feedback-box" class="popup-inside popup-inside-round">
+	<div class="box-header"><a href="#" class="close" title="" alt="" >X</a><img width="70px" height="70px" src="images/logomyezplan.png" class="img_logo" alt="myezplan" />
+	<h1><span class="capitalize_red">F</span>eedback</h1></div>
+	<div class="box-body body-rounded-10" style="width:600px;">
+	<textarea id="feedback_description" style="width:100%; height:80px;" class="input"></textarea><br />
+	Report a Problem !!
+	<input id="feedback_submit" type="submit" value="Save" class="submit-button" title="Send Report" alt="Send Report" style="width:100px;" data-url="" />
+	<div class="clearboth"></div>
+	</div>
+	<div class="box-footer">
+		<div id="message-feedback" class="message">
+			<span id="messageerror-feedback" class="message-error"></span>
+		</div>
+	</div>
+</div>
+<div id="shareitplans-box" class="popup-inside popup-inside-round">
+	<div id="box-header" class="box-header"><a href="#" class="close" title="" alt="" >X</a><img width="70px" height="70px" src="images/logomyezplan.png" class="img_logo" alt="myezplan" /><h1><span class="capitalize_red">I</span>deas</h1></div>
+	<div id="box-body" class="box-body body-rounded-10" style=" max-height: 300px; overflow-y:auto;"></div>
+	<div id="box-footer" class="box-footer">
+		<span id="nombreciudad" style="float:left"></span><a id="shareitplans-more" class="button-round-2 button-round-blue2" <!---title="Search for more plans and itineraries"---> href="shareit.cfm">View +</a>
+		<div id="message-shareitplans" class="message">
+			<span id="messageerror-shareitplans" class="message-error"></span>
+		</div>
+	</div>
+</div>
+<div id="shareitplans-box2" class="popup-inside popup-inside-round">
+	<div id="box-header" class="box-header"><a href="#" class="close" title="" alt="" >X</a><img width="70px" height="70px" src="images/logomyezplan.png" class="img_logo" alt="myezplan" /><h1><span class="capitalize_red">W</span>hat people is planning & sharing</h1></div>
+	<div id="box-body" class="box-body body-rounded-10" style="width:700px; max-height: 300px; overflow-y:auto;"></div>
+	<div id="box-footer" class="box-footer">
+		<a id="shareitplans-more" class="button-round-2 button-round-blue2" title="Search for more plans and itineraries" href="shareit.cfm">View +</a>
+		<div id="message-shareitplans" class="message">
+			<span id="messageerror-shareitplans" class="message-error"></span>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(e) {
+	/* Click Close button citymap-box */
+	$('#citymap-box a.close').click( function() { 
+		$('#mask-citymap, #citymap-box').fadeOut(300 , function() {
+			$('#mask-citymap').remove();  
+		}); 
+		return false;
+	});
+	/* close click FAQ */
+	$('#faq-box a.close').click( function() { 
+		closePopup();
+		return false;
+	});
+	/* */
+	$('#audiotour-box a.close').click( function() { 
+		closePopup();
+		return false;
+	});
+	/* Click Close button myuserplan-box */
+	$('#myuserplan-box a.close').click( function() { 
+		closePopup();
+		return false;
+	});
+	/* Click Close button menuhome-box */
+	$('#menuhome-box a.close').click( function() { 
+		closePopup();
+		return false;
+	});
+	/* */
+	$('#new_plan a.close').click( function() { 
+		closePopup();
+		return false;
+	});
+
+	$('#boxaudiotour a.closesmall').click( function() {
+		$('#boxaudiotour').fadeOut(300);
+		$("#boxaudiotour .box-body iframe")
+		.empty()
+		.attr("src","")
+		;
+		$('#mask').remove();
+	});
+	$('#roadmapplace-boxmedia_m a.closesmall').click( function() {
+		$("#roadmapplace-boxmedia_m .box-body iframe")
+		.empty()
+		.attr("src","")
+		;
+		$('#mask-roadmapplace-boxmedia, #roadmapplace-boxmedia_m').fadeOut(300 , function() {
+			$('#mask-roadmapplace-boxmedia').remove();  
+		}); 
+		return false;
+	});
+	$('#roadmapplace-boxmedia a.closesmall, #roadmapplace-boxmedia2 a.closesmall, #roadmapplace-boxmedia_f a.closesmall').click( function() {
+		$("#roadmapplace-boxmedia .box-body iframe,#roadmapplace-boxmedia2 .box-body iframe,#roadmapplace-boxmedia_f .box-body iframe")
+		.empty()
+		.attr("src","")
+		;
+		var popup = $("#roadmapplace-box");
+		$(popup).fadeIn(0);
+		$('#mask-roadmapplace-boxmedia, #roadmapplace-boxmedia, #roadmapplace-boxmedia2, #roadmapplace-boxmedia_f').fadeOut(300 , function() {
+			$('#mask-roadmapplace-boxmedia').remove();  
+		}); 
+		return false;
+	});
+	$('#roadmapplace-boxmedia3 a.closesmall').click( function() {
+		$("#roadmapplace-boxmedia3 .box-body iframe")
+		.empty()
+		.attr("src","")
+		;
+		var popup = $("#faq-box");
+		$(popup).fadeIn(0);
+		$('#mask-roadmapplace-boxmedia, #roadmapplace-boxmedia3').fadeOut(300 , function() {
+			$('#mask-roadmapplace-boxmedia').remove();  
+		}); 
+		return false;
+	});
+	/* */
+	$('#roadmapplace-box a.closesmall').click( function(e) {
+		e.stopPropagation();e.preventDefault();
+		//closePopup();
+		$('#mask-roadmapplace-box, #roadmapplace-box').fadeOut(300 , function() {
+			$('#mask-roadmapplace-box').remove();
+			$('#roadmapplace-box #box-body').empty();
+		}); 
+		return false;
+	});
+	/* Click Close button menusearchdeals-box */
+	$('#menusearchdeals-box a.close').click( function() { 
+		closePopup();
+		return false;
+	});
+	/* Click Close button menusearchdeals-box */
+	$('#feedback-box a.close').click( function() { 
+		closePopup();
+		return false;
+	});
+	$('#shareitplans-box a.close').click( function() { 
+		closePopup();
+		return false;
+	});
+	$('#shareitplans-box2 a.close').click( function() { 
+		closePopup2();
+		return false;
+	});
+});
+</script>

@@ -1,0 +1,24 @@
+			<div id="real_body_header" class="real_body_header">
+				<a id="header_cart_button">
+					<cfif isdefined('session.uid')>
+						<!---<img src="images/cart.png" alt="cart" onclick="goToCart();">--->
+					</cfif>
+				</a>
+				<a id="logo_pp" href="index.cfm" style="float:left;margin-left: 0px;">
+					<img src="images/logo_border.png" <!---title="Return to Home"---> alt="myezplan.com Deals and Tours all across United States" width="100px" height="66px">
+				</a>
+				<div>
+					<cfinclude template="headmenu.cfm">
+                    <br />
+                    <div id="deals_menu" style="padding-top: 8px; list-style:none;" id="deals_menu" class="alone_bottom_menu">
+                <div><a id="button-searchhotdeals" class="button-round-2 button-round-red2">Hot Deals</a></div>
+                </div>
+				</div>
+                
+				<div id="title" style="float: left">
+					<!---<h1><cfoutput>#PageHeaderTitle#</cfoutput></h1>--->
+				</div>
+                
+				<div id="big_box_header"></div>
+				<div class="clearboth"></div>
+			</div><!-- header -->

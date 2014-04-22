@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!---<cfset newurl=0>
+<cfif !(url.city)>
+<cfset newurl=1>
+</cfif>--->
+<cfparam name="city" default="5">
+<cfquery datasource="#application.dsn#" name="qry_getcat1_">
+		SELECT DISTINCT
+				plan_id, plan_name, ruta_name, deal_printinfo, ruta_id, cityname, ruta_idunico, deal_cartimage, serviceprovider_id, serviceprovider_placeid
+			FROM
+				maparutacontenidocity_view EM LEFT OUTER JOIN
+				contenidosticketcategory_view CTC ON CTC.ctc_rutaid=EM.ruta_idunico
+			WHERE 1=1
+				AND (plan_cityid = #city#)
+				AND (activo=1)
+				AND (ruta_activo=1)
+				AND (NOT(tc_id IS NULL))
+				AND (tc_main = 1)
+				AND NOT(ISNULL(deal_tabinfo,'')='' OR client_id = 0)
+			UNION
+			SELECT DISTINCT
+				plan_id, plan_name, ruta_name, deal_printinfo, ruta_id, cityname, ruta_idunico, deal_cartimage, serviceprovider_id, serviceprovider_placeid
+			FROM
+				maparutacontenidocity_view 
+			WHERE 1=1
+				AND (plan_cityid = #city#)
+				AND (ruta_activo=1)
+				AND (serviceprovider_id >= 2)      
+			ORDER BY 
+				plan_name, ruta_name
+			;
+</cfquery>
+<cfquery datasource="#application.dsn#" name="qry_getcat2_">
+select distinct id_categoria from puntoxcategoria
+where id_unico in ('lolo'
+<cfloop query="qry_getcat1_">
+, '#ruta_idunico#'
+</cfloop>
+)
+</cfquery>
+<cfquery datasource="#application.dsn#" name="qry_getareas_">
+SELECT * from ezmapas where id_ciudad = #city#
+ORDER BY nombre;
+</cfquery>
+<cfquery datasource="#application.dsn#" name="qry_getcategories_">
+SELECT * from tbl_categoria 
+Where activo = 1 and categoriasuper_id = 7
+AND id in(0
+<cfloop query="qry_getcat2_">
+, #id_categoria#
+</cfloop>
+)
+order by nombre;
+</cfquery>
+<cfquery datasource="#application.dsn#" name="qry_CityName">
+select nombre from tbl_ciudad where id = #city#
+</cfquery>
+<cfquery datasource="#application.dsn#" name="qry_PageTittles">
+			SELECT 
+				TOP 1 PERCENT * 
+			FROM 
+				titles_all
+			WHERE 
+				act_status = 1
+                AND page_ = 'H'
+			ORDER BY 
+				newid()
+			;
+</cfquery>
+<cfquery datasource="#application.dsn#" name="qry_PageDescription">
+			SELECT 
+				TOP 1 PERCENT desc_ 
+			FROM 
+				[pagedesc_all]
+			WHERE
+				act_status = 1
+                AND page_ = 'H'
+			ORDER BY 
+				newid()
+</cfquery>
+<cfquery dbtype="query"name="qry_PageDescription2">
+			SELECT DISTINCT
+				ruta_name
+			FROM 
+				qry_getcat1_
+</cfquery>
+<cfif qry_PageDescription2.recordcount GT 3>
+<cfset sobre3= round(qry_PageDescription2.recordcount/3)>
+<cfset aleat= RandRange(1,sobre3)>
+<cfset aleat1= RandRange(aleat,(sobre3*2))>
+<cfset aleat2= RandRange(aleat1,qry_PageDescription2.recordcount)>
+<cfelse>
+<cfset aleat= 1>
+<cfset aleat1= 2>
+<cfset aleat2= 3>
+</cfif>
+<cfset Desc2 = 1>
+<cfset Desc_ = ''>
+<cfloop query="qry_PageDescription2">
+<cfif Desc2 eq aleat or Desc2 eq aleat1 or Desc2 eq aleat2>
+<cfif Desc_ EQ ''>
+<cfset Desc_ = "#ruta_name#">
+<cfelse>
+<cfset Desc_ = "#Desc_#, #ruta_name#">
+</cfif>
+</cfif>
+<cfset Desc2 =Desc2+1>
+</cfloop>
+<cfquery datasource="#application.dsn#" name="qry_PagePhrase">
+			SELECT 
+				TOP 1 PERCENT endfrase_
+			FROM 
+				[endfrase_all]
+			WHERE
+				act_status = 1
+                AND page_ = 'H'
+			ORDER BY 
+				newid()
+</cfquery>
+<cfquery datasource="#application.dsn#" name="qry_PageKeyword">
+			SELECT 
+				TOP 4 keyword 
+			FROM 
+				[key_words_all]
+			WHERE
+				act_status = 1
+                AND page_='H'
+			ORDER BY 
+				newid()
+</cfquery>
+<cfset Keyw = ''>
+<cfloop query="qry_PageKeyword">
+<cfset Keyw = '#Keyw#,#qry_PageKeyword.keyword#'>
+</cfloop>
+<cfoutput>
+<title>#qry_PageTittles.title_# #qry_CityName.nombre#</title>
+<META NAME="DESCRIPTION" CONTENT="#qry_PageDescription.desc_# #Desc_#. #qry_PagePhrase.endfrase_#">
+<META NAME="KEYWORDS" CONTENT="#qry_CityName.nombre##Keyw#">
+</cfoutput>
+<cfinclude template="cftags/headmeta.cfm">
+<script type="text/javascript" src="js/hotdeals.js"></script>
+<script type="text/javascript" src="js/infoplace.js"></script>
+<link href="style/infoplace.css" type="text/css" rel="stylesheet" />
+<style type="text/css">	
+.mask-faq {display: none;background-color: #111; left: 0; top: 0; z-index: 1501; width: 100%; height:100%; -moz-opacity:0.7; opacity:.70; filter: alpha(opacity=80); position:fixed;}
+div.popup-inside-faq { display:none; /*min-width:380px;*/ min-height:150px; padding: 10px; border: 2px solid #ddd; float: left; position: fixed; top: 5%; left: 50%; z-index: 1502; border-radius:5px 5px 5px 5px; }
+	/*body{background-color:white !important;}*/
+	#title{ width:50%; margin:0 auto; margin-top:-5%;}
+	#real_body{ max-width:700px; margin:0 auto; width:95%;}
+	#real_body_header{margin:0 auto !important; width:95%; max-width:600px;}
+	.caja_total_bs { font-size:12px; /*margin-top:15px;*/ margin-bottom:10px; height:auto; overflow:auto; }
+	.caja_total_bs .group1 { height:auto; clear:both; }
+	.masmenos { background-image:url('images/menos.png'); background-repeat:no-repeat; background-position:center; cursor:pointer; width:40px;}
+	.planTables { }
+	.planTables td { padding-top:5px; }
+	#back_b{ background-image:url(images/back_b.png); width:98px; height:45px; position:relative; top:10px; left:300px; }
+	.menu-top-inside{ margin-bottom:20px; text-align:left;}
+	#button-myitinerary { width:120px; position:relative; left:204px; }
+	#box-welcome { min-width:150px; position:relative; left:460px; cursor:default; background-color:#4F6228; }
+	#button-editprofile { width:120px; position:relative; left:193px; }
+	#button-downloadaudiotour { width:220px; position:relative; left:451px; }
+	h1.itmesaccount{ text-align: left;/*padding-left: 320px;*/}
+
+	.listitemsdeals { list-style:none; clear:both;}
+	.listitemsdeals li { min-width:200px; /*max-width:200px;*/ overflow:hidden; /*display:inline-block; text-align:center;*/ /*margin:0 0 18px 18px; *//*float:left;*/ border:1px solid #ddd; border-radius:10px 10px 10px 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px 10px 10px 10px; padding:10px 5px 5px; margin-bottom:5px; }
+	.listitemsdeals li img{width:100%;/*max-height:120px; min-height:110px; */max-width:190px; /*min-width:170px; border:0;*/}
+
+	.listitemspurchaseddeals li { height:240px !important; }
+	
+	.group1-title{color:black; font-size:18px; font-weight:bold; margin:5px 0 0 60px;}
+	
+	#help_button{ background:none !important; border:none !important; font-size:22px !important; font-weight:bold; cursor:pointer;}
+	
+	#footer {/*background-color:#FFFFFF;*/ text-align:center;}
+	#footer a{display:none;}
+	
+	#menusearchdeals-box{ /*margin-left:9px; */text-align:center;}
+@media screen and (min-width: 510px) {	
+	#deal_title_popup{/*margin-right:60px;*/}
+}
+
+	/*#roadmapplace-box{ margin-left:8px;}*/
+	
+	#citymap-box{ margin-left:8px;}
+	/*#roadmapplace-boxmedia{ margin-left:3%;*//* width:90% !important; height:auto !important;}*/
+	
+	#imagenes_ img{width:100%; max-width:240px;}
+	#real_body_bottom{ max-width:690px; margin:0 auto;}
+	.listitemsdeals{width:95%; max-width:600px; margin:0 auto;}
+	#title_deals{ max-width:600px; margin:0 auto;}
+	.group1-title{ text-align:center;}
+	#obt_box{ width:70%; margin:0 auto;}
+	
+</style>
+<script type="text/javascript">
+	faqpage='hotdeals';
+	 $(document).ready(function() {
+		 
+		  $('#help_div').hide();
+		
+		  $("#help_button").click(function(){
+    			$('#help_div').slideToggle(250);
+				 
+				/*("#body_map_canvas")[0].panToBounds(bounds);*/				
+        });
+		
+		 var mas = 0
+		  
+         $("#help_button").click(function(){
+			 $("#middle_header").slideToggle(250 );
+			  if (mas==0){
+				 mas=1;
+				 document.getElementById('help_button').innerHTML="[-]";
+				 
+				
+			 }else{
+				 mas=0;
+				 document.getElementById('help_button').innerHTML="[+]";
+				 }	  
+
+        });
+		 
+	 });
+</script>
+
+</head>
+
+<body class="page-hotdeal">
+<cfinclude template="cftags/lightboxsign_1_0.cfm">
+<!-- wrap -->
+<div id="wrap"> 
+	<!-- wraper -->
+	<div id="wrapper">
+		<div id="real_body">
+			<cfset PageHeaderTitle = "<span style="" /*font-size:20px;*/"" class=""capitalize_red"">H</span><span style="" /*font-size:20px;*/"">ot Deals</span><!--- in #qry_CityName.nombre#--->">
+			<!---<cfinclude template="cftags/pageheader.cfm">--->
+            <cfinclude template="cftags/pageheaderrmobile.cfm">
+			<div id="real_body_middle" style="text-align:start;<!---width:960px;---> margin:0 auto;">
+            <div id="obt_box" style="text-align:center;">
+			<input type="hidden" id="Ciudadid" value="<cfoutput>#city#</cfoutput>"/>
+			<div id="button-searchhotdeals" class="button-round-2 button-round-blue2" style=" display:inline-block; /*font-size:20px;*//*float:right;*/">Change city</div>
+            <div id="help_button" class="" style="display:inline-block; /*float:left;*/" <!---title="Clear Myezplan"--->>[+]</div>			
+            </div>	
+            <div id="help_div" style="text-align:center;">
+			<!---<img id="map-top-button-faq" src="images/faq.png" height="35" style="vertical-align:middle;/*float:right;*/" class="cursor" />--->
+            <button id="button-viewmyezplan" class="button-round-2 button-round-red2" style="/*float:left;*/" <!---title="Create Myezplan"--->>Create Myezplan</button><button id="button-clearmyezplan" class="button-round-2 button-round-red2" style="/*float:left;*/" <!---title="Clear Myezplan"--->>X</button>
+<br class="clearboth" />
+			
+<cfif isdefined('session.uid') AND isdefined('url.q') AND URL.q EQ "search" >
+
+<!--- 				<div>
+					<h1 class="itmesaccount"><a href="javascript:;" class="masmenos" onclick="showHideTab('MyPurchasedDeals', 'auto');" >&nbsp;&nbsp;&nbsp;&nbsp;</a> <span class="capitalize_red">R</span>ecent Purchased Deals</h1>
+					<div id="MyPurchasedDeals" class="caja_total_bs body-rounded-10">
+					</div>
+  </div>
+				<div style="display:none;">
+					<h1 class="itmesaccount"><a href="javascript:;" class="masmenos" onclick="showHideTab('MyMissingHotDeals', 'auto');" >&nbsp;&nbsp;&nbsp;&nbsp;</a> <span class="capitalize_red">M</span>issing Hot Deals</h1>
+					<div id="MyMissingHotDeals" class="caja_total_bs body-rounded-10">
+					</div>
+				</div> --->
+</cfif>
+				
+<div align="center" style=" width:94%; max-width:310px; margin:0 auto;border-radius:5px 5px 5px 5px; border:solid  #CCCCCC; border-width:thin">
+<!---<h1 class="itmesaccount"><span class="capitalize_red">S</span>earch Results</h1>--->
+<table style="font-size:13px;" <!---align="center"--->>
+<tr>
+<td>
+
+</td>
+</tr>
+<tr>
+<td rowspan="2" style="padding-right:10px;"> 
+ Filter By:
+</td>
+<td>
+ &nbsp;Area:
+</td>
+<td style="padding-bottom:5px;">
+<select id="Sel_area" style="float:right; width:150px">
+<option value="NO">Choose one...</option>
+<cfoutput query="qry_getareas_">
+<option value="#qry_getareas_.id#"<!--- title="#description#"--->>#qry_getareas_.nombre#</option>
+</cfoutput>
+</select>				
+</td>
+</tr>
+<tr>
+
+<td>
+&nbsp;Category:
+</td>
+<td>
+<select id="Sel_CatG" style="float:right; width:150px">
+<option value="NO">Choose one...</option>
+<cfoutput query="qry_getcategories_">
+<option value="#qry_getcategories_.id#">#qry_getcategories_.nombre#</option>
+</cfoutput>
+</select>				
+</td>
+</tr>
+<tr>
+<td colspan="3" align="center">
+&nbsp;<button id="button-searchhotdeals2" class="button-round-2 button-round-blue2" onclick="Filter_()">Search</button>&nbsp;<button id="button-maphotdeals" class="button-round-2 button-round-blue2" onclick="Map_Filter()">Map</button>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+					<div id="SearchResults" class="caja_total_bs">
+					</div>
+                    
+				</div>
+			</div><!-- real_body_middle -->
+			<div id="real_body_bottom">
+				<!---<cfinclude template="footer.cfm">--->
+                   <div id="footer" class="real_body_footer copyright" style="margin:-20px 0;"> <cfoutput>myezplan &copy; #Year(Now())# - All Rights Reserved.</cfoutput> <a href="http://www.facebook.com/pages/Myezplan/480330711998380" target="_blank" class="followus"><img src="images/facebook.png" width="20" height="20" alt="follow us at Facebook" /></a> <a href="https://twitter.com/#!/myezplan1 " target="_blank" class="followus"><img src="images/twitter.png" width="20" height="20" alt="follow us at Twitter" /></a> <a href="http://myezplan.blogspot.com/" target="_blank" class="followus"><img src="images/blogger.png" width="20" height="20" alt="follow us at Blogger" /></a> </div>
+			</div>
+			<div id="real_body_footer"></div>
+		</div><!--real_body-->
+		<br class="clearboth" />
+	</div><!-- wrapper -->
+</div><!-- wrap -->
+<div id="mapplanscity-box" class="popup-inside popup-inside-absolute popup-inside-round">
+	<div id="box-header" class="box-header"><a href="#" class="close" <!---title="Close Window"---> alt="Close Window" >X</a></div>
+    <div id="box-body" class="box-body" style="/*width:700px;*/ height:400px;">
+	<iframe id="iframe_mapplanscity" src="" style="width:100%; height:inherit; border-width:0;" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+	</div>
+	<div id="box-footer" class="box-footer">
+		<div id="message-mapplanscity" class="message">
+			<span id="messageerror-mapplanscity" class="message-error"></span>
+		</div>
+	</div>
+       
+</div>
+<cfinclude template="cftags/divmenu.cfm">
+</body>
+</html>

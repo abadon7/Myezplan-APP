@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Contact us</title>
+<meta name="robots" content="INDEX,FOLLOW">
+<meta name="robots" content="NOODP">
+<meta name="robots" content="NOYDIR">
+<meta name="revisit-after" content="3 days">
+<meta name="google-site-verification" content="TeqSW2DyrBG6rxqrZ4lNqGb2C2JXinYyS73ABG1KjHc" />
+
+<link id="bodystylecss" type="text/css" rel="stylesheet" href="style/bodystyle-min.css" />
+<link type="text/css" rel="stylesheet" href="style/color-min.css" />
+<link type="text/css" rel="stylesheet" href="style/fonts-min.css" />
+<link type="text/css" rel="stylesheet" href="style/jquery.mmenu.all.css" />
+<link type="text/css" rel="stylesheet" href="js/jquery/jquery-ui-1.10.3.custom-min.css" />
+<script  src="js/jquery/jquery-1.9.1.min.js"></script>
+<script id="jquery_min"  src="js/jquery/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript"  src="js/jquery.cookie.js"></script>
+<!---<script type="text/javascript" src="js/jquery.nicescroll.js"></script>--->
+<script  type="text/javascript"   src="js/myezplan.js"></script>
+<script  type="text/javascript"   src="js/utils.js"></script>
+<script type="text/javascript">window.mapcity=window.mapcity||{};</script>
+<script type="text/javascript" src="js/contactus.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="http://j.maxmind.com/app/geoip.js"></script>
+<script type="text/javascript" src="js/mapconfigbasic.js"></script>
+<script type="text/javascript" src="js/mapshared.js"></script>
+<script type="text/javascript" src="js/infoplace.js"></script>
+<script type="text/javascript" src="js/jquery.mmenu.js"></script>
+<script  type="text/javascript"   src="js/map.js"></script>
+<style>
+.mask-faq {display: none;background-color: #111; left: 0; top: 0; z-index: 1501; width: 100%; height:100%; -moz-opacity:0.7; opacity:.70; filter: alpha(opacity=80); position:fixed;}
+div.popup-inside-faq { display:none; /*min-width:380px;*/ min-height:150px; padding: 10px; border: 2px solid #ddd; float: left; position: fixed; top: 5%; left: 50%; z-index: 1502; border-radius:5px 5px 5px 5px; }
+#wrap{ width:95%; margin:0 auto; max-width:700px;}
+fieldset{ width:85%; margin:0 auto; border-radius: 15px; border-color:#fefefe; color:#fefefe}
+legend{ /*margin-left:40%;*/ padding:5px 25px 5px 25px; background-color:#4F6228; color:#FFFFFF; border-radius: 15px; /*font-size:20px;*/ font-weight:bold; border:4px solid #efefef;}
+#videobox{ background-image:url(images/videobox.png); height:334px; width:580px; margin:40px 0 40px 135px; padding:9px 0 0 0px;}
+#parrafo{ width:50px;/* margin:30px 0 40px 55px;*/ color:#333333; }
+#parrafo_medio{/* background-image:url(images/midtext.png);*/ height:auto; /*width:706px; */font-size:12px; text-align:left; /*padding:10px 20px 10px 20px;*/}
+#parrafo_medio h3{ text-align:center; color:#000066;}
+.logotd{ /*width:130px; height:100px;*/ cursor:pointer;}
+.textotd{  font-size:18px; font-weight:bold; color:black;}
+/*#send-box{ margin-left:8px;}*/
+#footer a{display:none;}
+.mail{ font-size:12px; padding:25px;}
+.mailbox{ padding-bottom:10px;}
+</style>
+<script type="text/javascript">
+	myLocationMarkerIcon='ezmapas/maps_city/mylocationbase.png';
+	_img_map_preview="ezmapas/maps_city/citypicbase.jpg";
+	$.ajax({
+		type: "GET",
+		url: "http://myezplan.com/mobile/appdata/data_ajax/get_session_vars.cfm",
+		async:false, 
+		cache:false,
+		success: function(data){
+			var sessionVars = data.split(",");
+			cf_sid=sessionVars[0]; 
+		}
+	});
+	cf_sidP=false; 
+	cf_sidjs="";
+</script>
+</head>
+<script type="text/javascript">
+	faqpage='contactus';
+	window.cname ="Contact Us";
+	 $(document).ready(function() {
+		 $(".content").hide();
+		 
+		 $(".phone_show").click(function(){
+    	 	$('.byphone').slideToggle(250);
+		 });
+			
+		 $(".mail_show").click(function(){//alert('show');
+			$('.mailbox').slideToggle(250);			
+         });
+	 });
+
+</script>
+
+<body>
+<div id="sign_div"></div>  
+<script>
+$( "#sign_div" ).load( "cftags/lightboxsign_1_0.html" );
+</script>
+<!-- wrap -->
+<div id="wrap"> 
+	<!-- wraper -->
+	<div id="wrapper">
+		<div id="real_body">
+			<div id="title" style="<!-- float: left -->"></div>
+			<div id="titlehead" style="text-align:center;"></div>		
+			<script>
+				$( "#title" ).load( "cftags/pageheaderrmobile.html" );
+			</script>
+			<script type="text/javascript">
+				$(window).load(function() {
+					//alert("menu");
+					$("#menu").mmenu({
+						classes: "myez",
+						position:"right",
+						zposition:"front",
+						moveBackground	: false,
+						header     	 	: true,
+						searchfield 	: true,
+						counters    	: true,
+						onClick	: {
+							blockUI		: true,
+							close		: true,
+							setSelected	: false
+						}  
+					}, {
+					   // configuration:
+					   labelClass     : "label_menu",
+					});
+					$("#template_top_menu").show();
+				});	
+			</script>
+			<div id="real_body_middle">
+				<div id="middle_mapandcheck" style="text-align:center;">
+					<fieldset>
+						<legend align= "center">We would love<br /> to hear from you !</legend>
+						
+							<!---<div id="parrafo_top"><img src="images/toptext.png" /></div>--->
+							
+							
+										<div class="logotd phone_show" valign="top"><img src="images/telefono.png" /></div>
+                                
+										<div class="textotd byphone content"  style="padding:5px;">
+											Mon-Fri <br /> 9:00 am - 5:00 pm EST<br /> 770-666-3156 </div>
+                                 
+										<div class="logotd " valign="top"><a href="#send-box" class="send-imgbyemail"> <img src="images/email.png" /> </a></div>
+										<div class="textotd bymail content" valign="top">
+											</div>
+								
+										<div class="logotd mail_show" valign="top"><img src="images/mailbox.png" /></div>
+										<div class="textotd mailbox content" valign="top">
+											220 Snow goose Ct <br />Alpharetta, GA 30022 </div>
+								
+						
+							<!---<div id="parrafo_bottom"><img src="images/bottext.png" /></div>--->
+						
+					</fieldset>
+				</div>
+				<!-- middle_mapandcheck -->
+              <div id="footer" class="real_body_footer copyright" style=" width:98%; margin:45px auto 0px;">  myezplan &copy; <span id="year"></span>  - All Rights Reserved. <a href="http://www.facebook.com/pages/Myezplan/480330711998380" target="_blank" class="followus"><img src="images/facebook.png" width="20" height="20" alt="follow us at Facebook" /></a> <a href="https://twitter.com/#!/myezplan1 " target="_blank" class="followus"><img src="images/twitter.png" width="20" height="20" alt="follow us at Twitter" /></a> <a href="http://myezplan.blogspot.com/" target="_blank" class="followus"><img src="images/blogger.png" width="20" height="20" alt="follow us at Blogger" /></a> </div>
+				<script>
+					var d = new Date();
+					var x = document.getElementById("year");
+					x.innerHTML=d.getFullYear();
+				</script>
+			</div>
+				<!---<cfinclude template="footer.cfm">--->
+			</div>
+			<!-- real_body_middle --> 
+			<!---<div id="real_body_bottom"></div>--->
+			<div id="real_body_footer"></div>
+		</div>
+		<!--real_body--> 
+		<br class="clearboth" />
+	</div>
+	<!-- //wrapper --> 
+</div>
+<!-- //wrap --> 
+<!--- Set the length of the text string for the CAPTCHA image. --->
+<cfset stringLength=6 />
+<!--- Specify the list of characters used for the random text string. The following list 
+    limits the confusion between upper- and lowercase letters as well as between numbers and 
+    letters. --->
+<cfset stringList="2,3,4,5,6,7,8,9,a,b,d,e,f,g,h,j,n,q,r,t,y,A,B,C,D,E,F,G,H,K,L,M,N,P,Q,R,S,T,U,V,W,X,Y,Z" />
+<cfset rndString="" />
+<!--- Create a loop that builds the string from the random characters. --->
+<cfloop from="1" to="#stringLength#" index="i">
+	<cfset rndNum=RandRange(1,listLen(stringList))>
+	<cfset rndString=rndString & listGetAt(stringList,rndNum)>
+</cfloop>
+<!--- Hash the random string. --->
+<cfset rndHash=Hash(rndString)>
+
+<div id="send-box" class="popup-inside popup-inside-round" style="/*width:320px;*/">
+
+	<div id="box-header" class="box-header"> <a href="#" class="close" >X</a> <img src="images/logomyezplan.png" class="img_logo" alt="myezplan" />
+		<h1><span class="capitalize_red">B</span>y E-mail</h1>
+        <h1 class="mail">support@myezplan.com</h1> 
+	</div>
+	<div id="box-body" class="box-body">
+		<div class="sharebox">
+			<table style="margin:0px auto;" class="box-body-form">
+				<tr>
+					<td class="label_td">Name: <span class="required">*</span></td>
+					<td class="input_td"><input class="select_m"  name="byemail_name" id="byemail_name" type="text" /></td>
+				</tr>
+				<tr>
+					<td class="label_td">Email: <span class="required">*</span></td>
+					<td class="input_td"><img id="input_td_loading" style="display:none;" src="images/loader.gif" />
+						<input class="select_m"   name="byemail_email" id="byemail_email" type="email" /></td>
+				</tr>
+				<tr>
+					<td class="label_td">Subject: <span class="required">*</span></td>
+					<td class="input_td"><input class="select_m"   name="byemail_subject" id="byemail_subject" type="text"/></td>
+				</tr>
+				<tr>
+					<td class="label_td">Message: <span class="required">*</span></td>
+					<td class="input_td3"><textarea class="select_m"   name="byemail_message" id="byemail_message"></textarea></td>
+				</tr>
+				<tr>
+					<td class="label_td">&nbsp;</td>
+					<td id="captchaimg"><cfimage  action="captcha" fontSize="24" fonts="Times New Roman" width="190" height="50" text="#rndString#">
+				</tr>
+				<script>
+				$("#captchaimg").load( "http://myezplan.com/mobile/appdata/data_ajax/get_catpcha.cfm?action=captchaimg" );
+				</script>
+				<tr>
+					<td class="label_td">Enter text in image:</td>
+					<td class="input_td"><input class="select_m"   name="byemail_captcha" id="byemail_captcha" type="text" />
+						<input type="hidden" name="byemail_captchahash" id="byemail_captchahash" value="<cfoutput>#rndHash#</cfoutput>"></td>
+				</tr>
+				<script>
+				$.ajax({
+				  url: 'http://myezplan.com/mobile/appdata/data_ajax/get_catpcha.cfm?action=captchahash',
+				  success: function( data ) {
+					$("#byemail_captchahash").val(data);
+				  }
+				});
+				</script>
+				<tr>
+					<td colspan="2">
+						<a id="byemail_submit" class="button-round-blue-sign button-round-blue" alt="Send Information">Submit</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div id="message" class="message"> <span id="messageerror" class="message-error"></span></div>
+	<div id="box-footer" class="box-footer">
+		<p class="message-above" style="padding:0 35px 0 45px; /*text-align:justify;*/">Your comments and suggestions are very important. Please fill out the information above and help us improve your plan. </p>
+		<br />
+	</div>
+</div>
+
+<div id="divmenu_div"></div>
+	<script>
+		$( "#divmenu_div" ).load( "cftags/divmenu.html");
+	</script> 
+
+</body>
+
+</html>

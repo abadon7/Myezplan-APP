@@ -1,0 +1,293 @@
+<!-- <cfquery datasource="#application.dsn#" name="qry_PageTittles">
+			SELECT 
+				TOP 1 PERCENT * 
+			FROM 
+				titles_all
+			WHERE 
+				act_status = 1
+                AND page_ = 'PP'
+			ORDER BY 
+				newid()
+			;
+</cfquery>
+<cfquery datasource="#application.dsn#" name="qry_PageDescription">
+			SELECT 
+				TOP 1 PERCENT desc_ 
+			FROM 
+				[pagedesc_all]
+			WHERE
+				act_status = 1
+                AND page_ = 'PP'
+			ORDER BY 
+				newid()
+</cfquery>
+<cfquery datasource="#application.dsn#" name="qry_PageDescription2">
+			SELECT 
+				TOP 1 PERCENT descend_ 
+			FROM 
+				[pagedescend_all]
+			WHERE
+				act_status = 1
+                AND page_ = 'PP'
+			ORDER BY 
+				newid()
+</cfquery>
+<cfquery datasource="#application.dsn#" name="qry_PagePhrase">
+			SELECT 
+				TOP 1 PERCENT endfrase_
+			FROM 
+				[endfrase_all]
+			WHERE
+				act_status = 1
+                AND page_ = 'PP'
+			ORDER BY 
+				newid()
+</cfquery>
+<cfquery datasource="#application.dsn#" name="qry_PageKeyword">
+			SELECT 
+				TOP 7 keyword 
+			FROM 
+				[key_words_all]
+			WHERE
+				act_status = 1
+                AND page_='PP'
+			ORDER BY 
+				newid()
+</cfquery>
+<cfset Keyw = 'myezplan'>
+<cfloop query="qry_PageKeyword">
+<cfset Keyw = '#Keyw#, #qry_PageKeyword.keyword#'>
+</cfloop> -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+<cfoutput>
+<title>Privacy Policy - myezplan</title>
+<META NAME="DESCRIPTION" CONTENT="Find all you need to know about myezplan Privacy Policy. FAQ like what information do we collect? or How do we protect your information?.  myezplan.com   My Plan, My Savings, My Way.">
+<META NAME="KEYWORDS" CONTENT="myezplan, Compliance, Safe, Rules, Information, Laws, Policies, Regulations.">
+</cfoutput>
+<script type="text/javascript">
+faqpage='privacypolicy';
+window.cname ="Privacy Policy";
+</script>
+<link rel="icon" type="image/png" href="favicon.png" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+<meta http-equiv="EXPIRES" content="01 Jan 1970 00:00:00 GMT">
+<meta http-equiv="PRAGMA" content="NO-CACHE">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta name="robots" content="NOODP">
+<meta name="robots" content="NOYDIR">
+<meta name="revisit-after" content="3 days">
+<meta name="google-site-verification" content="TeqSW2DyrBG6rxqrZ4lNqGb2C2JXinYyS73ABG1KjHc" />
+<link type="text/css" rel="stylesheet" href="style/jquery.mmenu.all.css" />
+<link id="bodystylecss" type="text/css" rel="stylesheet" href="style/bodystyle-min.css" />
+<link type="text/css" rel="stylesheet" href="style/color-min.css" />
+<link type="text/css" rel="stylesheet" href="style/fonts-min.css" />
+<link href="style/infoplace.css" type="text/css" rel="stylesheet" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40486344-1', 'myezplan.com');
+  ga('send', 'pageview');
+
+</script>
+<script  src="js/jquery/jquery-1.9.1.min.js"></script>
+<!-- <link type="text/css" rel="stylesheet" href="js/jquery/jquery-ui-1.10.3.custom-min.css" /> -->
+<!-- <script id="jquery_min"  src="js/jquery/jquery-ui-1.10.3.custom.min.js"></script> -->
+<script type="text/javascript"  src="js/jquery.cookie.js"></script>
+<script  type="text/javascript"   src="js/myezplan.js"></script>
+<script  type="text/javascript"   src="js/lightboxsign.js"></script>
+<script  type="text/javascript"   src="js/utils.js"></script>
+<script type="text/javascript" src="js/jquery.mmenu.js"></script>
+<script type="text/javascript">
+	myLocationMarkerIcon='ezmapas/maps_city/mylocationbase.png';
+	_img_map_preview="ezmapas/maps_city/citypicbase.jpg";
+	$.ajax({
+		type: "GET",
+		url: "http://myezplan.com/mobile/appdata/data_ajax/get_session_vars.cfm",
+		async:false, 
+		cache:false,
+		success: function(data){
+			var sessionVars = data.split(",");
+			cf_sid=sessionVars[0]; 
+		}
+	});
+	cf_sidP=false; 
+	cf_sidjs="";
+	
+</script>
+<style>
+fieldset{ width:85%; margin:0 auto; border-radius: 15px; border-color:#fefefe; color:#fefefe}
+legend{ /*margin-left:230px;*/ padding:5px 25px 5px 25px; background-color:#4F6228; color:#FFFFFF; border-radius: 15px; font-size:20px; font-weight:bold; border:4px solid #efefef;}
+#videobox{ background-image:url(images/videobox.png); height:334px; width:580px; margin:40px 0 40px 135px; padding:9px 0 0 0px;}
+#parrafo{ max-width:746px; /*margin:30px 0 40px 55px;*/ color:#333333; }
+#parrafo_medio{ /*background-image:url(images/midtext.png);*/ height:auto; max-width:706px; font-size:12px; text-align:left; padding:10px 20px 10px 20px;}
+#parrafo_medio h3{ text-align:center; color:#000066; margin-bottom:5px;}
+#real_body{ width:95%;}
+.h3_footer{ font-size:small !important; color:black !important; float:none !important; margin:0 !important; font-weight:lighter;}
+#big_footer a { display:none;}
+#real_body_footer{ height:0 !important;}
+.mask-faq{display: none;background-color: #111;left: 0;top: 0;z-index: 1501;width: 100%;height: 100%;-moz-opacity: 0.7;opacity: .70;filter: alpha(opacity=80);position: fixed;}
+div.popup-inside-faq { display:none; /*min-width:380px;*/ min-height:150px; padding: 10px; border: 2px solid #ddd; float: left; position: fixed; top: 5%; left: 50%; z-index: 1502; border-radius:5px 5px 5px 5px; }
+@media screen and (max-width: 450px){
+	legend{ font-size:14px !important;}
+}
+</style>
+</head>
+
+<body>
+<div id="sign_div"></div>  
+<script>
+$( "#sign_div" ).load( "cftags/lightboxsign_1_0.html" );
+</script>
+<!-- wrap -->
+<div id="wrap"> 
+	<!-- wraper -->
+	<div id="wrapper">
+		<div id="real_body">
+			<div id="title" style="<!-- float: left -->"></div>
+			<div id="titlehead" style="text-align:center;"></div>		
+			<script>
+				$( "#title" ).load( "cftags/pageheaderrmobile.html" );
+			</script>
+			<div id="real_body_middle">
+				<div id="middle_mapandcheck" style="text-align:center;">
+					<fieldset>
+						<legend align="center">Don't forget to read it !!</legend>
+						<div id="parrafo">
+							<!---<div id="parrafo_top"><img src="images/toptext.png" /></div>--->
+							<div id="parrafo_medio">
+								<h3>Myezplan Privacy Policy</h3>
+								<!-- START PRIVACY POLICY CODE -->
+								<div style="text-align: center; font-family: arial;"><span style="color: #000080; font-family: arial,helvetica,sans-serif; font-size: small;"><strong> </strong></span></div>
+								<div style="font-family: arial;"><span style="color: #000000; font-family: arial,helvetica,sans-serif; font-size: small;">Effective Date: January 1, 2012</span></div>
+								<div style="font-family: arial;"><span style="color: #000080; font-family: arial,helvetica,sans-serif; font-size: small;"><strong> </strong></span></div>
+								<div style="font-family: arial;"><span style="color: #000080; font-family: arial,helvetica,sans-serif; font-size: small;"><strong>What information do we collect?</strong> </span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">We collect information from you when you register on our site, place an order, subscribe to our newsletter, respond to a survey or fill out a form. </span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">When ordering or registering on our site, as appropriate, you may be asked to enter your: name or e-mail address. You may, however, visit our site anonymously.</span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">Google, as a third party vendor, uses cookies to serve ads on your site. Google's use of the DART cookie enables it to serve ads to your users based on their visit to your sites and other sites on the Internet. Users may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy..</span><br />
+									<br />
+									<span style="color: #000080; font-family: arial,helvetica,sans-serif; font-size: small;"><strong>What do we use your information for?</strong> </span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">Any of the information we collect from you may be used in one of the following ways: </span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">; To personalize your experience</span><br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">(your information helps us to better respond to your individual needs)</span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">; To improve our website</span><br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">(we continually strive to improve our website offerings based on the information and feedback we receive from you)</span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">; To improve customer service</span><br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">(your information helps us to more effectively respond to your customer service requests and support needs)</span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">; To process transactions</span></div>
+								<blockquote style="font-family: arial;"><span style="font-family: arial,helvetica,sans-serif; font-size: small;">Your information, whether public or private, will not be sold, exchanged, transferred, or given to any other company for any reason whatsoever, without your consent, other than for the express purpose of delivering the purchased product or service requested.</span></blockquote>
+								<div style="font-family: arial;"><br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">; To administer a contest, promotion, survey or other site feature</span><br />
+									<br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">; To send periodic emails</span></div>
+								<blockquote style="font-family: arial;"><span style="font-family: arial,helvetica,sans-serif; font-size: small;">The email address you provide for order processing, may be used to send you information and updates pertaining to your order, in addition to receiving occasional company news, updates, related product or service information, etc.</span></blockquote>
+								<div style="font-family: arial;"><span style="font-family: arial,helvetica,sans-serif; font-size: small;">Note: If at any time you would like to unsubscribe from receiving future emails, we include detailed unsubscribe instructions at the bottom of each email.</span><br />
+									<br />
+									<br />
+									<br />
+									<span style="color: #000080; font-family: arial,helvetica,sans-serif; font-size: small;"><strong>How do we protect your information?</strong> </span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">We implement a variety of security measures to maintain the safety of your personal information when you place an order or enter, submit, or access your personal information. </span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">We offer the use of a secure server. All supplied sensitive/credit information is transmitted via Secure Socket Layer (SSL) technology and then encrypted into our Payment gateway providers database only to be accessible by those authorized with special access rights to such systems, and are required to?keep the information confidential.</span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">After a transaction, your private information (credit cards, social security numbers, financials, etc.) will not be stored on our servers.</span><br />
+									<br />
+									<span style="color: #000080; font-family: arial,helvetica,sans-serif; font-size: small;"><strong>Do we use cookies?</strong> </span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">Yes (Cookies are small files that a site or its service provider transfers to your computers hard drive through your Web browser (if you allow) that enables the sites or service providers systems to recognize your browser and capture and remember certain information</span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;"> We use cookies to help us remember and process the items in your shopping cart, understand and save your preferences for future visits, keep track of advertisements and compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future. We may contract with third-party service providers to assist us in better understanding our site visitors. These service providers are not permitted to use the information collected on our behalf except to help us conduct and improve our business.</span><br />
+									<br />
+									<span style="color: #000080; font-family: arial,helvetica,sans-serif; font-size: small;"><strong>Do we disclose any information to outside parties?</strong> </span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">We do not sell, trade, or otherwise transfer to outside parties your personally identifiable information. This does not include trusted third parties who assist us in operating our website, conducting our business, or servicing you, so long as those parties agree to keep this information confidential. We may also release your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others rights, property, or safety. However, non-personally identifiable visitor information may be provided to other parties for marketing, advertising, or other uses.</span><br />
+									<br />
+									<span style="color: #000080; font-family: arial,helvetica,sans-serif; font-size: small;"><strong>Third party links</strong> </span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;"> Occasionally, at our discretion, we may include or offer third party products or services on our website. These third party sites have separate and independent privacy policies. We therefore have no responsibility or liability for the content and activities of these linked sites. Nonetheless, we seek to protect the integrity of our site and welcome any feedback about these sites.</span><br />
+									<br />
+									<span style="color: #000080; font-family: arial,helvetica,sans-serif; font-size: small;"><strong>California Online Privacy Protection Act Compliance</strong></span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">Because we value your privacy we have taken the necessary precautions to be in compliance with the California Online Privacy Protection Act. We therefore will not distribute your personal information to outside parties without your consent.</span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">As part of the California Online Privacy Protection Act, all users of our site may make any changes to their information at anytime by logging into their personal "Suitcase" and going to the 'Edit Profile' page.</span><br />
+									<br />
+									<span style="color: #000080; font-family: arial,helvetica,sans-serif; font-size: small;"><strong>Childrens Online Privacy Protection Act Compliance</strong> </span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">We are in compliance with the requirements of COPPA (Childrens Online Privacy Protection Act), we do not collect any information from anyone under 13 years of age. Our website, products and services are all directed to people who are at least 13 years old or older.</span><br />
+									<br />
+									<span style="color: #000080; font-family: arial,helvetica,sans-serif; font-size: small;"><strong>Online Privacy Policy Only</strong> </span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">This online privacy policy applies only to information collected through our website and not to information collected offline.</span><br />
+									<br />
+									<span style="color: #000080; font-family: arial,helvetica,sans-serif; font-size: small;"><strong>Terms and Conditions</strong> </span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">Please also visit our Terms and Conditions section establishing the use, disclaimers, and limitations of liability governing the use of our website at <a href="http://www.myezplan.com">http://www.myezplan.com</a></span><br />
+									<br />
+									<span style="color: #000080; font-family: arial,helvetica,sans-serif; font-size: small;"><strong>Your Consent</strong> </span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">By using our site, you consent to our <a href="http://www.freeprivacypolicy.com/" style="text-decoration: none; color: #3c3c3c;" target="_blank">privacy policy</a>.</span><br />
+									<br />
+									<span style="color: #000080; font-family: arial,helvetica,sans-serif; font-size: small;"><strong>Changes to our Privacy Policy</strong> </span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">If we decide to change our privacy policy, we will update the Privacy Policy modification date below. </span><br />
+									<br />
+									<span style="color: #000080; font-family: arial,helvetica,sans-serif; font-size: small;"><strong>Contacting Us</strong> </span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">If there are any questions regarding this privacy policy you may contact us using the information below. </span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">www.myezplan.com</span><br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">220 snowgoose ct</span><br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">Alpharetta, GEORGIA 30022</span><br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">USA</span><br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">info@myezplan.com</span><br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">404-437-4004</span><br />
+									<br />
+									<span style="font-family: arial,helvetica,sans-serif; font-size: small;">This policy is powered by Free Privacy Policy and Rhino Support <a href="http://www.rhinosupport.com" style="color: #000; text-decoration: none;" target="_blank">help desk software</a>.</span></div>
+								<!-- END PRIVACY POLICY CODE --> 
+								
+							</div>
+							<!---<div id="parrafo_bottom"><img src="images/bottext.png" /></div>--->
+						</div>
+					</fieldset>
+				</div>
+				<!-- middle_mapandcheck -->
+				<div id="footer" class="real_body_footer copyright" style=" width:98%;">  myezplan &copy; <span id="year"></span>  - All Rights Reserved. <a href="http://www.facebook.com/pages/Myezplan/480330711998380" target="_blank" class="followus"><img src="images/facebook.png" width="20" height="20" alt="follow us at Facebook" /></a> <a href="https://twitter.com/#!/myezplan1 " target="_blank" class="followus"><img src="images/twitter.png" width="20" height="20" alt="follow us at Twitter" /></a> <a href="http://myezplan.blogspot.com/" target="_blank" class="followus"><img src="images/blogger.png" width="20" height="20" alt="follow us at Blogger" /></a> </div>
+				<script>
+					var d = new Date();
+					var x = document.getElementById("year");
+					x.innerHTML=d.getFullYear();
+				</script>
+				<cfinclude template="footer.cfm">
+			</div>
+			<!-- real_body_middle -->
+			<!---<div id="real_body_bottom"></div>--->
+			<div id="real_body_footer"></div>
+		</div>
+		<!--real_body-->
+		<br class="clearboth" />
+	</div>
+	<!-- //wrapper --> 
+</div>
+<!-- //wrap -->
+<div id="divmenu_div"></div>
+	<script>
+		$( "#divmenu_div" ).load( "cftags/divmenu.html");
+	</script> 
+</body>
+</html>

@@ -1,0 +1,63 @@
+			<div id="real_body_header" class="real_body_header">
+				<a id="header_cart_button">
+				</a>
+				<a href="index.html" style="float:left;margin-left: 0px;">
+					<img id="pageheaderlogo" src="" style="max-width: 70px;">
+				</a>				
+				<div id="btn_more_login" ><a style="float:right;" id="menu_icon" style="text-align:right;" href="#menu" data-ajax="false">
+					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAPAQMAAADTSA1RAAAABlBMVEX///9PYihMerhcAAAAAXRSTlMAQObYZgAAABJJREFUCJlj+P//AAMMIwMixAHm9RivXlHwOQAAAABJRU5ErkJggg==">
+				</a></div>
+				<img id="map-top-button-faq" src="images/faq.png" width="35px" height="35" style="vertical-align:middle;float:right;" class="cursor" />
+                <script type="text/javascript">
+				$('#pageheaderlogo').attr('src','images/logo_border.png')
+                </script>            
+				<div id="headmenu_div"></div>
+			<!---	<div id="title" style="/*float: left*/">
+					<h1 style="text-align:center;"><cfoutput>#PageHeaderTitle#</cfoutput></h1>
+				</div>--->
+				<div id="big_box_header"></div>
+				<div class="clearboth"></div>
+                <div id="title" style="/*float: left*/">
+					<h1 id="header_text" style="text-align:center;"><span id="pageheadercityname"></span></h1> 
+				</div>
+				
+			</div><!-- header -->
+			<script>
+				if(cf_sid!=""){
+						var data = "cftags/headmenu.html ."+faqpage+" .sessionOn";
+				}
+				else {
+						var data = "cftags/headmenu.html ."+faqpage+" .sessionOff";
+				}	
+				$( "#headmenu_div" ).load( data );
+				$("#btn_more_login").click(function(e){
+					 //alert("buttom working");
+				 });
+			</script>
+				<script>
+				pageheadercityname.innerHTML=decodeURIComponent(window.cname);
+			</script>
+<script>
+window.onload = function () {
+	//alert("load menu");
+	$("#menu").mmenu({
+		classes: "myez",
+		position:"right",
+		zposition:"front",
+		moveBackground	: false,
+		header     	 	: true,
+		searchfield 	: true,
+		counters    	: true,
+		onClick	: {
+			blockUI		: true,
+			close		: true,
+			setSelected	: false
+		}  
+	}, {
+	   // configuration:
+	   labelClass     		: "label_menu",
+	   transitionDuration 	: 0
+	});
+	$("#template_top_menu").show();
+};	
+</script>

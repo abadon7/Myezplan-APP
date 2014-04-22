@@ -1,0 +1,1377 @@
+﻿<script>
+	function getUrlVars() {
+		var vars = {};
+		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+		vars[key] = value;
+		});
+		return vars;
+	}
+	
+	window.citid = getUrlVars()["ctid"];
+	window.plaid = getUrlVars()["plid"];
+	window.cname = getUrlVars()["cname"];
+
+	//alert(citid);
+	//alert(plaid);
+	
+</script>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+<title>Things to do in </title>
+<script type="text/javascript">window.mapcitypopup=window.mapcitypopup||{};</script>
+<script type="text/javascript">window.mapcity=window.mapcity||{};</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+<meta http-equiv="EXPIRES" content="01 Jan 1970 00:00:00 GMT">
+<meta http-equiv="PRAGMA" content="NO-CACHE">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta name="robots" content="NOODP">
+<meta name="robots" content="NOYDIR">
+<meta name="revisit-after" content="3 days">
+<meta name="google-site-verification" content="TeqSW2DyrBG6rxqrZ4lNqGb2C2JXinYyS73ABG1KjHc" />
+<script>document.title = "Things to do in "+decodeURIComponent(window.cname);</script>
+<link type="text/css" rel="stylesheet" href="style/jquery.mmenu.all.css" />
+<link id="bodystylecss" type="text/css" rel="stylesheet" href="style/bodystyle-min.css" />
+<link type="text/css" rel="stylesheet" href="style/color-min.css" />
+<link type="text/css" rel="stylesheet" href="style/fonts-min.css" />
+<link href="style/infoplace.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+.mask-faq {display: none;background-color: #111; left: 0; top: 0; z-index: 1501; width: 100%; height:100%; -moz-opacity:0.7; opacity:.70; filter: alpha(opacity=80); position:fixed;}
+div.popup-inside-faq { display:none; min-width:380px; min-height:150px; padding: 10px; border: 2px solid #ddd; float: left; position: fixed; top: 5%; left: 50%; z-index: 1502; border-radius:5px 5px 5px 5px; }
+.wrap{
+	width:95%;
+	max-width:700px; 
+	margin:8px auto !important; 
+	background-color: white;
+	border-radius: 16px 16px 16px 16px;
+	-moz-border-radius: 16px 16px 16px 16px;
+	-webkit-border-radius: 16px 16px 16px 16px;
+	box-shadow: 0px 0px 15px 4px #eee;
+	-moz-box-shadow: 0px 0px 15px 4px #eee;
+	-webkit-box-shadow: 0px 0px 15px 4px #eee;
+	margin-top: 2px;
+	margin-bottom: 8px;
+	padding-top: 6px;
+	padding-bottom: 8px;
+	}
+/*body{background-color:white !important;}*/
+<!-- wrap {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg); 
+	} -->
+	
+#real_body_header{margin:0 auto !important; width:95%; max-width:600px;}
+h4{ font-size:12px;}
+.font{font-size:larger !important;}
+
+/*@media screen and (min-width: 1500px) {
+	
+	
+	.wrap #real_body_header #title {width:730px;}
+	
+	html, body{width:100%; height:100%;padding:0; margin:0; background-color:#F0F3D8;}
+	.wrap {width:874px; height:448px;  background-color:lightgray; text-align:center;}
+
+	
+	.wrap h3 {font-size:1.25em; text-align:center; margin: 5px 0;}
+	.wrap .label_check{display:block;}
+	.wrap .label_check:hover{color:lightblue;}
+	.wrap .table{width:100%;}
+	.wrap .table tr{}
+	.wrap .tablecanvas{height:auto;}
+	#body_col1{ width:10.2%; height:inherit; float:left; background-color:#F0F3D8; text-align:left;}
+	#body_col1_canvas {margin:0 0 0 5px; height:inherit; overflow-y:auto;}
+	#show_maps, #show_categ{
+	position: absolute;
+	top: 374px;
+	left: 26px;}
+	#show_areas { visibility: hidden;}
+	#show_maps { visibility: hidden;}
+	#show_categ { visibility: hidden;}
+		
+	
+	#body_col1_canvas #menu_plan{min-height:220px; max-height:80%; overflow-y:auto;}
+	
+	#body_col2{ width:15.2%; height:inherit; float:left; margin:0 0 0 1px; background-color:#F0F3D8; text-align:left; margin-top:-10px;}
+	#body_col2_canvas {height:inherit; overflow-y:auto;}
+	#body_col2_canvas .categories{margin:0 0 0 5px; overflow-y:auto;}
+	#body_map{  width:53.8%; height:inherit; float:left; overflow:hidden; margin:0 0 0 1px; display:none;}
+	#body_map .map{ height:inherit;}
+	#body_col4 {width:20.2%;height:inherit; float:right; background-color:#F0F3D8; text-align:left;}
+	
+	#body_col4_canvas {margin:0; height:inherit;}
+	#body_col4_canvas #menu_place {height:100%; overflow-y:scroll;}
+	#body_col4_canvas #menu_place_table {}
+	#body_col4_canvas #menu_place_table .img-checkbox-point {max-width:25px;max-height:25px;}
+	#body_col4_canvas #menu_place_table .t0{background-color:lightgray;color:black;padding:3px 0; margin:10px 0;}
+	#body_col4_canvas #menu_place_table .t1 {width:20px;}
+	#body_col4_canvas #menu_place_table .t2 {width:25px;}
+	#body_col4_canvas #menu_place_table .t3{}
+	#body_col4_canvas .m_title{height:17px;}
+	#body_col4_canvas .m_place{height:390px;}
+	#body_col4_canvas .m_button{height:25px;}
+	.t0{background-color:lightgray;color:black;padding:3px 0;margin:8px 0;font-weight:bold; text-align:center;}
+	.t1{margin:0 0 8px 0 !important;}
+	
+	}*/
+	
+	
+		.wrap {/*width:874px;*/ /*height:270px; */ background-color:white; margin:8px; }
+		
+		#body_map{  width:100%; height:246px;  overflow:hidden; margin:0 0 0 1px; display:none;}
+		#body_map .map{ height:inherit;}
+	
+	.wrap .table{width:100%; table-layout:auto}
+	/*.wrap .table .placetooltip{border-bottom:1px solid black; white-space: nowrap;}*/
+	.wrap .table img{width:100px;}
+	#title{text-align:center; <!-- width:75%; --> margin:0 auto;}
+	#title_head{margin:35px;}
+	
+	#pin_img{cursor:pointer; margin-left:-30px; position:relative; right:15px; top:-2px; width:30px;}
+	
+	/*.placetooltip{width:40%}*/
+	.table_img{/*float:right;*/ margin-right:10px; width:25%;}	
+	
+	#type_place{margin:-20px 20% 0px 0; font-size:13px; width:50%;}
+	
+
+	#body_col1 {text-align:center;}
+	#show_areas, #show_categ, #show_places{width:60%; }
+	#show_box_pp{text-align:center; width:100%;}
+	
+	/*@media screen and (min-width: 420px) {
+	#show_box {  text-align:center; font-size:medium; font-weight:bold;  border:solid medium #F2F2F2 !important; border-radius:20px 20px 20px 20px; -moz-border-radius: 20px; -webkit-border-radius:20px; margin: 3px 10% 0 15%; padding: 3px 5px; cursor:pointer; width:70%;}
+	}*/
+	#show_box {  text-align:center; font-size:medium; font-weight:bold;  border:solid medium #F2F2F2 !important; border-radius:20px 20px 20px 20px; -moz-border-radius: 20px; -webkit-border-radius:20px; /*margin: 3px 0 0 0;*/ padding: 3px 5px; cursor:pointer; width:64%; display: inline-block; max-width:435px; margin-left:52px;}
+	#show_maps{background-color:lightgray ;}
+	
+	
+	#footer {background-color:#FFFFFF; text-align:center;}
+	
+	.wrap #real_body_header {background-color:#FFFFFF; }
+	
+	.wrap #real_body_header #big_box_header{ width:auto; height:auto; float:left;margin-left: 13px;}
+	.wrap#real_body_header #header_cart_button{ cursor:pointer; float: right; margin-right: 6px; height:43px; width:43px;}
+	.wrap #real_body_header #header_cart_button img{ cursor:pointer; }
+	
+	.wrap ul#template_top_menu{ float:right;  margin:3px 10px 0 0; text-align:center;}
+	.wrap ul#template_top_menu li{ list-style:none; float:left; background-color:#4F6228; line-height:25px; height:25px; }
+	.wrap ul#template_top_menu li a{ padding:5px 14px 4px 14px; line-height:25px; height:25px; margin:0;}
+	.wrap ul#template_top_menu li.forfill{ width:25px;}
+	
+	.wrap ul#template_top_menu li a{ font-weight:bold; font-size:14px; text-decoration:none; color:#FFFFFF;}
+	.wrap ul#template_top_menu li a:hover{ background-color:#C3D69B; }
+	
+	
+	#body_col1{background-color:#F0F3D8;  }
+	#select_area{background-color:white;}
+	#areas_box {/*text-align:left;*/ /*margin-left:10%;*/}
+	
+	
+	/*
+	#body_col1_canvas #menu_plan{min-height:220px; max-height:80%; overflow-y:auto;}
+	*/
+	#body_col1_canvas{margin-top:-5px; }
+	#menu_plan{padding-bottom:10px;}
+	#body_col2{ background-color:#F0F3D8; margin-top:-10px; display:none; }
+	
+	/*#body_col2_canvas label{margin-left:40%;}*/
+	
+	.button-round-green{background-color:#4F6228;}
+	#footer a{display:none;}
+	@media screen and (min-width: 360px) {
+	.label_check{font-size:18px; }
+	}
+	
+	.area_check{top:10px;}
+	.align_categ{margin-left:40%; max-width:200px; margin:0 auto;}
+	.categories{margin-top:-20px; padding:10px;}
+		
+	#body_col4 {background-color:#F0F3D8; display:none;}
+	/*#menu_place{height:300px; overflow-y:hidden; }*/
+	#body_col4_canvas #menu_place_table .t0{background-color:lightgray !important;color:black;padding:3px 0; margin:10px 0;}
+	#body_col4_canvas table tr {height:100%; overflow-y:scroll; border:1px solid black;}
+	
+	.t0{background-color:#17375E !important;/*color:black !important*/;padding:3px 0;margin:8px 0;font-weight:bold; text-align:center;}
+	.t1{margin:0 0 8px 0 !important;}
+	.t1{/*width:10%;*/ text-align:center; }
+	/*.t2{text-align:left;}*/
+	@media screen and (min-width: 600px) {
+	.t2 {width:40%;}
+	}
+	.t2 {width:10%;}
+	.t2 img{width:35px !important; }
+	.t3 {/*width:50%;*/ font-size:medium; margin-left:10%; /*float:left;*/}
+	.t4 {width:15%;text-align:right;}
+	.t4 label{ margin-right:10%;}
+	.t5 {background-color:red;color:white;padding:3px 0;margin:8px 0;font-weight:bold; text-align:center;}
+	.t0categ {background-color:transparent !important;color:#000 !important;padding:inherit !important;margin:inherit !important;font-weight:normal !important; text-align:left !important; /*float:left;*/ width:50%; display:inline-block;}
+	.t5categ{ width:48%; color:#000 !important; float:right; display:inline-block;}
+	#foot_bottoms{ width:95%; max-width:600px; margin:0 auto;}
+	#group_categ{  display:inline-block; height:200px; }
+	#button-show{ background-color:lightgray;}
+
+
+	
+	<!---.squaredTwo {
+		
+    
+	width: 28px;
+	height: 28px;
+	background: #fcfff4;
+
+	background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+	margin: 20px auto;
+
+	-webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	position: relative;
+}
+
+.squaredTwo label {
+	cursor: pointer;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 4px;
+	top: 4px;
+
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+
+	background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+	background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+	background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+	background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+	background: linear-gradient(top, #222 0%, #45484d 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+}
+
+.squaredTwo label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
+	content: '';
+	position: absolute;
+	width: 9px;
+	height: 5px;
+	background: transparent;
+	top: 4px;
+	left: 4px;
+	border: 3px solid #fcfff4;
+	border-top: none;
+	border-right: none;
+
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.squaredTwo label:hover::after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity=30);
+	opacity: 0.3;
+}
+
+.squaredTwo input[type=checkbox]:checked + label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	opacity: 1;
+}
+--->
+	
+
+	.table a:link {
+	color: #666;
+	font-weight: bold;
+	text-decoration:none;
+}
+.table a:visited {
+	color: #999999;
+	font-weight:bold;
+	text-decoration:none;
+}
+.table a:active,
+.table a:hover {
+	color: #bd5a35;
+	text-decoration:underline;
+}
+.table {
+	
+	/*background:#ffffff;*/
+	/*margin:20px;*/
+	border-bottom:#ccc 1px solid;
+	
+
+	-moz-box-shadow: 0 1px 2px #d1d1d1;
+	-webkit-box-shadow: 0 1px 2px #d1d1d1;
+	box-shadow: 0 1px 2px #d1d1d1;
+}
+.table th {
+	
+
+	border-bottom:#ccc 1px solid;
+	
+
+	-moz-box-shadow: 0 1px 2px #d1d1d1;
+	-webkit-box-shadow: 0 1px 2px #d1d1d1;
+	box-shadow: 0 1px 2px #d1d1d1;
+}
+.table th:first-child {
+	/*text-align: left;*/
+	padding-left:20px;
+}
+
+
+.table tr {
+	/*text-align: center;*/
+	padding-left:20px;
+	width:50%
+}
+/*table td:first-child {
+	text-align: left;
+	padding-left:20px;
+	border-left: 0;
+}*/
+.table td {
+	/*padding:18px;*/
+	
+	border-bottom:1px solid #ffffff;
+	
+
+	background: #ffffff;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+	background: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);
+}
+.table tr.even td {
+	background: #ffffff;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
+	background: -moz-linear-gradient(top,  #f8f8f8,  #f6f6f6);
+}
+.table tr:last-child td {
+	border-bottom:0;
+}
+.table tr:last-child td:first-child {
+	-moz-border-radius-bottomleft:3px;
+	-webkit-border-bottom-left-radius:3px;
+	border-bottom-left-radius:3px;
+}
+.table tr:last-child td:last-child {
+	-moz-border-radius-bottomright:3px;
+	-webkit-border-bottom-right-radius:3px;
+	border-bottom-right-radius:3px;
+}
+
+@media only screen and (max-width: 610px), (max-device-width: 610px) and (min-device-width: 768px)
+{
+.tablehotdeal th {
+display: block !important;
+}
+}
+
+#counter table{width:100%;}
+#menu_plan ul{/*-webkit-column-count:3;
+			  -moz-column-count:3;  Firefox 
+			  column-count:3; */
+			  width:90%; 
+			  margin:0 auto;
+			  list-style:none;
+			  /*padding-left:15%*/
+			  
+			  
+			  }
+#menu_plan li{width: 135px;
+			  text-align: left;
+			  margin: 0 auto;	
+			  height:37px;
+	}
+</style>
+<script  src="js/jquery/jquery-1.9.1.min.js"></script>
+<!-- <link type="text/css" rel="stylesheet" href="js/jquery/jquery-ui-1.10.3.custom-min.css" /> -->
+<!-- <script id="jquery_min"  src="js/jquery/jquery-ui-1.10.3.custom.min.js"></script> -->
+<script type="text/javascript"  src="js/jquery.cookie.js"></script>
+<script  type="text/javascript"   src="js/myezplan.js"></script>
+<script  type="text/javascript"   src="js/lightboxsign.js"></script>
+<script  type="text/javascript"   src="js/utils.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="http://j.maxmind.com/app/geoip.js"></script> 
+<script type="text/javascript" src="js/mapconfigbasic.js"></script>
+<script type="text/javascript" src="js/mapshared.js"></script>
+<script type="text/javascript" src="js/mapcitypopup.js"></script>
+<script type="text/javascript" src="js/menutop.js"></script>
+<script type="text/javascript" src="js/infoplace.js"></script>
+<script type="text/javascript" src="http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"></script>
+<!-- <script type="text/javascript" src="js/main.js"></script> -->
+<script type="text/javascript" src="js/jquery.mmenu.js"></script>
+<script type="text/javascript">
+	myLocationMarkerIcon='ezmapas/maps_city/mylocationbase.png';
+	_img_map_preview="ezmapas/maps_city/citypicbase.jpg";
+	$.ajax({
+		type: "GET",
+		url: "http://myezplan.com/mobile/appdata/data_ajax/get_session_vars.cfm",
+		async:false, 
+		cache:false,
+		success: function(data){
+			var sessionVars = data.split(",");
+			cf_sid=sessionVars[0]; 
+		}
+	});
+	cf_sidP=false; 
+	cf_sidjs="";
+	
+</script>
+<!-- <script>
+$("#loadi img").attr("src","images/loading.png");
+$("#body_map_canvas").load(function(e) {
+
+	mapcitypopup.cityid=window.citid;
+});
+</script> -->
+<!-- <script type="text/javascript">
+$(window).load(function(e){
+mapcitypopup.mapconfig=new myezplan.maps.config;
+mapcitypopup.mapconfig.mapcenter=new google.maps.LatLng(26.915220400000000000,-80.582180361502075000);
+mapcitypopup.mapconfig.mapzoom=10;
+myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36523,new google.maps.LatLng(25.792029,-80.14145),'17 Restaurant and Sushi Bar','ezmapas/maps_pics/basic/1.png',{category:[5,7,1,2],planid:"80",planname:"Area A",idunico:"13160526117083958"},mapcitypopup.mapconfig.markers,false),'13160526117083958','36523', 'mapcitypopup'); myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36537,new google.maps.LatLng(25.790441,-80.137969),'920 Grill Steakhouse','ezmapas/maps_pics/basic/2.png',{category:[25],planid:"80",planname:"Area A",idunico:"10360803777118126"},mapcitypopup.mapconfig.markers,false),'10360803777118126','36537', 'mapcitypopup'); 
+mapcitypopup.mapconfig.canvasmap=$('#body_map_canvas').get([0]);myezplan.maps.initializeGoogleMap(mapcitypopup.mapconfig,mapcitypopup.callBackGoogleMapCityPopup);
+
+});
+</script> -->
+<script>
+/* $(document).ready(function(e) {
+	mapcitypopup.cityid='5';
+	mapcitypopup.mapconfig=new myezplan.maps.config;mapcitypopup.mapconfig.mapcenter=new google.maps.LatLng(26.915220400000000000,-80.582180361502075000);mapcitypopup.mapconfig.mapzoom=10;
+	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36523,new google.maps.LatLng(25.792029,-80.14145),'17 Restaurant and Sushi Bar','ezmapas/maps_pics/basic/1.png',{category:[25],planid:"80",planname:"Area A",idunico:"13160526117083958"},mapcitypopup.mapconfig.markers,false),'13160526117083958','36523', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36537,new google.maps.LatLng(25.790441,-80.137969),'920 Grill Steakhouse','ezmapas/maps_pics/basic/2.png',{category:[25],planid:"80",planname:"Area A",idunico:"10360803777118126"},mapcitypopup.mapconfig.markers,false),'10360803777118126','36537', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(10798,new google.maps.LatLng(25.8944918,-80.2887958),'Action Town Florida ','ezmapas/maps_pics/basic/2.png',{category:[9],planid:"80",planname:"Area A",idunico:"7927488835994154"},mapcitypopup.mapconfig.markers,false),'7927488835994154','10798', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(11084,new google.maps.LatLng(25.8944918,-80.2887958),'Action Town Florida ','ezmapas/maps_pics/basic/1.png',{category:[9],planid:"80",planname:"Area A",idunico:"2880870164372027"},mapcitypopup.mapconfig.markers,false),'2880870164372027','11084', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(672,new google.maps.LatLng(25.790408308847365,-80.13667993247509),'Art Center South Florida','ezmapas/maps_pics/basic/1.png',{category:[5,7,1],planid:"80",planname:"Area A",idunico:"12990578971803188"},mapcitypopup.mapconfig.markers,false),'12990578971803188','672', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(37191,new google.maps.LatLng(25.795482635498,-80.1442031860352),'Barceloneta','ezmapas/maps_pics/basic/3.png',{category:[25],planid:"80",planname:"Area A",idunico:"9647373641181864"},mapcitypopup.mapconfig.markers,false),'9647373641181864','37191', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(37194,new google.maps.LatLng(25.795482635498,-80.1442031860352),'Barceloneta','ezmapas/maps_pics/basic/4.png',{category:[25],planid:"80",planname:"Area A",idunico:"16701064272307444"},mapcitypopup.mapconfig.markers,false),'16701064272307444','37194', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(667,new google.maps.LatLng(25.79724206714411,-80.12921467423439),'Bass Art Museum','ezmapas/maps_pics/basic/2.png',{category:[1,3],planid:"80",planname:"Area A",idunico:"2941496709827334"},mapcitypopup.mapconfig.markers,false),'2941496709827334','667', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36526,new google.maps.LatLng(25.790939,-80.131852),'Bella Cuba','ezmapas/maps_pics/basic/5.png',{category:[25],planid:"80",planname:"Area A",idunico:"10829841314263094"},mapcitypopup.mapconfig.markers,false),'10829841314263094','36526', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36519,new google.maps.LatLng(25.852736,-80.192889),'Blessing Restaurant','ezmapas/maps_pics/basic/6.png',{category:[25],planid:"80",planname:"Area A",idunico:"4013116142568978"},mapcitypopup.mapconfig.markers,false),'4013116142568978','36519', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36538,new google.maps.LatLng(25.813609,-80.131119),'Capri Sushi & Italian','ezmapas/maps_pics/basic/7.png',{category:[25],planid:"80",planname:"Area A",idunico:"13708770837812364"},mapcitypopup.mapconfig.markers,false),'13708770837812364','36538', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(10984,new google.maps.LatLng(25.8137051,-80.1311387),'Capri Sushi and Italian ','ezmapas/maps_pics/basic/8.png',{category:[25],planid:"80",planname:"Area A",idunico:"9597254814580084"},mapcitypopup.mapconfig.markers,false),'9597254814580084','10984', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(13674,new google.maps.LatLng(25.9100574,-80.157387),'Ceviche and Grille ','ezmapas/maps_pics/basic/9.png',{category:[25],planid:"80",planname:"Area A",idunico:"14288952844217420"},mapcitypopup.mapconfig.markers,false),'14288952844217420','13674', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(37373,new google.maps.LatLng(25.855039,-80.120436),'Chivito teca','ezmapas/maps_pics/basic/10.png',{category:[25],planid:"80",planname:"Area A",idunico:"9411311638188924"},mapcitypopup.mapconfig.markers,false),'9411311638188924','37373', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36541,new google.maps.LatLng(25.930288,-80.131154),'Clounge Cigar and Hookah Bar Miami','ezmapas/maps_pics/basic/11.png',{category:[25],planid:"80",planname:"Area A",idunico:"13203114697115724"},mapcitypopup.mapconfig.markers,false),'13203114697115724','36541', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(668,new google.maps.LatLng(25.797128868684712,-80.12922070920467),'Collins Park','ezmapas/maps_pics/basic/3.png',{category:[5,5,7,7,1,1,2,2],planid:"80",planname:"Area A",idunico:"9300821439828724"},mapcitypopup.mapconfig.markers,false),'9300821439828724','668', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(5429,new google.maps.LatLng(25.790295,-80.139282),'Colony Theater','ezmapas/maps_pics/basic/4.png',{category:[7,1],planid:"80",planname:"Area A",idunico:"0201302230277356059"},mapcitypopup.mapconfig.markers,false),'0201302230277356059','5429', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(14641,new google.maps.LatLng(25.877081,-80.242752),'Conch Heaven','ezmapas/maps_pics/basic/12.png',{category:[25],planid:"80",planname:"Area A",idunico:"3803436537273229"},mapcitypopup.mapconfig.markers,false),'3803436537273229','14641', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(37042,new google.maps.LatLng(28.0401458,-81.0448248),'Florida EcoSafaris ','ezmapas/maps_pics/basic/3.png',{category:[9],planid:"80",planname:"Area A",idunico:"16348474503788286"},mapcitypopup.mapconfig.markers,false),'16348474503788286','37042', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36510,new google.maps.LatLng(25.88992,-80.22668),'Freedom Wings','ezmapas/maps_pics/basic/13.png',{category:[25],planid:"80",planname:"Area A",idunico:"8786420806160366"},mapcitypopup.mapconfig.markers,false),'8786420806160366','36510', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18943,new google.maps.LatLng(25.794824728283196,-80.1343309879303),'Go Miami Card','ezmapas/maps_pics/basic/4.png',{category:[9],planid:"80",planname:"Area A",idunico:"8412562999874354"},mapcitypopup.mapconfig.markers,false),'8412562999874354','18943', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(670,new google.maps.LatLng(25.795526570630685,-80.13613276183605),'Holocaust Memorial','ezmapas/maps_pics/basic/5.png',{category:[5,1,2,3],planid:"80",planname:"Area A",idunico:"11136253143195064"},mapcitypopup.mapconfig.markers,false),'11136253143195064','670', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(9596,new google.maps.LatLng(25.9542152,-80.2051221),'Jamaica House Restaurant ','ezmapas/maps_pics/basic/14.png',{category:[25],planid:"80",planname:"Area A",idunico:"5371759678237140"},mapcitypopup.mapconfig.markers,false),'5371759678237140','9596', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36248,new google.maps.LatLng(25.8999956,-80.1604221),'Jamba Juice7 ','ezmapas/maps_pics/basic/15.png',{category:[25],planid:"80",planname:"Area A",idunico:"8043922572297372"},mapcitypopup.mapconfig.markers,false),'8043922572297372','36248', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(37372,new google.maps.LatLng(25.899229,-80.160962),'La Puttanesca Italian Restaurant','ezmapas/maps_pics/basic/16.png',{category:[25],planid:"80",planname:"Area A",idunico:"9112688523057142"},mapcitypopup.mapconfig.markers,false),'9112688523057142','37372', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(671,new google.maps.LatLng(25.790599700495466,-80.13521075248718),'Lincoln Road','ezmapas/maps_pics/basic/6.png',{category:[5,1,2,3],planid:"80",planname:"Area A",idunico:"9020384678151460"},mapcitypopup.mapconfig.markers,false),'9020384678151460','671', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(28935,new google.maps.LatLng(25.7925292,-80.1414339),'Masters Italian Restaurant ','ezmapas/maps_pics/basic/17.png',{category:[25],planid:"80",planname:"Area A",idunico:"9807007794734090"},mapcitypopup.mapconfig.markers,false),'9807007794734090','28935', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36532,new google.maps.LatLng(25.790636,-80.136761),'Maya Tapas & Grill','ezmapas/maps_pics/basic/18.png',{category:[25],planid:"80",planname:"Area A",idunico:"15209670691255178"},mapcitypopup.mapconfig.markers,false),'15209670691255178','36532', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(26460,new google.maps.LatLng(25.910003,-80.159289),'Miami Auto Museum at Dezer Collection ','ezmapas/maps_pics/basic/5.png',{category:[9],planid:"80",planname:"Area A",idunico:"17065847164485604"},mapcitypopup.mapconfig.markers,false),'17065847164485604','26460', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36772,new google.maps.LatLng(25.910003,-80.159289),'Miami Auto Museum at the Dezer Collection','ezmapas/maps_pics/basic/6.png',{category:[9],planid:"80",planname:"Area A",idunico:"16303659305341608"},mapcitypopup.mapconfig.markers,false),'16303659305341608','36772', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(669,new google.maps.LatLng(25.795798552289988,-80.13570360839367),'Miami Beach Botanical Garden','ezmapas/maps_pics/basic/7.png',{category:[5,7,1,2],planid:"80",planname:"Area A",idunico:"16785360462963580"},mapcitypopup.mapconfig.markers,false),'16785360462963580','669', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18946,new google.maps.LatLng(25.7912273059564,-80.13066910207272),'Miami Duck Tour','ezmapas/maps_pics/basic/1.png',{category:[10],planid:"80",planname:"Area A",idunico:"17749255311209708"},mapcitypopup.mapconfig.markers,false),'17749255311209708','18946', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18944,new google.maps.LatLng(25.819731097722517,-80.12253195047379),'Miami Hop-On Hop-Off Water Taxi','ezmapas/maps_pics/basic/2.png',{category:[10],planid:"80",planname:"Area A",idunico:"15146271872799844"},mapcitypopup.mapconfig.markers,false),'15146271872799844','18944', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(666,new google.maps.LatLng(25.871369549657874,-80.11953592300415),'North Miami Beaches','ezmapas/maps_pics/basic/8.png',{category:[5,1,2,3],planid:"80",planname:"Area A",idunico:"9915775277186184"},mapcitypopup.mapconfig.markers,false),'9915775277186184','666', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36540,new google.maps.LatLng(25.848709,-80.15097),'OGGI Caffe','ezmapas/maps_pics/basic/19.png',{category:[25],planid:"80",planname:"Area A",idunico:"12771256073921880"},mapcitypopup.mapconfig.markers,false),'12771256073921880','36540', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36535,new google.maps.LatLng(25.814128,-80.128675),'Pizza Dude','ezmapas/maps_pics/basic/20.png',{category:[25],planid:"80",planname:"Area A",idunico:"11486747044052722"},mapcitypopup.mapconfig.markers,false),'11486747044052722','36535', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(10184,new google.maps.LatLng(25.7906526,-80.1359792),'Puntino Dal Toro ','ezmapas/maps_pics/basic/21.png',{category:[25],planid:"80",planname:"Area A",idunico:"4418822948355228"},mapcitypopup.mapconfig.markers,false),'4418822948355228','10184', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36542,new google.maps.LatLng(25.930296,-80.131061),'Rouge Waterfront','ezmapas/maps_pics/basic/22.png',{category:[25],planid:"80",planname:"Area A",idunico:"13964572583048580"},mapcitypopup.mapconfig.markers,false),'13964572583048580','36542', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36543,new google.maps.LatLng(25.928709,-80.13536),'Siam River Thai & Sushi Bar','ezmapas/maps_pics/basic/23.png',{category:[25],planid:"80",planname:"Area A",idunico:"16478084739342556"},mapcitypopup.mapconfig.markers,false),'16478084739342556','36543', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(28936,new google.maps.LatLng(25.800916,-80.125725),'Skybanditz ','ezmapas/maps_pics/basic/7.png',{category:[9],planid:"80",planname:"Area A",idunico:"17793432830367236"},mapcitypopup.mapconfig.markers,false),'17793432830367236','28936', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18948,new google.maps.LatLng(25.791676801043774,-80.13318300247192),'South Beach Arts and Culinary Tour in Miami','ezmapas/maps_pics/basic/3.png',{category:[10],planid:"80",planname:"Area A",idunico:"17676748540252448"},mapcitypopup.mapconfig.markers,false),'17676748540252448','18948', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18947,new google.maps.LatLng(25.806268617039617,-80.12426197528839),'South Beach Bachelor Party Package','ezmapas/maps_pics/basic/8.png',{category:[9],planid:"80",planname:"Area A",idunico:"11025711130350828"},mapcitypopup.mapconfig.markers,false),'11025711130350828','18947', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18945,new google.maps.LatLng(25.791038934103447,-80.13171181082726),'South Beach Segway Rental','ezmapas/maps_pics/basic/9.png',{category:[9],planid:"80",planname:"Area A",idunico:"1462059405166656"},mapcitypopup.mapconfig.markers,false),'1462059405166656','18945', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(37732,new google.maps.LatLng(25.791089287392786,-80.13073179870844),'Stand Up Paddleboard Rental in Miami Beach','ezmapas/maps_pics/basic/10.png',{category:[9],planid:"80",planname:"Area A",idunico:"8404705744633936"},mapcitypopup.mapconfig.markers,false),'8404705744633936','37732', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36524,new google.maps.LatLng(25.774971,-80.13182),'530 OCEANS GRILL','ezmapas/maps_pics/basic/1.png',{category:[25],planid:"81",planname:"Area B",idunico:"17568217425888222"},mapcitypopup.mapconfig.markers,false),'17568217425888222','36524', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36525,new google.maps.LatLng(25.778851,-80.133202),'660 at the Anglers','ezmapas/maps_pics/basic/2.png',{category:[25],planid:"81",planname:"Area B",idunico:"9558821392761104"},mapcitypopup.mapconfig.markers,false),'9558821392761104','36525', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(680,new google.maps.LatLng(25.779487303710688,-80.13523489236832),'Art Deco Historic District','ezmapas/maps_pics/basic/1.png',{category:[5,1,2,3],planid:"81",planname:"Area B",idunico:"9610969994682818"},mapcitypopup.mapconfig.markers,false),'9610969994682818','680', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36527,new google.maps.LatLng(25.77483,-80.131859),'Bellini Italian Bistro','ezmapas/maps_pics/basic/3.png',{category:[25],planid:"81",planname:"Area B",idunico:"8541743956000215"},mapcitypopup.mapconfig.markers,false),'8541743956000215','36527', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36528,new google.maps.LatLng(25.776687,-80.13363),'Bolivar Restaurant','ezmapas/maps_pics/basic/4.png',{category:[25],planid:"81",planname:"Area B",idunico:"6923606815922578"},mapcitypopup.mapconfig.markers,false),'6923606815922578','36528', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36529,new google.maps.LatLng(25.786774,-80.132996),'Boteco Copacabana','ezmapas/maps_pics/basic/5.png',{category:[25],planid:"81",planname:"Area B",idunico:"14280277806903104"},mapcitypopup.mapconfig.markers,false),'14280277806903104','36529', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36530,new google.maps.LatLng(25.779161,-80.131677),'Cafe Bonjour','ezmapas/maps_pics/basic/6.png',{category:[25],planid:"81",planname:"Area B",idunico:"9055596828783056"},mapcitypopup.mapconfig.markers,false),'9055596828783056','36530', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36539,new google.maps.LatLng(25.784285,-80.13195),'Escopazzo','ezmapas/maps_pics/basic/7.png',{category:[25],planid:"81",planname:"Area B",idunico:"8980859878574588"},mapcitypopup.mapconfig.markers,false),'8980859878574588','36539', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(673,new google.maps.LatLng(25.78693241371595,-80.13203769922256),'Espanola Way','ezmapas/maps_pics/basic/2.png',{category:[5,7,1,2],planid:"81",planname:"Area B",idunico:"5589239536784589"},mapcitypopup.mapconfig.markers,false),'5589239536784589','673', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18908,new google.maps.LatLng(25.780523748020567,-80.13201892375946),'Full-Day Bike Rental in South Beach','ezmapas/maps_pics/basic/1.png',{category:[9],planid:"81",planname:"Area B",idunico:"14691310136113316"},mapcitypopup.mapconfig.markers,false),'14691310136113316','18908', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(681,new google.maps.LatLng(25.772487973045425,-80.13424649834633),'Jewish Museum of Florida','ezmapas/maps_pics/basic/3.png',{category:[1,2,3],planid:"81",planname:"Area B",idunico:"11537391180172562"},mapcitypopup.mapconfig.markers,false),'11537391180172562','681', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(12714,new google.maps.LatLng(25.7743985,-80.1338078),'Kone ','ezmapas/maps_pics/basic/8.png',{category:[25],planid:"81",planname:"Area B",idunico:"12260228048544376"},mapcitypopup.mapconfig.markers,false),'12260228048544376','12714', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18990,new google.maps.LatLng(25.786981,-80.1328343),'Kone Restaurant ','ezmapas/maps_pics/basic/9.png',{category:[25],planid:"81",planname:"Area B",idunico:"11848602876998484"},mapcitypopup.mapconfig.markers,false),'11848602876998484','18990', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(37192,new google.maps.LatLng(25.774475,-80.133692),'Kone Sushi Lounge','ezmapas/maps_pics/basic/10.png',{category:[25],planid:"81",planname:"Area B",idunico:"9268832083473350"},mapcitypopup.mapconfig.markers,false),'9268832083473350','37192', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36531,new google.maps.LatLng(25.77758,-80.133568),'La Ventana Restaurant','ezmapas/maps_pics/basic/11.png',{category:[25],planid:"81",planname:"Area B",idunico:"9782142275877976"},mapcitypopup.mapconfig.markers,false),'9782142275877976','36531', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(678,new google.maps.LatLng(25.7798326855179,-80.12959957122803),'Lummus Park','ezmapas/maps_pics/basic/4.png',{category:[5,7,1,2],planid:"81",planname:"Area B",idunico:"7519870488904416"},mapcitypopup.mapconfig.markers,false),'7519870488904416','678', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18939,new google.maps.LatLng(25.779269326213395,-80.13094738125807),'Mangos Cabaret-Style Dinner and Show in Miami Beach','ezmapas/maps_pics/basic/2.png',{category:[9],planid:"81",planname:"Area B",idunico:"15078968782909216"},mapcitypopup.mapconfig.markers,false),'15078968782909216','18939', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36533,new google.maps.LatLng(25.779171,-80.131667),'Mega Pizza','ezmapas/maps_pics/basic/12.png',{category:[25],planid:"81",planname:"Area B",idunico:"9141980384539588"},mapcitypopup.mapconfig.markers,false),'9141980384539588','36533', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36534,new google.maps.LatLng(25.783199,-80.130075),'Mia Bella Roma','ezmapas/maps_pics/basic/13.png',{category:[25],planid:"81",planname:"Area B",idunico:"9552209204215648"},mapcitypopup.mapconfig.markers,false),'9552209204215648','36534', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(37733,new google.maps.LatLng(25.77880945881478,-80.133220218122),'Miami City Tour and Jungle Island','ezmapas/maps_pics/basic/3.png',{category:[9],planid:"81",planname:"Area B",idunico:"7813746201003368"},mapcitypopup.mapconfig.markers,false),'7813746201003368','37733', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18949,new google.maps.LatLng(25.777486545083953,-80.13139665126806),'Miami City Tour including Bayside and Biscayne Bay Cruise','ezmapas/maps_pics/basic/1.png',{category:[10],planid:"81",planname:"Area B",idunico:"11260678039398044"},mapcitypopup.mapconfig.markers,false),'11260678039398044','18949', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18938,new google.maps.LatLng(25.770564088647163,-80.13276457786566),'Miami Everglades Airboat Adventure with Transportation','ezmapas/maps_pics/basic/4.png',{category:[9],planid:"81",planname:"Area B",idunico:"8945820503868162"},mapcitypopup.mapconfig.markers,false),'8945820503868162','18938', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(37039,new google.maps.LatLng(25.7807,-80.130875),'Miami Music Week at Clevelander ','ezmapas/maps_pics/basic/1.png',{category:[11],planid:"81",planname:"Area B",idunico:"11783798309239466"},mapcitypopup.mapconfig.markers,false),'11783798309239466','37039', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(35777,new google.maps.LatLng(25.791236060410185,-79.94407653808594),'Miami Sunset Air Tour','ezmapas/maps_pics/basic/5.png',{category:[9],planid:"81",planname:"Area B",idunico:"14243749547749758"},mapcitypopup.mapconfig.markers,false),'14243749547749758','35777', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18936,new google.maps.LatLng(25.780621263287703,-80.13213425874716),'Miami Sunset Segway Tour','ezmapas/maps_pics/basic/2.png',{category:[10],planid:"81",planname:"Area B",idunico:"13220531372353436"},mapcitypopup.mapconfig.markers,false),'13220531372353436','18936', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(5430,new google.maps.LatLng(25.768900,-80.132477),'Nikki Beach','ezmapas/maps_pics/basic/5.png',{category:[5,1,3],planid:"81",planname:"Area B",idunico:"0201302230225382760"},mapcitypopup.mapconfig.markers,false),'0201302230225382760','5430', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(679,new google.maps.LatLng(25.77904380059727,-80.13086825609207),'Ocean Drive','ezmapas/maps_pics/basic/6.png',{category:[5,1,2,3],planid:"81",planname:"Area B",idunico:"10401915039401500"},mapcitypopup.mapconfig.markers,false),'10401915039401500','679', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36536,new google.maps.LatLng(25.782445,-80.132404),'Poseidon Greek Restaurant & Outdoor Lounge','ezmapas/maps_pics/basic/14.png',{category:[25],planid:"81",planname:"Area B",idunico:"8171698254931742"},mapcitypopup.mapconfig.markers,false),'8171698254931742','36536', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18937,new google.maps.LatLng(25.784945969672663,-80.13191431760794),'Scooter Rental','ezmapas/maps_pics/basic/6.png',{category:[9],planid:"81",planname:"Area B",idunico:"15618198581505568"},mapcitypopup.mapconfig.markers,false),'15618198581505568','18937', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18942,new google.maps.LatLng(25.770927612194487,-80.1395907998085),'Small-Group Miami Boat Tour: Biscayne Bay Sightseeing Cruise','ezmapas/maps_pics/basic/3.png',{category:[10],planid:"81",planname:"Area B",idunico:"11890720608644188"},mapcitypopup.mapconfig.markers,false),'11890720608644188','18942', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18941,new google.maps.LatLng(25.774167270372708,-80.13849779963499),'South Beach Cultural Food and Walking Tour','ezmapas/maps_pics/basic/4.png',{category:[10],planid:"81",planname:"Area B",idunico:"13219122942537068"},mapcitypopup.mapconfig.markers,false),'13219122942537068','18941', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(676,new google.maps.LatLng(25.783135801112543,-80.12829065322876),'South Miami Beaches','ezmapas/maps_pics/basic/7.png',{category:[5,1,2,3],planid:"81",planname:"Area B",idunico:"13817419658880680"},mapcitypopup.mapconfig.markers,false),'13817419658880680','676', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(682,new google.maps.LatLng(25.76582338602972,-80.13343714177608),'South Pointe Park','ezmapas/maps_pics/basic/8.png',{category:[5,7,1,2],planid:"81",planname:"Area B",idunico:"14177882727235556"},mapcitypopup.mapconfig.markers,false),'14177882727235556','682', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(23630,new google.maps.LatLng(25.782179,-80.13166),'The Aos Group ','ezmapas/maps_pics/basic/7.png',{category:[9],planid:"81",planname:"Area B",idunico:"14977633287198842"},mapcitypopup.mapconfig.markers,false),'14977633287198842','23630', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(675,new google.maps.LatLng(25.781904049539577,-80.13044983148575),'The Villa by Barton G.','ezmapas/maps_pics/basic/9.png',{category:[5,1,3],planid:"81",planname:"Area B",idunico:"9440235253423452"},mapcitypopup.mapconfig.markers,false),'9440235253423452','675', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(677,new google.maps.LatLng(25.78097418938937,-80.13239979743958),'The Wolfsonian Museum','ezmapas/maps_pics/basic/10.png',{category:[1,2,3],planid:"81",planname:"Area B",idunico:"13467911698389800"},mapcitypopup.mapconfig.markers,false),'13467911698389800','677', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36249,new google.maps.LatLng(25.780186,-80.141784),'Voulez Vous Bistro ','ezmapas/maps_pics/basic/15.png',{category:[25],planid:"81",planname:"Area B",idunico:"14217683398336864"},mapcitypopup.mapconfig.markers,false),'14217683398336864','36249', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(37193,new google.maps.LatLng(25.780214,-80.141785),'VoulezVous Bistro','ezmapas/maps_pics/basic/16.png',{category:[25],planid:"81",planname:"Area B",idunico:"6579858973145070"},mapcitypopup.mapconfig.markers,false),'6579858973145070','37193', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(11485,new google.maps.LatLng(25.7721172,-80.1391612),'Water Taxi Miami2 ','ezmapas/maps_pics/basic/8.png',{category:[9],planid:"81",planname:"Area B",idunico:"3048154024872929"},mapcitypopup.mapconfig.markers,false),'3048154024872929','11485', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(14164,new google.maps.LatLng(25.771578,-80.139835),'Watersports Paradise ','ezmapas/maps_pics/basic/9.png',{category:[9],planid:"81",planname:"Area B",idunico:"5813417648896575"},mapcitypopup.mapconfig.markers,false),'5813417648896575','14164', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(674,new google.maps.LatLng(25.78329278813915,-80.13209871947765),'World Erotic Art Museum','ezmapas/maps_pics/basic/11.png',{category:[1,3],planid:"81",planname:"Area B",idunico:"7570574770215899"},mapcitypopup.mapconfig.markers,false),'7570574770215899','674', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(37640,new google.maps.LatLng(25.778747,-80.132883),'X/O Restaurant, Cafe, Bar and Lounge at the Clinton Hotel and Spa','ezmapas/maps_pics/basic/17.png',{category:[25],planid:"81",planname:"Area B",idunico:"10453858377238832"},mapcitypopup.mapconfig.markers,false),'10453858377238832','37640', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(14637,new google.maps.LatLng(25.760771,-80.192009),'Atrio Restaurant and Wine Bar at The Conrad Miami','ezmapas/maps_pics/basic/1.png',{category:[25],planid:"82",planname:"Area C",idunico:"13074839340988548"},mapcitypopup.mapconfig.markers,false),'13074839340988548','14637', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(21874,new google.maps.LatLng(25.7603905,-80.1920798),'Atrio Restaurant at Conrad Miami ','ezmapas/maps_pics/basic/2.png',{category:[25],planid:"82",planname:"Area C",idunico:"6548348471987992"},mapcitypopup.mapconfig.markers,false),'6548348471987992','21874', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(14639,new google.maps.LatLng(25.76421,-80.19323),'Baru Urbano','ezmapas/maps_pics/basic/3.png',{category:[25],planid:"82",planname:"Area C",idunico:"11489366597961634"},mapcitypopup.mapconfig.markers,false),'11489366597961634','14639', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(693,new google.maps.LatLng(25.77527863692669,-80.18645837903023),'Bayfront Park','ezmapas/maps_pics/basic/1.png',{category:[5,1,2,3],planid:"82",planname:"Area C",idunico:"10553423748351634"},mapcitypopup.mapconfig.markers,false),'10553423748351634','693', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18912,new google.maps.LatLng(25.778952624122056,-80.18626928329462),'Bayside Blaster Cruise in Biscayne Bay','ezmapas/maps_pics/basic/1.png',{category:[10],planid:"82",planname:"Area C",idunico:"8074038194026798"},mapcitypopup.mapconfig.markers,false),'8074038194026798','18912', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(690,new google.maps.LatLng(25.77785367036552,-80.18679365515703),'Bayside Marketplace','ezmapas/maps_pics/basic/2.png',{category:[5,1,2,3],planid:"82",planname:"Area C",idunico:"10604609781876206"},mapcitypopup.mapconfig.markers,false),'10604609781876206','690', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(14368,new google.maps.LatLng(25.7740448,-80.1939836),'Beit Burger ','ezmapas/maps_pics/basic/4.png',{category:[25],planid:"82",planname:"Area C",idunico:"12194769831839948"},mapcitypopup.mapconfig.markers,false),'12194769831839948','14368', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(26985,new google.maps.LatLng(25.7782766,-80.1885815),'Bike and Roll ','ezmapas/maps_pics/basic/2.png',{category:[10],planid:"82",planname:"Area C",idunico:"12570667872205376"},mapcitypopup.mapconfig.markers,false),'12570667872205376','26985', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(699,new google.maps.LatLng(25.761112689512217,-80.1919837296009),'Brickel Avenue','ezmapas/maps_pics/basic/3.png',{category:[5,1,3],planid:"82",planname:"Area C",idunico:"10398903479799628"},mapcitypopup.mapconfig.markers,false),'10398903479799628','699', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36507,new google.maps.LatLng(25.783015,-80.18899),'Cafe Progreso Restaurant','ezmapas/maps_pics/basic/5.png',{category:[25],planid:"82",planname:"Area C",idunico:"8970190688522966"},mapcitypopup.mapconfig.markers,false),'8970190688522966','36507', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36520,new google.maps.LatLng(25.76427,-80.1941),'DDog House','ezmapas/maps_pics/basic/6.png',{category:[25],planid:"82",planname:"Area C",idunico:"16092384285841528"},mapcitypopup.mapconfig.markers,false),'16092384285841528','36520', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(683,new google.maps.LatLng(25.800828742084082,-80.19823998212814),'Design District Art Walk','ezmapas/maps_pics/basic/4.png',{category:[5,1,3],planid:"82",planname:"Area C",idunico:"15587267079390584"},mapcitypopup.mapconfig.markers,false),'15587267079390584','683', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(692,new google.maps.LatLng(25.775124356563037,-80.19362390041351),'Downtown Miami','ezmapas/maps_pics/basic/5.png',{category:[5,1,2,3],planid:"82",planname:"Area C",idunico:"6772401165217162"},mapcitypopup.mapconfig.markers,false),'6772401165217162','692', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(14644,new google.maps.LatLng(25.772876,-80.19185),'El Cartel Colombian Restaurant & Lounge','ezmapas/maps_pics/basic/7.png',{category:[25],planid:"82",planname:"Area C",idunico:"9618994882330300"},mapcitypopup.mapconfig.markers,false),'9618994882330300','14644', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(689,new google.maps.LatLng(25.780325698191074,-80.18950939178467),'Freedom Tower','ezmapas/maps_pics/basic/6.png',{category:[5,1,2,3],planid:"82",planname:"Area C",idunico:"6600749406497926"},mapcitypopup.mapconfig.markers,false),'6600749406497926','689', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(691,new google.maps.LatLng(25.775900285126518,-80.19155725836754),'Gesu Catholic Church','ezmapas/maps_pics/basic/7.png',{category:[5,7,1],planid:"82",planname:"Area C",idunico:"18551053856499492"},mapcitypopup.mapconfig.markers,false),'18551053856499492','691', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(14649,new google.maps.LatLng(25.76571,-80.189148),'Great White Catamaran Sunset Cruise','ezmapas/maps_pics/basic/8.png',{category:[25],planid:"82",planname:"Area C",idunico:"6249331843573600"},mapcitypopup.mapconfig.markers,false),'6249331843573600','14649', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(697,new google.maps.LatLng(25.7745917707524,-80.19677214324474),'History Miami','ezmapas/maps_pics/basic/8.png',{category:[1,2,3],planid:"82",planname:"Area C",idunico:"4191258633509279"},mapcitypopup.mapconfig.markers,false),'4191258633509279','697', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(687,new google.maps.LatLng(25.783728727946304,-80.17383724451065),'Ichimura Japanese Garden','ezmapas/maps_pics/basic/9.png',{category:[5,7,1,2],planid:"82",planname:"Area C",idunico:"13921596372965724"},mapcitypopup.mapconfig.markers,false),'13921596372965724','687', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(686,new google.maps.LatLng(25.786195199307848,-80.1750985532999),'Jungle Island','ezmapas/maps_pics/basic/10.png',{category:[1,2,3],planid:"82",planname:"Area C",idunico:"4683346839156002"},mapcitypopup.mapconfig.markers,false),'4683346839156002','686', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18934,new google.maps.LatLng(25.785099331583393,-80.17482697963709),'Jungle Island Miami','ezmapas/maps_pics/basic/1.png',{category:[9],planid:"82",planname:"Area C",idunico:"7525472624693066"},mapcitypopup.mapconfig.markers,false),'7525472624693066','18934', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36511,new google.maps.LatLng(25.810328,-80.199059),'Lost and Found Saloon','ezmapas/maps_pics/basic/9.png',{category:[25],planid:"82",planname:"Area C",idunico:"12953859687803046"},mapcitypopup.mapconfig.markers,false),'12953859687803046','36511', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(5431,new google.maps.LatLng(25.764971,-80.193924),'Mary Brickell Village','ezmapas/maps_pics/basic/11.png',{category:[5,7,1],planid:"82",planname:"Area C",idunico:"0201302230225756698"},mapcitypopup.mapconfig.markers,false),'0201302230225756698','5431', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(696,new google.maps.LatLng(25.775862847444646,-80.19609153270721),'Metromover ','ezmapas/maps_pics/basic/12.png',{category:[5,7,1,2],planid:"82",planname:"Area C",idunico:"10335193399805574"},mapcitypopup.mapconfig.markers,false),'10335193399805574','696', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(698,new google.maps.LatLng(25.774291661821923,-80.19697599112988),'Miami Art Museum','ezmapas/maps_pics/basic/13.png',{category:[1,3],planid:"82",planname:"Area C",idunico:"8171133270952850"},mapcitypopup.mapconfig.markers,false),'8171133270952850','698', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18909,new google.maps.LatLng(25.808173812164636,-80.19502401351929),'Miami Art Tour: Design District Midtown and Wynwood','ezmapas/maps_pics/basic/3.png',{category:[10],planid:"82",planname:"Area C",idunico:"12388994402717800"},mapcitypopup.mapconfig.markers,false),'12388994402717800','18909', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(685,new google.maps.LatLng(25.784587319390734,-80.17659991979599),'Miami Children\'s Museum','ezmapas/maps_pics/basic/14.png',{category:[1,2,3],planid:"82",planname:"Area C",idunico:"9775059395469726"},mapcitypopup.mapconfig.markers,false),'9775059395469726','685', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18913,new google.maps.LatLng(25.777851255071326,-80.18613517284388),'Miami Dance Cruise','ezmapas/maps_pics/basic/2.png',{category:[9],planid:"82",planname:"Area C",idunico:"13190792324021460"},mapcitypopup.mapconfig.markers,false),'13190792324021460','18913', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18917,new google.maps.LatLng(25.77806138548215,-80.1875513792038),'Miami Hop-On Hop-Off Tour with Optional Biscayne Bay Cruise','ezmapas/maps_pics/basic/4.png',{category:[10],planid:"82",planname:"Area C",idunico:"12877096007578076"},mapcitypopup.mapconfig.markers,false),'12877096007578076','18917', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36514,new google.maps.LatLng(25.766182,-80.192292),'Ocean Pizza & Juice','ezmapas/maps_pics/basic/10.png',{category:[25],planid:"82",planname:"Area C",idunico:"9529827170247520"},mapcitypopup.mapconfig.markers,false),'9529827170247520','36514', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(14688,new google.maps.LatLng(25.773411,-80.189941),'Ozzi Sushi Bar','ezmapas/maps_pics/basic/11.png',{category:[25],planid:"82",planname:"Area C",idunico:"14074395180214196"},mapcitypopup.mapconfig.markers,false),'14074395180214196','14688', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36522,new google.maps.LatLng(25.806369,-80.193317),'Ricky Bakery','ezmapas/maps_pics/basic/12.png',{category:[25],planid:"82",planname:"Area C",idunico:"3670293200147099"},mapcitypopup.mapconfig.markers,false),'3670293200147099','36522', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(14689,new google.maps.LatLng(25.773249,-80.188944),'Spoon','ezmapas/maps_pics/basic/13.png',{category:[25],planid:"82",planname:"Area C",idunico:"3930173716507852"},mapcitypopup.mapconfig.markers,false),'3930173716507852','14689', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36517,new google.maps.LatLng(25.765241,-80.19351),'Tapas Xperience','ezmapas/maps_pics/basic/14.png',{category:[25],planid:"82",planname:"Area C",idunico:"6239054245163698"},mapcitypopup.mapconfig.markers,false),'6239054245163698','36517', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(14669,new google.maps.LatLng(25.791559,-80.187019),'Tony Chans Water Club','ezmapas/maps_pics/basic/15.png',{category:[25],planid:"82",planname:"Area C",idunico:"11539025604724884"},mapcitypopup.mapconfig.markers,false),'11539025604724884','14669', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(684,new google.maps.LatLng(25.79034732910909,-80.18665887415409),'Trinity Cathedral','ezmapas/maps_pics/basic/15.png',{category:[5,7,1],planid:"82",planname:"Area C",idunico:"6672027413733304"},mapcitypopup.mapconfig.markers,false),'6672027413733304','684', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(11484,new google.maps.LatLng(25.7768182,-80.1849145),'Water Taxi Miami ','ezmapas/maps_pics/basic/3.png',{category:[9],planid:"82",planname:"Area C",idunico:"5918643802870065"},mapcitypopup.mapconfig.markers,false),'5918643802870065','11484', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(24070,new google.maps.LatLng(25.7821568,-80.1897572),'Wine by the Bay ','ezmapas/maps_pics/basic/4.png',{category:[9],planid:"82",planname:"Area C",idunico:"10384634633082896"},mapcitypopup.mapconfig.markers,false),'10384634633082896','24070', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18956,new google.maps.LatLng(25.784696001408875,-80.26325941085815),'1-Day Admission to Disney World Theme Park with Transportation ','ezmapas/maps_pics/basic/1.png',{category:[9],planid:"83",planname:"Area D",idunico:"10106082973070442"},mapcitypopup.mapconfig.markers,false),'10106082973070442','18956', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(14634,new google.maps.LatLng(25.784972,-80.28763),'94th Aero Squadron Restaurant','ezmapas/maps_pics/basic/1.png',{category:[25],planid:"83",planname:"Area D",idunico:"8681517778895795"},mapcitypopup.mapconfig.markers,false),'8681517778895795','14634', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(700,new google.maps.LatLng(25.76575393926225,-80.21643675863743),'Bay of Pigs Invasion','ezmapas/maps_pics/basic/1.png',{category:[5,7,1],planid:"83",planname:"Area D",idunico:"7289675462525338"},mapcitypopup.mapconfig.markers,false),'7289675462525338','700', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(705,new google.maps.LatLng(25.76498307741489,-80.22503659129143),'Bay of Pigs Museum','ezmapas/maps_pics/basic/2.png',{category:[5,7,1],planid:"83",planname:"Area D",idunico:"9661045952234416"},mapcitypopup.mapconfig.markers,false),'9661045952234416','705', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36505,new google.maps.LatLng(25.733818,-80.287732),'Beehive Juice Bar','ezmapas/maps_pics/basic/2.png',{category:[25],planid:"83",planname:"Area D",idunico:"12910160894145168"},mapcitypopup.mapconfig.markers,false),'12910160894145168','36505', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(711,new google.maps.LatLng(25.74132215969551,-80.27932852506638),'Biltmore Hotel','ezmapas/maps_pics/basic/3.png',{category:[5,7,1],planid:"83",planname:"Area D",idunico:"9498605651315302"},mapcitypopup.mapconfig.markers,false),'9498605651315302','711', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36498,new google.maps.LatLng(25.764614,-80.257428),'Caffe Italia','ezmapas/maps_pics/basic/3.png',{category:[25],planid:"83",planname:"Area D",idunico:"14932357539980392"},mapcitypopup.mapconfig.markers,false),'14932357539980392','36498', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(5440,new google.maps.LatLng(25.765518121892125,-80.22658824920654),'Calle 8','ezmapas/maps_pics/basic/4.png',{category:[5,1,2,3],planid:"83",planname:"Area D",idunico:"9609607155434788"},mapcitypopup.mapconfig.markers,false),'9609607155434788','5440', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(706,new google.maps.LatLng(25.765552543406844,-80.22561594843864),'Carnaval Calle Ocho','ezmapas/maps_pics/basic/5.png',{category:[5,1,2,3],planid:"83",planname:"Area D",idunico:"13902121740393340"},mapcitypopup.mapconfig.markers,false),'13902121740393340','706', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(710,new google.maps.LatLng(25.74250782413346,-80.2784876525402),'Congregational Church','ezmapas/maps_pics/basic/6.png',{category:[5,7,1],planid:"83",planname:"Area D",idunico:"6078564848285169"},mapcitypopup.mapconfig.markers,false),'6078564848285169','710', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(707,new google.maps.LatLng(25.75045261820755,-80.26040621101856),'Coral Gables Museum','ezmapas/maps_pics/basic/7.png',{category:[7,1,2],planid:"83",planname:"Area D",idunico:"10256756539456546"},mapcitypopup.mapconfig.markers,false),'10256756539456546','707', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18724,new google.maps.LatLng(25.7657492,-80.2187896),'Cubaocho Art and Research Center ','ezmapas/maps_pics/basic/4.png',{category:[25],planid:"83",planname:"Area D",idunico:"4134238320402801"},mapcitypopup.mapconfig.markers,false),'4134238320402801','18724', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(37370,new google.maps.LatLng(25.775489,-80.368836),'Date Aqui Venezuelan Restaurant','ezmapas/maps_pics/basic/5.png',{category:[25],planid:"83",planname:"Area D",idunico:"14175687987167472"},mapcitypopup.mapconfig.markers,false),'14175687987167472','37370', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(37371,new google.maps.LatLng(25.775489,-80.368836),'Date Aqui Venezuelan Restaurant','ezmapas/maps_pics/basic/6.png',{category:[25],planid:"83",planname:"Area D",idunico:"11437651122777070"},mapcitypopup.mapconfig.markers,false),'11437651122777070','37371', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36509,new google.maps.LatLng(25.773226,-80.213416),'El Patio Bistro Cafe','ezmapas/maps_pics/basic/7.png',{category:[25],planid:"83",planname:"Area D",idunico:"12936316232960336"},mapcitypopup.mapconfig.markers,false),'12936316232960336','36509', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36521,new google.maps.LatLng(25.809449,-80.315014),'El Pollo Inka','ezmapas/maps_pics/basic/8.png',{category:[25],planid:"83",planname:"Area D",idunico:"15364425376092712"},mapcitypopup.mapconfig.markers,false),'15364425376092712','36521', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(16709,new google.maps.LatLng(25.704024,-80.289857),'EMPIRE LOUNGE AND PIZZERIA','ezmapas/maps_pics/basic/9.png',{category:[25],planid:"83",planname:"Area D",idunico:"8282058951444924"},mapcitypopup.mapconfig.markers,false),'8282058951444924','16709', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(713,new google.maps.LatLng(25.753633044432416,-80.37301607429981),'Frost Art Museum','ezmapas/maps_pics/basic/8.png',{category:[5,7,1],planid:"83",planname:"Area D",idunico:"13155697486363352"},mapcitypopup.mapconfig.markers,false),'13155697486363352','713', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(715,new google.maps.LatLng(25.75915570717429,-80.58090202510357),'Gator Park','ezmapas/maps_pics/basic/9.png',{category:[1,2,3],planid:"83",planname:"Area D",idunico:"14748989902436734"},mapcitypopup.mapconfig.markers,false),'14748989902436734','715', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18955,new google.maps.LatLng(25.782024810063245,-80.26486873626709),'Key West Sail and Snorkel Trip from Miami','ezmapas/maps_pics/basic/2.png',{category:[9],planid:"83",planname:"Area D",idunico:"4815852311439812"},mapcitypopup.mapconfig.markers,false),'4815852311439812','18955', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36499,new google.maps.LatLng(25.76461,-80.25754),'La Vie en Raw','ezmapas/maps_pics/basic/10.png',{category:[25],planid:"83",planname:"Area D",idunico:"13081237276337264"},mapcitypopup.mapconfig.markers,false),'13081237276337264','36499', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(21351,new google.maps.LatLng(25.7851176,-80.3416431),'Laserland and Adventure ','ezmapas/maps_pics/basic/3.png',{category:[9],planid:"83",planname:"Area D",idunico:"14605281460098922"},mapcitypopup.mapconfig.markers,false),'14605281460098922','21351', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18960,new google.maps.LatLng(25.765582737709796,-80.22178709506989),'Little Havana Food and Walking Tour in Miami','ezmapas/maps_pics/basic/1.png',{category:[10],planid:"83",planname:"Area D",idunico:"5683630132116378"},mapcitypopup.mapconfig.markers,false),'5683630132116378','18960', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(14655,new google.maps.LatLng(25.765582,-80.224134),'Los Primos Dominican and Latin Cuisine','ezmapas/maps_pics/basic/11.png',{category:[25],planid:"83",planname:"Area D",idunico:"10992606412619352"},mapcitypopup.mapconfig.markers,false),'10992606412619352','14655', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(712,new google.maps.LatLng(25.719107640292126,-80.27588725090027),'Lowe Art Museum','ezmapas/maps_pics/basic/10.png',{category:[1,3],planid:"83",planname:"Area D",idunico:"8176410770975054"},mapcitypopup.mapconfig.markers,false),'8176410770975054','712', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36513,new google.maps.LatLng(25.768234,-80.222636),'Marlins Cafe and Sports Grill','ezmapas/maps_pics/basic/12.png',{category:[25],planid:"83",planname:"Area D",idunico:"10647516676374892"},mapcitypopup.mapconfig.markers,false),'10647516676374892','36513', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(702,new google.maps.LatLng(25.76559360765696,-80.21932482719421),'Maximo Gomez Park','ezmapas/maps_pics/basic/11.png',{category:[5,7,1],planid:"83",planname:"Area D",idunico:"11164247998967768"},mapcitypopup.mapconfig.markers,false),'11164247998967768','702', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(37731,new google.maps.LatLng(25.786574373220347,-80.22904079407454),'Miami Everglades Airboat Adventure with Biscayne Bay Cruise','ezmapas/maps_pics/basic/2.png',{category:[10],planid:"83",planname:"Area D",idunico:"12290521279628800"},mapcitypopup.mapconfig.markers,false),'12290521279628800','37731', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36251,new google.maps.LatLng(25.705303075,-80.2882136875),'Miami Golf ','ezmapas/maps_pics/basic/4.png',{category:[9],planid:"83",planname:"Area D",idunico:"5311681281260436"},mapcitypopup.mapconfig.markers,false),'5311681281260436','36251', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(33024,new google.maps.LatLng(25.83203324251533,-80.33958435058594),'Miami Lights Evening Air Tour','ezmapas/maps_pics/basic/5.png',{category:[9],planid:"83",planname:"Area D",idunico:"13719233348965644"},mapcitypopup.mapconfig.markers,false),'13719233348965644','33024', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(37730,new google.maps.LatLng(25.77538642171926,-80.21740067750216),'Miami Seaquarium with Transport ','ezmapas/maps_pics/basic/6.png',{category:[9],planid:"83",planname:"Area D",idunico:"4063383444237920"},mapcitypopup.mapconfig.markers,false),'4063383444237920','37730', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(14686,new google.maps.LatLng(25.78276,-80.376816),'Mojitos','ezmapas/maps_pics/basic/13.png',{category:[25],planid:"83",planname:"Area D",idunico:"9644635242875666"},mapcitypopup.mapconfig.markers,false),'9644635242875666','14686', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36500,new google.maps.LatLng(25.76109,-80.259038),'Mylos Restaurant and Lounge','ezmapas/maps_pics/basic/14.png',{category:[25],planid:"83",planname:"Area D",idunico:"10964361769856912"},mapcitypopup.mapconfig.markers,false),'10964361769856912','36500', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(14687,new google.maps.LatLng(25.70432,-80.28818),'Old Lisbon@ Sunset','ezmapas/maps_pics/basic/15.png',{category:[25],planid:"83",planname:"Area D",idunico:"9551619722042234"},mapcitypopup.mapconfig.markers,false),'9551619722042234','14687', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36515,new google.maps.LatLng(25.768523,-80.214806),'Piccolinos Cafe','ezmapas/maps_pics/basic/16.png',{category:[25],planid:"83",planname:"Area D",idunico:"5011357280726028"},mapcitypopup.mapconfig.markers,false),'5011357280726028','36515', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36774,new google.maps.LatLng(25.7527848,-80.2576647),'Siga La Vaca','ezmapas/maps_pics/basic/17.png',{category:[25],planid:"83",planname:"Area D",idunico:"7252385751022762"},mapcitypopup.mapconfig.markers,false),'7252385751022762','36774', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36501,new google.maps.LatLng(25.74963,-80.260132),'The Dome Restaurant Bar & Lounge','ezmapas/maps_pics/basic/18.png',{category:[25],planid:"83",planname:"Area D",idunico:"12629547474842492"},mapcitypopup.mapconfig.markers,false),'12629547474842492','36501', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(37190,new google.maps.LatLng(25.76449,-80.240536),'The Place Of Miami','ezmapas/maps_pics/basic/19.png',{category:[25],planid:"83",planname:"Area D",idunico:"6446312422020430"},mapcitypopup.mapconfig.markers,false),'6446312422020430','37190', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(703,new google.maps.LatLng(25.765499401414996,-80.21965742111206),'Tower Theater','ezmapas/maps_pics/basic/12.png',{category:[7,1],planid:"83",planname:"Area D",idunico:"8214102331548929"},mapcitypopup.mapconfig.markers,false),'8214102331548929','703', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36502,new google.maps.LatLng(25.752265,-80.255696),'Two Sisters Restaurant','ezmapas/maps_pics/basic/20.png',{category:[25],planid:"83",planname:"Area D",idunico:"9222057062217248"},mapcitypopup.mapconfig.markers,false),'9222057062217248','36502', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(709,new google.maps.LatLng(25.7456929929643,-80.27323320508003),'Venetian Pool','ezmapas/maps_pics/basic/13.png',{category:[7,1,2],planid:"83",planname:"Area D",idunico:"6912223580293358"},mapcitypopup.mapconfig.markers,false),'6912223580293358','709', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(37677,new google.maps.LatLng(25.790064,-80.239769),'Via del Rio Tavern and Billiards','ezmapas/maps_pics/basic/21.png',{category:[25],planid:"83",planname:"Area D",idunico:"10723884502806532"},mapcitypopup.mapconfig.markers,false),'10723884502806532','37677', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(701,new google.maps.LatLng(25.76559360765696,-80.21868914365768),'Walking of Stars','ezmapas/maps_pics/basic/14.png',{category:[5,7,1],planid:"83",planname:"Area D",idunico:"13031536010093988"},mapcitypopup.mapconfig.markers,false),'13031536010093988','701', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36504,new google.maps.LatLng(25.689277,-80.164488),'Archies Pizza Cafe','ezmapas/maps_pics/basic/1.png',{category:[25],planid:"84",planname:"Area E",idunico:"7106192054316314"},mapcitypopup.mapconfig.markers,false),'7106192054316314','36504', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(724,new google.maps.LatLng(25.674170287379102,-80.15820868313313),'Bill Cape Park','ezmapas/maps_pics/basic/1.png',{category:[1,2,3],planid:"84",planname:"Area E",idunico:"7005433549638838"},mapcitypopup.mapconfig.markers,false),'7005433549638838','724', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(5438,new google.maps.LatLng(25.715361,-80.151711),'Biscayne Nature Center','ezmapas/maps_pics/basic/2.png',{category:[7,1,2],planid:"84",planname:"Area E",idunico:"0201302230212920111"},mapcitypopup.mapconfig.markers,false),'0201302230212920111','5438', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36518,new google.maps.LatLng(25.730142,-80.238218),'Bizcaya  The RitzCarlton Coconut Grove Miami','ezmapas/maps_pics/basic/2.png',{category:[25],planid:"84",planname:"Area E",idunico:"6258727212128993"},mapcitypopup.mapconfig.markers,false),'6258727212128993','36518', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36506,new google.maps.LatLng(25.750959,-80.224015),'Bocaito Spanish Cuisine','ezmapas/maps_pics/basic/3.png',{category:[25],planid:"84",planname:"Area E",idunico:"14218277026392222"},mapcitypopup.mapconfig.markers,false),'14218277026392222','36506', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18918,new google.maps.LatLng(25.742548896352318,-80.17107725143433),'Catamaran Sailing Lesson or Boat Rental in Biscayne Bay','ezmapas/maps_pics/basic/1.png',{category:[9],planid:"84",planname:"Area E",idunico:"15360572407953440"},mapcitypopup.mapconfig.markers,false),'15360572407953440','18918', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(717,new google.maps.LatLng(25.72720985149638,-80.24429351091385),'Coconut Grove','ezmapas/maps_pics/basic/3.png',{category:[5,1,2,3],planid:"84",planname:"Area E",idunico:"13512498862110078"},mapcitypopup.mapconfig.markers,false),'13512498862110078','717', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(718,new google.maps.LatLng(25.72870433865225,-80.24206526577473),'Cocowalk','ezmapas/maps_pics/basic/4.png',{category:[5,1,2,3],planid:"84",planname:"Area E",idunico:"12379895460326224"},mapcitypopup.mapconfig.markers,false),'12379895460326224','718', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(723,new google.maps.LatLng(25.707390717050316,-80.15544533729553),'Crandon Park','ezmapas/maps_pics/basic/5.png',{category:[1,2,3],planid:"84",planname:"Area E",idunico:"9666033897083254"},mapcitypopup.mapconfig.markers,false),'9666033897083254','723', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36508,new google.maps.LatLng(25.750978,-80.215666),'Doggis Churrasqueria and Arepa Bar','ezmapas/maps_pics/basic/4.png',{category:[25],planid:"84",planname:"Area E",idunico:"16261710495855664"},mapcitypopup.mapconfig.markers,false),'16261710495855664','36508', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18919,new google.maps.LatLng(25.73367938365435,-80.16369044780731),'General Admission to the Miami Seaquarium','ezmapas/maps_pics/basic/2.png',{category:[9],planid:"84",planname:"Area E",idunico:"11345040220767260"},mapcitypopup.mapconfig.markers,false),'11345040220767260','18919', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36497,new google.maps.LatLng(25.73562,-80.219261),'Gibraltar','ezmapas/maps_pics/basic/5.png',{category:[25],planid:"84",planname:"Area E",idunico:"16611909656801136"},mapcitypopup.mapconfig.markers,false),'16611909656801136','36497', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18921,new google.maps.LatLng(25.72779218421437,-80.23338228464127),'Kayak and Paddleboard Rental in Coconut Grove','ezmapas/maps_pics/basic/3.png',{category:[9],planid:"84",planname:"Area E",idunico:"12035703160800040"},mapcitypopup.mapconfig.markers,false),'12035703160800040','18921', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(725,new google.maps.LatLng(25.734303967843395,-80.22983707487583),'Kennedy Park','ezmapas/maps_pics/basic/6.png',{category:[5,7,1,2],planid:"84",planname:"Area E",idunico:"11908760303631424"},mapcitypopup.mapconfig.markers,false),'11908760303631424','725', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(721,new google.maps.LatLng(25.739652062108448,-80.16977906227112),'Key Biscayne Beaches','ezmapas/maps_pics/basic/7.png',{category:[5,7,1,2],planid:"84",planname:"Area E",idunico:"10072392041329294"},mapcitypopup.mapconfig.markers,false),'10072392041329294','721', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18920,new google.maps.LatLng(25.72803623151784,-80.23341447114944),'Miami Flyboard Experience','ezmapas/maps_pics/basic/4.png',{category:[9],planid:"84",planname:"Area E",idunico:"10792943742126226"},mapcitypopup.mapconfig.markers,false),'10792943742126226','18920', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18953,new google.maps.LatLng(25.746590816442716,-80.17708539962769),'Miami Seaplane Tour','ezmapas/maps_pics/basic/1.png',{category:[10],planid:"84",planname:"Area E",idunico:"5016152195166796"},mapcitypopup.mapconfig.markers,false),'5016152195166796','18953', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(722,new google.maps.LatLng(25.734407863540977,-80.16480557620525),'Miami Seaquarium','ezmapas/maps_pics/basic/8.png',{category:[1,2,3],planid:"84",planname:"Area E",idunico:"8828198069240898"},mapcitypopup.mapconfig.markers,false),'8828198069240898','722', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(5433,new google.maps.LatLng(25.725462,-80.240044),'Peacock Park','ezmapas/maps_pics/basic/9.png',{category:[5,7,1,2],planid:"84",planname:"Area E",idunico:"0201302230292106734"},mapcitypopup.mapconfig.markers,false),'0201302230292106734','5433', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(32875,new google.maps.LatLng(25.7318946,-80.2328414),'Relentless Watersports ','ezmapas/maps_pics/basic/5.png',{category:[9],planid:"84",planname:"Area E",idunico:"11647225280757992"},mapcitypopup.mapconfig.markers,false),'11647225280757992','32875', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(23941,new google.maps.LatLng(25.728453,-80.23325),'Sailing on Biscayne Bay ','ezmapas/maps_pics/basic/6.png',{category:[9],planid:"84",planname:"Area E",idunico:"9817524468526244"},mapcitypopup.mapconfig.markers,false),'9817524468526244','23941', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(720,new google.maps.LatLng(25.74787548041708,-80.2120553702116),'Science and Planetarium','ezmapas/maps_pics/basic/10.png',{category:[1,2,3],planid:"84",planname:"Area E",idunico:"9194623017683626"},mapcitypopup.mapconfig.markers,false),'9194623017683626','720', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(10002,new google.maps.LatLng(25.7274785,-80.2427637),'Siam Oishi ','ezmapas/maps_pics/basic/6.png',{category:[25],planid:"84",planname:"Area E",idunico:"9736108731012792"},mapcitypopup.mapconfig.markers,false),'9736108731012792','10002', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18650,new google.maps.LatLng(25.732009782728813,-80.1665711402893),'Swim with the Seals at the Miami Seaquarium','ezmapas/maps_pics/basic/7.png',{category:[9],planid:"84",planname:"Area E",idunico:"9519928211811930"},mapcitypopup.mapconfig.markers,false),'9519928211811930','18650', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(716,new google.maps.LatLng(25.72625932614593,-80.24380803108215),'The Barnacle','ezmapas/maps_pics/basic/11.png',{category:[1,2,3],planid:"84",planname:"Area E",idunico:"5526303031947464"},mapcitypopup.mapconfig.markers,false),'5526303031947464','716', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(719,new google.maps.LatLng(25.744786102825316,-80.21034277975559),'Vizcaya Museum & Gardens','ezmapas/maps_pics/basic/12.png',{category:[1,2,3],planid:"84",planname:"Area E",idunico:"12491940942127258"},mapcitypopup.mapconfig.markers,false),'12491940942127258','719', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18952,new google.maps.LatLng(25.74525963140716,-80.21290898323059),'Vizcaya Museum and Gardens with Transportation','ezmapas/maps_pics/basic/8.png',{category:[9],planid:"84",planname:"Area E",idunico:"6937734484672546"},mapcitypopup.mapconfig.markers,false),'6937734484672546','18952', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(37040,new google.maps.LatLng(25.7354627,-80.1587133),'X-Rated Run ','ezmapas/maps_pics/basic/9.png',{category:[9],planid:"84",planname:"Area E",idunico:"7419843295102846"},mapcitypopup.mapconfig.markers,false),'7419843295102846','37040', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(16708,new google.maps.LatLng(25.656269,-80.414037),'Alhambra Restaurant','ezmapas/maps_pics/basic/2.png',{category:[25],planid:"85",planname:"Area F",idunico:"11974428601097316"},mapcitypopup.mapconfig.markers,false),'11974428601097316','16708', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(14659,new google.maps.LatLng(25.656269,-80.414037),'Alhambra Restaurant','ezmapas/maps_pics/basic/1.png',{category:[25],planid:"85",planname:"Area F",idunico:"3316523854155094"},mapcitypopup.mapconfig.markers,false),'3316523854155094','14659', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(14636,new google.maps.LatLng(25.611685,-80.3467),'Asian Fusion Cafe','ezmapas/maps_pics/basic/3.png',{category:[25],planid:"85",planname:"Area F",idunico:"10665054619312286"},mapcitypopup.mapconfig.markers,false),'10665054619312286','14636', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(733,new google.maps.LatLng(25.558620941874324,-80.39035052061081),'Cauley Square','ezmapas/maps_pics/basic/1.png',{category:[5,7,1,2],planid:"85",planname:"Area F",idunico:"11628160197287798"},mapcitypopup.mapconfig.markers,false),'11628160197287798','733', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(734,new google.maps.LatLng(25.500721045147763,-80.4442998021841),'Coral Castle','ezmapas/maps_pics/basic/2.png',{category:[1,2,3],planid:"85",planname:"Area F",idunico:"8518947202246636"},mapcitypopup.mapconfig.markers,false),'8518947202246636','734', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(729,new google.maps.LatLng(25.615335881734268,-80.30700087547302),'Deering Estate at Cutler','ezmapas/maps_pics/basic/3.png',{category:[7,1,2],planid:"85",planname:"Area F",idunico:"7205754194874317"},mapcitypopup.mapconfig.markers,false),'7205754194874317','729', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(736,new google.maps.LatLng(25.39330160550232,-80.500653013587),'Everglades Alligator Farm','ezmapas/maps_pics/basic/4.png',{category:[1,2,3],planid:"85",planname:"Area F",idunico:"10712910341098904"},mapcitypopup.mapconfig.markers,false),'10712910341098904','736', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(727,new google.maps.LatLng(25.67669886203818,-80.27185723185539),'Fairchild Botanic Garden','ezmapas/maps_pics/basic/5.png',{category:[1,2,3],planid:"85",planname:"Area F",idunico:"8054095136467367"},mapcitypopup.mapconfig.markers,false),'8054095136467367','727', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(21137,new google.maps.LatLng(25.5124238,-80.3917364),'Family Paintball Center ','ezmapas/maps_pics/basic/1.png',{category:[9],planid:"85",planname:"Area F",idunico:"5878401969093830"},mapcitypopup.mapconfig.markers,false),'5878401969093830','21137', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(731,new google.maps.LatLng(25.617133789810854,-80.40092848241329),'Gold Coast Railroad Museum','ezmapas/maps_pics/basic/6.png',{category:[7,1,2],planid:"85",planname:"Area F",idunico:"8299622077029198"},mapcitypopup.mapconfig.markers,false),'8299622077029198','731', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(735,new google.maps.LatLng(25.45195164822539,-80.40761187672615),'Homestead-Miami Speedway','ezmapas/maps_pics/basic/7.png',{category:[1,2,3],planid:"85",planname:"Area F",idunico:"6392775396816433"},mapcitypopup.mapconfig.markers,false),'6392775396816433','735', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36503,new google.maps.LatLng(25.510326,-80.434695),'Keg South Of Homestead','ezmapas/maps_pics/basic/4.png',{category:[25],planid:"85",planname:"Area F",idunico:"11836240155487676"},mapcitypopup.mapconfig.markers,false),'11836240155487676','36503', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36250,new google.maps.LatLng(25.0961225,-80.438774),'Key Largo Princess ','ezmapas/maps_pics/basic/2.png',{category:[9],planid:"85",planname:"Area F",idunico:"13533525239979000"},mapcitypopup.mapconfig.markers,false),'13533525239979000','36250', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(14629,new google.maps.LatLng(25.475699,-80.445562),'Le Monde des Crepes','ezmapas/maps_pics/basic/5.png',{category:[25],planid:"85",planname:"Area F",idunico:"4997495717834681"},mapcitypopup.mapconfig.markers,false),'4997495717834681','14629', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36512,new google.maps.LatLng(25.65587,-80.328438),'Malanga Cafe','ezmapas/maps_pics/basic/6.png',{category:[25],planid:"85",planname:"Area F",idunico:"1400200143693579"},mapcitypopup.mapconfig.markers,false),'1400200143693579','36512', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(726,new google.maps.LatLng(25.676826377169128,-80.2627994120121),'Matheson Hammock Park','ezmapas/maps_pics/basic/8.png',{category:[1,2,3],planid:"85",planname:"Area F",idunico:"8729481438640505"},mapcitypopup.mapconfig.markers,false),'8729481438640505','726', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(732,new google.maps.LatLng(25.649010042573874,-80.42952418327332),'Memorial Brigada 2506','ezmapas/maps_pics/basic/9.png',{category:[5,7,1],planid:"85",planname:"Area F",idunico:"17772925388999284"},mapcitypopup.mapconfig.markers,false),'17772925388999284','732', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18958,new google.maps.LatLng(25.451441536587378,-80.41269063949585),'Miami Exotic Auto Racing Experience','ezmapas/maps_pics/basic/3.png',{category:[9],planid:"85",planname:"Area F",idunico:"19029236889909950"},mapcitypopup.mapconfig.markers,false),'19029236889909950','18958', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(18961,new google.maps.LatLng(25.647348926084835,-80.41919231414795),'Miami Helicopter Tour','ezmapas/maps_pics/basic/2.png',{category:[10,10],planid:"85",planname:"Area F",idunico:"9560870716813952"},mapcitypopup.mapconfig.markers,false),'9560870716813952','18961', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(37043,new google.maps.LatLng(24.7188935,-81.0656959),'Old City Helicopters ','ezmapas/maps_pics/basic/4.png',{category:[9],planid:"85",planname:"Area F",idunico:"8542945333999928"},mapcitypopup.mapconfig.markers,false),'8542945333999928','37043', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(728,new google.maps.LatLng(25.669449009658265,-80.28562568128109),'Pinecrest Gardens','ezmapas/maps_pics/basic/10.png',{category:[7,1,2],planid:"85",planname:"Area F",idunico:"1958298694808036"},mapcitypopup.mapconfig.markers,false),'1958298694808036','728', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(14630,new google.maps.LatLng(25.477439,-80.477797),'Royal Palm Grill & Deli','ezmapas/maps_pics/basic/7.png',{category:[25],planid:"85",planname:"Area F",idunico:"3752513388171792"},mapcitypopup.mapconfig.markers,false),'3752513388171792','14630', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(36516,new google.maps.LatLng(25.575851,-80.366942),'Sals Italian Ristorante','ezmapas/maps_pics/basic/8.png',{category:[25],planid:"85",planname:"Area F",idunico:"14561591548603820"},mapcitypopup.mapconfig.markers,false),'14561591548603820','36516', 'mapcitypopup');	myezplan.maps.showInfoplaceMyezplanMarker(myezplan.maps.createMyezplanMarker(730,new google.maps.LatLng(25.609530815131876,-80.39648272097111),'Zoo Miami','ezmapas/maps_pics/basic/11.png',{category:[1,2,3],planid:"85",planname:"Area F",idunico:"6482993231620640"},mapcitypopup.mapconfig.markers,false),'6482993231620640','730', 'mapcitypopup');	mapcitypopup.mapconfig.canvasmap=$('#body_map_canvas').get([0]);myezplan.maps.initializeGoogleMap(mapcitypopup.mapconfig,mapcitypopup.callBackGoogleMapCityPopup);
+}); */
+$(window).load(function(e) {
+var _data = "ctid="+window.citid+"&plid="+window.plaid+"&action=getmapconfig";
+$.ajax({
+	type: "POST",
+	url: "http://myezplan.com/mobile/appdata/mappopup_maps.cfm",
+	async:false, 
+	cache:false,
+	data: _data,
+	error: function(xhr, ajaxOptions, thrownError){
+	      alert("nop");
+	},
+	success: function(data){
+		$("#mapconfig_div").html(data);
+	}
+});
+});
+</script>
+<script type="text/javascript">
+city_id_var=window.citid;
+function drawpoly(arg_map){
+personalplaces();
+google.maps.event.addListener(arg_map, 'click', function(event) {
+var conf=confirm('Do you want to create a personal place marker in map?');
+if (conf){
+	placeMarker(event.latLng);
+}else{return false;}
+});
+var _data = "ctid="+window.citid+"&plid="+window.plaid+"&action=getpolygon";
+	$.ajax({
+		type: "POST",
+		url: "http://myezplan.com/mobile/appdata/mappopup_maps.cfm",
+		async:false, 
+		cache:false,
+		data: _data,
+		error: function(xhr, ajaxOptions, thrownError){
+		      alert("nop");
+		},
+		success: function(data){
+			var obj = jQuery.parseJSON(data);
+			$.each(obj.DATA, function(index, el){
+				var triangleCoords = "triangleCoords"+el[1];
+			    var AreaPolygon = "AreaPolygon"+el[1];
+				triangleCoords = [];
+				AreaPolygon = new google.maps.Polygon({
+					paths: triangleCoords,
+					strokeColor: '#808080',
+					strokeOpacity: 0.8,
+					strokeWeight: 2,
+					fillColor: '#C0C0C0',
+					fillOpacity: 0.35,
+					map:arg_map
+				  });
+				var coors_p = el[4].split('*');
+				for (c=0;c<coors_p.length;c++){
+				var coors_=coors_p[c].replace('(','').replace(')','').split(',');
+				var latp=coors_[0];
+				var lngp=coors_[1];
+				var locat=new google.maps.LatLng(parseFloat(latp),parseFloat(lngp));
+				triangleCoords.push(locat);
+				AreaPolygon.setPath(triangleCoords);
+				var infowindowArea = "infowindowArea"+el[1];
+				}
+					infowindowArea = new google.maps.InfoWindow(
+							{ content: el[2],
+								size: new google.maps.Size(100,100)
+							});
+				var idNumber = el[1];
+				window["AreaPolygon4" + idNumber] = AreaPolygon;
+				google.maps.event.addListener(AreaPolygon, 'mouseover', function(e) {
+				var latLng = e.latLng;
+				this.setOptions({fillOpacity:0.1});
+				infowindowArea.setPosition(latLng);
+				infowindowArea.open(arg_map);
+				});
+				google.maps.event.addListener(AreaPolygon, 'mouseout', function() {
+				this.setOptions({fillOpacity:0.35});
+				infowindowArea.close();
+				});
+				AreaPolygon.setVisible(false);
+			});
+		}
+	});			
+}
+shpoly=false;
+function showhidepolygons(){
+if(shpoly){shpoly=false;}else{shpoly=true;}
+var _data = "ctid="+window.citid+"&plid="+window.plaid+"&action=getpolygon";
+	$.ajax({
+		type: "POST",
+		url: "http://myezplan.com/mobile/appdata/mappopup_maps.cfm",
+		async:false, 
+		cache:false,
+		data: _data,
+		error: function(xhr, ajaxOptions, thrownError){
+		      alert("We are sorry, still there are no areas in this city");
+		},
+		success: function(data){
+			var obj = jQuery.parseJSON(data);
+			$.each(obj.DATA, function(index, el){
+				var idNumber = el[1];
+				window["AreaPolygon4" + idNumber].setVisible(shpoly);
+		});
+	}
+});
+}
+</script>
+<script type="text/javascript">
+faqpage='mapcitypopup';
+
+personalmrks=[];
+		function placeMarker(location) {
+			var coopersonal=$.cookie("EZPERSONAL");
+			if(coopersonal && coopersonal!=''){
+				var coper=coopersonal.split('!');
+				if(coper.length >= 5){alert('You have reached the max(5) of personal points');return false;}
+				placesadded2.push(coper.length+1);
+				}else{placesadded2.push(1);}	
+			var clickedLocation = new google.maps.LatLng(location);
+			var usermarker = new google.maps.Marker({
+			  position: location,
+			  icon: 'ezmapas/maps_pics/basic/userplace.png', 
+			  map: mapcitypopup.mapconfig.google.map,
+			 draggable: true
+ 
+			});
+			var titulo=  prompt("Please enter Place name","");
+			var j = titulo || '';
+			usermarker.setTitle(j.toString());
+			personalmrks.push(usermarker);
+					var loads = $.cookie("EZMAPCITYPLACES");
+					if(!loads || loads==''){loads='';}
+					var div = '';
+					if(loads!=''){var div=','}
+					var loads=loads+div+personalmrks.length;
+					$.cookie("EZMAPCITYPLACES",loads);
+					updateMapCityCookie();
+			
+			var coopersonal=$.cookie("EZPERSONAL");
+			if(coopersonal && coopersonal!=''){
+				var newcookie_=coopersonal+'!'+titulo+'*'+location;
+				var newcookie=newcookie_.replace(/ /g,'')
+				$.cookie("EZPERSONAL",newcookie);
+			}else{
+				var newcookie_=titulo+'*'+location;
+				var newcookie=newcookie_.replace(/ /g,'')
+				$.cookie("EZPERSONAL",newcookie);
+				}
+			var userinfowindow = new google.maps.InfoWindow(
+			{ content: titulo+'<br/><input type="button" value="Delete" onclick="deletepersonal('+"'"+titulo+"'"+');"><br/><input type="button" value="Suggest" onclick="sugestplace('+"'"+titulo+"','"+location+"',"+city_id_var+');">',
+				size: new google.maps.Size(150,150)
+			});
+			google.maps.event.addListener(usermarker, 'click', function() {
+				userinfowindow.open(mapcitypopup.mapconfig.google.map,usermarker);
+			});
+			google.maps.event.addListener(usermarker, 'dragend', function() {
+				updatecoor(usermarker.getTitle(),usermarker.getPosition());
+			});
+		}
+		function placeMarker2(title,pos) {
+			var usermarker = new google.maps.Marker({
+			  position: pos,
+			  icon: 'ezmapas/maps_pics/basic/userplace.png', 
+			  map: mapcitypopup.mapconfig.google.map,
+			  title:title,
+			 draggable: true
+ 
+			});
+			personalmrks.push(usermarker);
+			var userinfowindow = new google.maps.InfoWindow(
+			{ content: title+'<br/><input type="button" value="Delete" onclick="deletepersonal('+"'"+title+"'"+');"><br/><input type="button" value="Suggest" onclick="sugestplace('+"'"+title+"','"+pos+"',"+city_id_var+');">',
+				size: new google.maps.Size(150,150)
+			});
+			google.maps.event.addListener(usermarker, 'click', function() {
+				userinfowindow.open(mapcitypopup.mapconfig.google.map,usermarker);
+			});
+			google.maps.event.addListener(usermarker, 'dragend', function() {
+				updatecoor(usermarker.getTitle(),usermarker.getPosition());
+			});
+		}
+function updatecoor(titulo,coors){
+	var new_=titulo+'*'+coors;
+	var new__=new_.replace(/ /g,'')
+	var coopersonal=$.cookie("EZPERSONAL")
+	if(coopersonal && coopersonal!=''){
+	var coper=coopersonal.split('!');
+	var newcoo='';
+	for (co=0;co<coper.length;co++){
+	var coper_=coper[co].split('*');
+	var titulo2=coper_[0];
+if(newcoo==''){var div='';}else{var div='!';}
+	if(titulo2!=titulo){var newcoo=newcoo+div+coper[co];} 
+	else{var newcoo=newcoo+div+new__;}
+	}
+$.cookie("EZPERSONAL",newcoo)
+}
+	}
+function deletepersonal(titulo){
+	for(m=0;m<personalmrks.length;m++){
+			if(personalmrks[m].getTitle()==titulo){personalmrks[m].setMap(null);var idx=m;}
+		}
+personalmrks.splice(idx,1);
+for(z=0;z<placesadded2.length;z++){
+if(placesadded2[z]==idx+1){placetodel=z;}
+if(placesadded2[z]>idx+1){placesadded2[z]=placesadded2[z]-1}
+}
+placesadded2.splice(placetodel,1);
+var coopersonal=$.cookie("EZPERSONAL")
+			if(coopersonal && coopersonal!=''){
+				var coper=coopersonal.split('!');
+				var newcoo='';
+				for (co=0;co<coper.length;co++){
+					var coper_=coper[co].split('*');
+					var titulo2=coper_[0];
+					if(titulo2!=titulo){
+						if(newcoo==''){var div='';}else{var div='!';}
+						var newcoo=newcoo+div+coper[co];
+						} 
+				}
+			}
+$.cookie("EZPERSONAL",newcoo)
+var loads = $.cookie("EZMAPCITYPLACES");
+var loads_= loads.split(',')
+var newcookie=''
+					for(x=0;x<=(loads_.length-1);x++){
+					if(loads_[x]!=idx+1){
+					var div = ',';
+					if(newcookie==''){var div=''}
+						if(loads_[x]<6 && loads_[x]>(idx+1)){var esteid=loads_[x]-1;}
+						else{esteid=loads_[x];}
+						newcookie=newcookie+div+esteid;
+					}
+					}
+					//alert(newcookie);
+					$.cookie("EZMAPCITYPLACES",newcookie);
+					updateMapCityCookie();
+					placesdeleted.push(idx+1);
+}
+function personalplaces(){
+var coopersonal=$.cookie("EZPERSONAL")
+			if(coopersonal && coopersonal!=''){
+				var coper=coopersonal.split('!');
+				for (co=0;co<coper.length;co++){
+					var coper_=coper[co].split('*');
+					var titulo=coper_[0];
+					var mpos=coper_[1];
+					var mpos_=mpos.replace('(','').replace(')','').split(',')
+					var _mpos=new google.maps.LatLng(parseFloat(mpos_[0]),parseFloat(mpos_[1]));
+					placeMarker2(titulo,_mpos)
+					//alert(titulo+' '+_mpos);
+				}
+			}
+}
+ function preloader(){
+            document.getElementById("show_load").style.display = "none";
+            document.getElementById("roadmapplace-box").style.display = "block";
+        }//preloader
+        
+
+function range(start, stop, step){
+    if (typeof stop=='undefined'){
+        // one param defined
+        stop = start;
+        start = 0;
+    };
+    if (typeof step=='undefined'){
+        step = 1;
+    };
+    var result = [];
+    for (var i=start; step>0 ? i<stop : i>stop; i+=step){
+        result.push(i);
+    };
+    return result;
+};
+
+/*	$(window).scroll(function()
+{
+    $('#roadmapplace-box').stop().animate({ "marginTop": ($(window).scrollTop() - 1) + "px" }, "slow");
+});*/
+		/*$(function () {
+		var lightbox = $('#roadmapplace-box'),
+			center = function () {
+				var T = $(window).height() / 2 - lightbox.height() / 2 + $(window).scrollTop(),
+					L = $(window).width() / 2 - lightbox.width() / 2;
+				lightbox.css({
+					top: T,
+					left: L
+				})
+			};
+		
+	
+		$(window).scroll(center);
+		$(window).resize(center);
+		
+	});*/
+		$(window).resize(function() {
+		mapcitypopup.mapconfig.setCenterByBounds();
+	});
+
+	function center_map(){
+			google.maps.event.trigger(mapcitypopup.mapconfig.google.map, 'resize');
+			mapcitypopup.mapconfig.setCenterByBounds();
+			setTimeout('mapcitypopup.mapconfig.setCenterByBounds()',500);
+			
+			}
+			
+	function back_again(){
+		if ($.cookie("page")==3){
+				 $("#button-show").trigger("click");
+				 $("#show_places").trigger("click");
+				}
+		if ($.cookie("page")==1){
+				 //$("#button-show").trigger("click");
+				 //$("#show_places").trigger("click");
+				}
+	}
+			
+    $(window).load(function(e) {
+		//alert("working funct");
+		/*$.cookie("page", "0");*/
+		$.cookie("mapplace", "0");
+		$('.map-top-button-hotdeal').click( function(e) {
+			e.stopPropagation();e.preventDefault();
+			if(mapcity.cityid!="0"){
+				var _url = "hotdeals.cfm?q=search&city="+mapcitypopup.cityid+"&#SearchResults";
+				window.top.location.href=_url;
+			}
+			return true;
+		});
+		
+		$(".squaredTwo").each(function() {
+			var mycookie = $.cookie($(this).attr('id'));
+			if (mycookie && mycookie == "true") {
+				/*$(this).prop('checked', mycookie);*/	
+				$(this).trigger("click");
+			}
+		});
+		$(".squaredTwo").click(function() {
+		//alert("square click");	
+			$.cookie($(this).attr("id"), $(this).prop('checked'), {
+				path: '/',
+				expires: 365
+			});
+		var cookieareas=$.cookie("EZAREAS");	
+		if(cookieareas && cookieareas!=''){var areas=cookieareas+'*';}else{var areas='';}
+			$.cookie("EZAREAS",areas+$(this).attr("id"), {
+				path: '/',
+				expires: 365
+			});
+		
+		 mapareas=0;
+		 document.getElementById('show_areasmap').style.backgroundColor="lightgray";
+		 $("#mapareas").hide();	
+		});
+		
+		$(".roundTwo").each(function() {
+			var mycookie = $.cookie($(this).attr('id'));
+			if (mycookie && mycookie == "true") {
+				/*$(this).prop('checked', mycookie);*/
+				//$(this).trigger("click");
+			}
+		});
+		$(".roundTwo").change(function() {
+var cookiecats=$.cookie("EZCATS");
+if(cookiecats && cookiecats!=''){
+	var cookie_c=cookiecats.split('*');
+	for(x=0;x<cookie_c.length;x++){
+		$.cookie(cookie_c[x],false, {
+				path: '/',
+				expires: -1
+			});
+		}
+$.cookie("EZCATS",'');
+	}
+			$.cookie($(this).attr("id"), $(this).prop('checked'), {
+				path: '/',
+				expires: 365
+			});
+		var cookiecats=$.cookie("EZCATS");	
+		if(cookiecats && cookiecats!=''){var cats=cookiecats+'*';}else{var cats='';}
+			$.cookie("EZCATS",cats+$(this).attr("id"), {
+				path: '/',
+				expires: 365
+			});
+		});
+		
+	
+		/*	$("#test").click(function(){
+				if ($.cookie("page")==3){
+			 
+				 $("#button-show").trigger("click");
+				 $("#show_places").trigger("click");
+				
+				 
+				}
+			});
+		*/
+		
+        /*$("#menu_plan").hide();*/
+		/*var boxes = 1,2,3;*/
+		
+/*		$(".hider").click(function()
+	{
+			 
+			 $('.'+$(this).attr('name')).toggle(250);   
+	});*/
+	
+			
+		 var pin = 0;
+		 
+		 $("#pin_img").click(function(){
+			 if (pin==0){
+				  pin = 1;
+				  /*document.getElementById('pin_img').src="images/pin_on.png";*/
+				  $("#pin_img").rotate(-90);
+			 }
+			 else{
+				pin = 0;	
+				/*document.getElementById('pin_img').src="images/pin_iz_off.png";*/ 
+				 $("#pin_img").rotate(-360);
+				 }
+			 });
+		 
+		 	
+	 	  $('.content').hide();
+		  $("#menu_plan").slideToggle(250);
+		  $('.hider').css("background-color", "lightgray")
+	      $('#show_areas').css("background-color", "#17375E")
+		
+
+         $(".hider").click(function(){
+    			$('.content').hide();
+				$('.hider').css("background-color", "lightgray")
+				$('.'+$(this).attr('name')).slideToggle(250); 
+				$(this).css("background-color", "#17375E");
+				/*("#body_map_canvas")[0].panToBounds(bounds);*/				
+        });
+		
+		
+		
+			$("#show_places").click(function(){
+				
+		 	 $("#show_box").slideToggle(250);
+			});
+
+		   $(".rotate").click(function(){
+				document.body.style.setProperty("-webkit-transform", "rotate(240deg)", null);
+		   });
+				
+		$(".next_categ").click(function(){
+			if(pin==0){
+			 $('.content').hide();
+			 $('.hider').css("background-color", "lightgray")
+		 	 $("#body_col2").slideToggle(250);
+			 $('#show_categ').css("background-color", "#17375E")
+			}
+			});
+			
+			
+		$(".next_area").click(function(){
+			 $('.content').hide();
+			 $('.hider').css("background-color", "lightgray")
+			 $("#body_col4").slideToggle(250);
+			 $("#show_box").slideToggle(250);
+			 $('#show_places').css("background-color", "#17375E")
+		 /*$("#menu_place").niceScroll({cursorborder:"",autohidemode:true,cursorcolor:"red",touchbehavior:true});*/
+			
+			});
+		
+		 /*  $("#show_categ").click(function(){
+    			$("#body_col2").toggle(250 );
+        });
+		   $("#show_places").click(function(){
+    			$("#body_col4").toggle(250 );
+        });*/
+		
+		  	$("#go_home").click(function(){
+    			window.location.href = "index.cfm";
+        });
+        
+        	$("#go_mapcity").click(function(){
+				//alert(document.cookie.indexOf("EZMAPCITYPLACES"));
+for(z=0;z<placesadded.length;z++){addToMapCityPopup_ajax2(placesadded[z],"mapcitypopup");}
+//if(placesadded.length>0){
+//addToMapCityPopup_ajax2(placesadded[0],"mapcitypopup");
+//}
+	var c_places=$.cookie("EZMAPCITYPLACES");
+	if(c_places==null){$.cookie("EZMAPCITYPLACES",'');}
+	var c_places=$.cookie("EZMAPCITYPLACES");
+	var coopersonal=$.cookie("EZPERSONAL");
+	if(coopersonal==null){$.cookie("EZPERSONAL",'');}
+	var coopersonal=$.cookie("EZPERSONAL");
+	if(c_places==''){alert("Please make a Selection");return false;}
+	var c_query =$.cookie("EZMAPCITYQUERY");
+	//alert(c_query);
+	if(!($.isEmptyObject(c_query))){
+	var _cookie_plse=decodeURIComponent(getUrlStringParamValue(c_query,"plse"));
+	var _cookie_sp=decodeURIComponent(getUrlStringParamValue(c_query,"sp"));
+	var _cookie_ep=decodeURIComponent(getUrlStringParamValue(c_query,"ep"));
+	if(!($.isEmptyObject(_cookie_plse))){
+		//alert('plse '+_cookie_plse+' added '+placesadded.join(',')+' deleted '+placesdeleted.join(','));
+		var newplse=''
+		var plse=_cookie_plse.split(',');
+		for(se=0;se<=(plse.length-1);se++){
+			var estad=0;
+			for(d=0;d<=(placesdeleted.length-1);d++){
+			if(plse[se]==placesdeleted[d]){
+			var estad=1;
+			}
+			}
+			if(estad!=1){
+			var div=','
+			if(newplse==''){div='';}
+			if(plse[se]!=''){var newplse=newplse+div+plse[se];}
+			}
+		}
+			if(newplse==''){var newplse=_cookie_plse;}
+			for(a=0;a<=(placesadded.length-1);a++){
+			if(plse.indexOf(placesadded[a])<0 && placesadded[a]!=''){
+			var div2=',';
+			if(newplse==''){var div2='';}
+			var newplse=newplse+div2+placesadded[a];
+			}
+			}
+			if(newplse==''){var newplse=_cookie_plse;}
+			var newplse2=''
+			for(d2=0;d2<placesdeleted.length;d2++){
+			var newplse_=newplse.split(',');
+			for(np=0;np<newplse_.length;np++){
+			var divis='';
+				if(newplse2!=''){var divis = ','}
+				if(newplse_[np]>placesdeleted[d2] && newplse_[np]<6){var esteid=newplse_[np]-1;}
+				else{var esteid=newplse_[np];}	
+			var newplse2=newplse2+divis+esteid;
+				}
+			}
+			var newplse=newplse2
+			if(newplse==''){var newplse=_cookie_plse;}
+			for(d3=0;d3<placesdeleted.length;d3++){
+				var newplse_=newplse.split(',');
+			if(_cookie_sp==placesdeleted[d3]){
+				var c_query=c_query.replace('sp='+_cookie_sp,'sp='+newplse_[0]);
+				}
+			if(_cookie_ep==placesdeleted[d3]){
+				var c_query=c_query.replace('ep='+_cookie_ep,'ep='+newplse_[newplse_.length-1]);
+				}
+			}
+			//alert(newplse);
+			if(placesadded2.length>0){
+						var div3=',';
+						if(newplse==''){var div3='';}
+						var newplse=newplse+div3+placesadded2.join(',');
+			}
+			//alert(newplse)
+var c_query=c_query.replace('plse='+_cookie_plse,'plse='+newplse);
+$.cookie("EZMAPCITYQUERY",c_query)
+	}else{
+		var newplse= placesadded.join(',');
+		var newplse=newplse+','+placesadded2.join(',');
+		var c_query=c_query.replace('plse='+_cookie_plse,'plse='+newplse);
+		$.cookie("EZMAPCITYQUERY",c_query)
+	}
+	}
+			//alert("They've been here before.");
+					window.location.href = "mapcity.html?ctid="+window.citid+"&plid="+window.plaid+"&cname="+window.cname;
+        });
+		
+         var mapAndplaces = 0
+		/* var selectAndall = 0*/
+		/* var divTochange = "button-show"
+		 var textToput = "All"*/
+         $(".places_changes").click(function(){
+	});
+	
+		$("#show_maps").click(function(){
+				   if (mapAndplaces==0){
+					   $('.content').hide();
+					   google.maps.event.trigger(mapcitypopup.mapconfig.google.map, 'resize');
+					   $("#body_map").toggle(250 );
+					   $("#show_box").slideToggle(250);
+					   $('#botones_mapa').show();
+					   setTimeout('center_map()',1000);
+					}
+				   else if(mapAndplaces==1){
+					  $('.content').hide();
+					  $("#body_map").hide( );
+					  $('#botones_mapa').hide();
+					  $("#show_box").slideToggle(250);
+					  $("#body_col4").slideToggle(250);
+				 } 	
+			});
+			
+		$(".map_changes").click(function(){
+			 if (mapAndplaces==0){
+			 	mapAndplaces=1;
+			 	document.getElementById('show_maps').style.backgroundColor="#17375E";
+			 }
+			 else if(mapAndplaces==1){
+				 mapAndplaces=0;
+				 document.getElementById('show_maps').style.backgroundColor="lightgray";		 
+			 } 	  
+	});
+mapareas=0;
+		$(".areasmap_show").click(function(){
+			 //alert('click');
+			 if (mapareas==0){
+			 	mapareas=1;
+			 	document.getElementById('show_areasmap').style.backgroundColor="#17375E";
+				$("#mapareas").toggle(250, function() {
+				google.maps.event.trigger(map_a, 'resize');
+				});
+				//$("#mapareas").slideToggle(250);
+				//google.maps.event.trigger(map_a, 'resize');
+				map_a.setCenter(MapAreaCenter);
+				polygonsel();
+			 }
+			 else if(mapareas==1){
+				 mapareas=0;
+				 document.getElementById('show_areasmap').style.backgroundColor="lightgray";
+				 $("#mapareas").hide();		 
+			 } 	  
+	});
+			setTimeout('back_again()',2500);
+			
+			if ($("#menu_plan li").size()>=4 && $("#menu_plan li").size()<=8 ){
+					$('#menu_plan ul').css("-webkit-column-count", "2")
+					$('#menu_plan ul').css("-moz-column-count", "2")
+					$('#menu_plan ul').css("column-count", "2")
+			}else if ($("#menu_plan li").size()<=3){
+					$('#menu_plan ul').css("-webkit-column-count", "1")
+					$('#menu_plan ul').css("-moz-column-count", "1")
+					$('#menu_plan ul').css("column-count", "1")
+					$('#areas_box').css("text-align", "center")					
+			}else{
+					$('#menu_plan ul').css("-webkit-column-count", "3")
+					$('#menu_plan ul').css("-moz-column-count", "3")
+					$('#menu_plan ul').css("column-count", "3")				
+			}
+			
+			// reset the width of t0categ class if not deals;
+			if (document.getElementById("t5categ")){
+			}
+			else{
+				$('.t0categ').css("width", "100%")			
+			}
+    });
+	//window.onload = preloader;
+</script>
+   
+</head>
+<body>
+<div id="mapconfig_div"></div>
+<div id="sign_div"></div>  
+<script>
+$( "#sign_div" ).load( "cftags/lightboxsign_1_0.html" );
+</script>
+<!-- <cfinclude template="cftags/lightboxsign_1_0.cfm"> -->
+<div class="wrap">
+
+<!-- <cfif !isDefined("url.clientid")>
+<script type="text/javascript">
+var clogo = $.cookie("PAGELOGO");
+if(!clogo || clogo==''){$.cookie("PAGELOGO", 'images/logo_border.png');}
+</script>
+<cfelse>
+		<cfquery datasource="#application.dsn#" name="qry_Getlogo">
+select * from clients_settings where user_id=#url.clientid#
+		</cfquery>
+<script type="text/javascript">
+//alert($.cookie("page"));
+$.cookie("PAGELOGO", '<cfoutput>#qry_Getlogo.imageurl#</cfoutput>');
+</script>
+</cfif> -->
+<div id="title" style="<!-- float: left -->"></div>
+<div id="titlehead" style="text-align:center;"></div>		
+			<script>
+				$( "#title" ).load( "cftags/pageheaderrmobile.html" );
+			</script>
+			<script>
+				var url = "http://myezplan.com/mobile/appdata/mappopup_maps.cfm?ctid="+window.citid+"&plid="+window.plaid+"";
+				var urlconfig = {action: "getcityplace"};
+				$("#titlehead").load(url, urlconfig);
+			</script>
+
+	<div id="body_col1">
+    <div id="select_area" style="text-align:center">
+    <img src="images/number_1.png" alt="Step 1" style="vertical-align:middle;height:50px;"/>
+    <div id="show_areas" class="hider button-round-2 button-round-blue2 font" name="1" >Areas </div><img id="pin_img" src="images/pin_iz_off.png" alt="Step 1" style="vertical-align:middle;/*height:40px;*/"/>
+    </div>
+		<div id="body_col1_canvas" class="font80">
+            <div id="areas_box">
+			<div id="menu_plan" class="1 content">
+			<ul></ul>
+			<script>
+				//var citid = getUrlVars()["ctid"];
+				//var plaid = getUrlVars()["plid"];
+				//alert(window.citid);
+				var url = "http://myezplan.com/mobile/appdata/mappopup_cityplace.cfm?ctid="+window.citid+"&plid="+window.plaid+"";
+				var urlconfig = {action: "getcityplan"};
+				$("#menu_plan ul").load(url,urlconfig);
+			</script>
+			
+<!-- <cfif mapa_polygonscity.recordcount neq 0> -->
+			
+           <div id="show_areasmap" class="areasmap_show button-round-2  font" style="background-color:lightgray;">Map</div>
+<div id="mapareas" style="width:700px;height:246px;display:none;"></div>
+<script type="text/javascript">
+var mapcenter=new google.maps.LatLng(25.74604000776405, -80.32504190967006); 
+		var myOptions = {
+			zoom: 10,
+			center: mapcenter,
+			zoomControl:true,
+			navigationControl: false,
+            scaleControl: false,
+			mapTypeControl: false,
+			disableDefaultUI: true,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		map_a = new google.maps.Map(document.getElementById("mapareas"), myOptions);
+		//directionsDisplay.setMap(map_a);
+		AreaBounds = new google.maps.LatLngBounds();
+
+	var _data = "ctid="+window.citid+"&plid="+window.plaid+"&action=getpolygon";
+	$.ajax({
+		type: "POST",
+		url: "http://myezplan.com/mobile/appdata/mappopup_maps.cfm",
+		async:false, 
+		cache:false,
+		data: _data,
+		error: function(xhr, ajaxOptions, thrownError){
+		      alert("nop");
+		},
+		success: function(data){
+			var obj = jQuery.parseJSON(data);
+			$.each(obj.DATA, function(index, el){
+			//	_datos = data.split(';');
+	        //   alert("plan data"+_datos[0]);
+			//   alert("plan data"+_datos[1]);
+			//   alert("plan data"+_datos[2]);
+			   var triangleCoords2 = "triangleCoords2"+el[1];
+			   var AreaPolygon2 = "AreaPolygon2"+el[1];
+			   //alert(AreaPolygon2);
+			   triangleCoords2 = [];
+			 AreaPolygon2 = new google.maps.Polygon({
+				paths: triangleCoords2,
+				strokeColor: '#808080',
+				strokeOpacity: 0.8,
+				strokeWeight: 2,
+				fillColor: '#C0C0C0',
+				fillOpacity: 0.35,
+				map:map_a
+			  });
+			var coors_p = el[4].split('*');
+			for (c=0;c<coors_p.length;c++){
+			var coors_=coors_p[c].replace('(','').replace(')','').split(',');
+			var latp=coors_[0];
+			var lngp=coors_[1];
+			var locat=new google.maps.LatLng(parseFloat(latp),parseFloat(lngp));
+			var infowindowArea2 = "infowindowArea2"+el[1]
+			AreaBounds.extend(locat);
+			triangleCoords2.push(locat);
+			AreaPolygon2.setPath(triangleCoords2);
+			}
+				infowindowArea2 = new google.maps.InfoWindow(
+						{ content: el[2],
+							size: new google.maps.Size(100,100)
+						});
+			var idNumber = el[1];
+			window["AreaPolygon3" + idNumber] = AreaPolygon2;
+			google.maps.event.addListener(AreaPolygon2, 'mouseover', function(e) {
+			var latLng = e.latLng;
+			this.setOptions({fillOpacity:0.1});
+			//alert(this);
+			infowindowArea2.setPosition(latLng);
+			infowindowArea2.open(map_a);
+			});
+			google.maps.event.addListener(AreaPolygon2, 'mouseout', function() {
+			this.setOptions({fillOpacity:0.35});
+			infowindowArea2.close();
+			});
+			google.maps.event.addListener(AreaPolygon2, 'click', function() {
+			$('#plan_'+el[1]).trigger("click");
+			});
+			});
+	
+		}
+		
+	});
+	MapAreaCenter=AreaBounds.getCenter();
+	map_a.setCenter(MapAreaCenter);
+function polygonsel(){
+	//alert("working polygonsel...")
+	var _data = "ctid="+window.citid+"&plid="+window.plaid+"&action=getpolygon";
+	$.ajax({
+		type: "POST",
+		url: "http://myezplan.com/mobile/appdata/mappopup_maps.cfm",
+		async:false, 
+		cache:false,
+		data: _data,
+
+		success: function(data){
+			var obj = jQuery.parseJSON(data);
+			$.each(obj.DATA, function(index, el){
+				var mycookie = $.cookie('plan_'+el[1]);
+				//alert(mycookie);
+				var idNumber = el[1];
+				//alert(window["AreaPolygon3" + idNumber]);
+				if (mycookie && mycookie == "true") {
+					window["AreaPolygon3" + idNumber].setOptions({fillColor: '#0066FF',strokeColor: '#000099'});
+				}
+				else{
+					window["AreaPolygon3" + idNumber].setOptions({fillColor: '#C0C0C0',strokeColor: '#808080'});
+				}
+			});
+		}
+	});
+}
+	
+</script>
+            </div>
+            </div> 
+      
+		</div>
+	</div>
+    <div style="text-align:center">
+    <img src="images/number_2.png" alt="Step 1" style="vertical-align:middle;height:50px;"/>
+    <div id="show_categ" class="hider button-round-2 button-round-blue2 font" name="2">Categories</div>
+    </div>
+	<div id="body_col2" class="2 content">
+    
+   
+		<div id="body_col2_canvas" class="font80">
+<!-- <h3 style="display:inline-block;">Categories</h3> 
+            <div id="Selections_">
+
+</div> -->
+			<script>
+				//var citid = getUrlVars()["ctid"];
+				//var plaid = getUrlVars()["plid"];
+				var url = "http://myezplan.com/mobile/appdata/mappopup_cityplace.cfm?ctid="+window.citid+"&plid="+window.plaid+"";
+				var urlconfig = {action: "getcategplan"};
+				$("#body_col2_canvas").load(url,urlconfig);
+			</script>
+				
+			
+		</div>
+	</div>
+    
+    <div style="text-align:center; ">
+    <img src="images/number_3.png" alt="Step 2" style="vertical-align:middle;height:50px;" /><h3 style="display:inline-block;"></h3>
+    <div id="show_places" class=" hider button-round-2 button-round-blue2 font" name="3">Places </div>
+    
+    <div id="show_box" class="content" name="3" style="border:solid medium #000000;"><h3 style="display:inline-block; color:#000000"></h3>
+    		<div id="button-show" class="places_changes refresh_map button-show button-round-2 button-round-blue2 font">Picks</div>
+            <div  id="show_maps" class="map_changes button-round-2  font" name="4">Map</div>
+            <div id="botones_mapa" onClick="showhidepolygons();" style="display:none;"><img src="ezmapas/maps_pics/areas.png" height="35" title="Areas"/></div>
+            
+        </div>
+    </div>
+    
+	<div id="body_map" class="4 content" align="right">
+		<div id="body_map_canvas" class="map"></div>
+        					<!--		<div id="globo2" class="popup-inside-round">
+								<div class="g_image"><img class="tipimage" src="" alt=""/></div>
+								<div class="g_content">
+									<dl>
+										<dt>Name:</dt>
+										<dd class="tipname">&nbsp;</dd>
+										<dt>Type:</dt>
+										<dd class="tiptype">&nbsp;</dd>
+									</dl>
+								</div>
+								<div class="clearboth"></div>
+								<div class="g_footer">
+									<p class="textcenter textredmyezplan2 bold">More Info?</p>
+									<p class="tipprov" align="center"></p>
+									<p class="textcenter g_footer_icon bold">Click on the icon: <img class="tipicon" src="" /></p>
+								</div>
+							</div>--> 
+	</div>
+	<div id="body_col4" class="3 content font75">
+		<div id="body_col4_canvas">
+		<table class="table tablecanvas" cellspacing="0">
+			<tr>
+				<th class="m_title"></th>
+			</tr>
+			<tr>
+				<td class="m_place"><div id="menu_place"><table id="menu_place_table" class="table" cellspacing="0"></table></div></td>
+			</tr>
+			<!--- <tr>
+				<th class="m_button"><div id="map-top-button-option" class="button-round-2 button-round-blue2 font90" onclick="window.top.location.reload();">Add to Mix &amp; Match</div></th>
+			</tr> --->
+            
+		</table>
+		</div>
+        
+	</div>
+     <div id="foot_bottoms" >
+    <div style="float:left;"  id="go_home" class=" button-round-green button-round-2  font">Back</div>
+   
+   
+    <div style="float:right;" id="go_mapcity" class="button-round-green button-round-2 font">Next</div>
+    
+    </div>
+	<!--- <div class="clearboth bold">City Name</div> --->
+    
+    
+    <div id="footer" class="real_body_footer copyright" style=" width:98%; margin:45px auto 0px;">  myezplan &copy; <span id="year"></span>  - All Rights Reserved. <a href="http://www.facebook.com/pages/Myezplan/480330711998380" target="_blank" class="followus"><img src="images/facebook.png" width="20" height="20" alt="follow us at Facebook" /></a> <a href="https://twitter.com/#!/myezplan1 " target="_blank" class="followus"><img src="images/twitter.png" width="20" height="20" alt="follow us at Twitter" /></a> <a href="http://myezplan.blogspot.com/" target="_blank" class="followus"><img src="images/blogger.png" width="20" height="20" alt="follow us at Blogger" /></a> </div>
+				<script>
+					var d = new Date();
+					var x = document.getElementById("year");
+					x.innerHTML=d.getFullYear();
+				</script>
+   <div id="divmenu_div"></div>
+	<script>
+		$( "#divmenu_div" ).load( "cftags/divmenu.html");
+	</script> 
+
+</div>
+</body>
+</html>

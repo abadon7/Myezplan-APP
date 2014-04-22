@@ -1,0 +1,257 @@
+<cfif not(isdefined('session.uid'))><cflocation url="index.cfm" addtoken="no"></cfif>
+<script type="text/javascript">
+faqpage='myitinerary';
+</script>
+<cfparam name="uiid" type="integer" default="0">
+<cfparam name="uiac" type="integer" default="-1">
+<cfparam name="uiusid" type="integer" default="#session.uid#">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>My itinerary</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+<meta http-equiv="EXPIRES" content="01 Jan 1970 00:00:00 GMT">
+<meta http-equiv="PRAGMA" content="NO-CACHE">
+
+<meta name="robots" content="INDEX,FOLLOW">
+<meta name="robots" content="NOODP">
+<meta name="robots" content="NOYDIR">
+<meta name="revisit-after" content="3 days">
+<meta name="google-site-verification" content="TeqSW2DyrBG6rxqrZ4lNqGb2C2JXinYyS73ABG1KjHc" />
+
+<link id="bodystylecss" type="text/css" rel="stylesheet" href="style/bodystyle-min.css" />
+<link type="text/css" rel="stylesheet" href="style/color-min.css" />
+<link type="text/css" rel="stylesheet" href="style/fonts-min.css" />
+
+<link type="text/css" rel="stylesheet" href="js/jquery/jquery-ui-1.10.3.custom-min.css" />
+<script  src="js/jquery/jquery-1.9.1.min.js"></script>
+<script id="jquery_min"  src="js/jquery/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript"  src="js/jquery.cookie.js"></script>
+
+
+<script type="text/javascript">
+
+	myLocationMarkerIcon='ezmapas/maps_city/mylocationbase.png';
+	_img_map_preview="ezmapas/maps_city/citypicbase.jpg";
+	cf_sid="155"; 
+	cf_sidP=false; 
+	cf_sidjs="";
+
+</script>
+<script  type="text/javascript"   src="js/myezplan.js"></script>
+<script  type="text/javascript"   src="js/utils.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40486344-1', 'myezplan.com');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="js/myitinerary.js"></script>
+<script type="text/javascript" src="js/map.js"></script>
+<script src="js/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" >
+	currentuserplan = "";
+	countuserplan = 0;
+</script>
+<style type="text/css" media="all">	
+.mask-faq {display: none;background-color: #111; left: 0; top: 0; z-index: 1501; width: 100%; height:100%; -moz-opacity:0.7; opacity:.70; filter: alpha(opacity=80); position:fixed;}
+div.popup-inside-faq { display:none; /*min-width:380px;*/ min-height:150px; padding: 10px; border: 2px solid #ddd; float: left; position: fixed; top: 5%; left: 50%; z-index: 1502; border-radius:5px 5px 5px 5px; }
+#wrapper{ max-width:700px; width:95%;}
+#real_body_header{ max-width:600px; margin:0 auto !important; width:95%;}
+#useritinerarieshidden-box .box-body{/*width: 600px;*/font-size: 90%;max-height: 180px;overflow-y: auto;}
+#planpersonal-box{ max-width:350px; }
+#planpersonal-box .box-body{/*width: 600px;*/font-size: 90%;/*max-height: 180px;overflow-y: auto;*/ }
+a.link {color:white; font-size:medium;}
+a.link2 { font-size:90%; }
+.onlyPrinting {display:none;}
+.onlyScreen {}
+@media screen and (min-width: 400px){
+#header_text { /*margin-top: -0%*/ !important; margin-bottom:10px;}
+}
+#title{ width:160px; margin:0 auto; margin-top:-5%;}
+.text-name{width: 95%; max-width:140px;}
+.expand { float:right;}
+@media screen and (max-width: 360px){
+	.expand { display:none;}
+	.myitin .daybox-title { text-align:center;}
+	
+}
+#iframe_plansplaces body{ background-color:black;}
+.ui-accordion .ui-accordion-content {padding: 1em 1em;}
+#footer {text-align:center;}
+#footer a{display:none;}
+.submit-button{ /*float:none;*/}
+.accordion{ max-width:600px; margin:0 auto;}
+#useritinerarieshidden-box h1{ font-size:22px;}
+#tipitinerary_submit{ float:right; margin:0;}
+@media screen and (min-width: 460px){
+	.rwd-break{ display:none;}
+}
+.help_button{ color:black; cursor:pointer; font-size:22px; font-weight: bold;}
+#dv_myint_info{
+border: 1px solid #ddd;
+border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+padding:5px;
+width:95%;
+max-width:450px;
+margin:5px auto;
+}
+#more_int_info{font-family: Verdana, Arial, Helvetica, sans-serif;}
+.round {
+border: solid medium #F2F2F2;
+border-radius: 20px 20px 20px 20px;
+-moz-border-radius: 20px;
+-webkit-border-radius: 20px;
+background-color: #17375E;
+margin-top: 20px;
+height: 35px;
+color: white;
+vertical-align: middle;
+font-size: initial;
+cursor:pointer;
+}
+.input{ width:90%;}
+#shareitinerary-box{ max-width:400px;}
+.hideme .round_square{ background-color:white;}
+.hideme .round_square td { width:45px; text-align:center;}
+
+@media screen and (min-width: 500px){
+	#note_text{ display:table-cell;}
+}
+#uid_usernote{ width:90%;}
+#plansplaces-box{ max-width:700px;}
+@media screen and (max-width: 450px){
+	.th_block { display:block;}
+	.width_100{ width:100%;}
+	.width_50{ width:50%;}
+	.width_15{ width:15%;}
+}
+
+
+</style>
+<!---<script type="application/javascript">
+	 $(document).ready(function() {
+		  $(".show_loader_gif").click(function(){
+			 /*$(".load_img").css("display","block");*/
+		  });
+		 	 
+		 $("#myint_info").slideToggle(250);
+		 $(".int_more_info").slideToggle(250);		  
+         $(".help_button").click(function(){			 
+			 $('.'+$(this).attr('name')).slideToggle(250);
+			  if ($(this)[0].innerHTML=="[+]"){
+				  $(this)[0].innerHTML="[-]";
+			  }else{
+				  $(this)[0].innerHTML="[+]";
+				 }	  
+        });
+		
+		$(".show_sop2").hide();
+		$(".round").click(function(){
+			$(".show_sop2").hide();
+			<!---	$('.'+$(this).attr('id')).slideToggle(250);--->
+		});
+	 });
+</script>--->
+</head>
+<body class="myitinerary">
+<cfinclude template="cftags/lightboxsign_1_0.cfm">
+<!-- wrap -->
+<div id="wrap"> 
+	<!-- wraper -->
+	<div id="wrapper">
+		<div id="real_body">
+			<cfset PageHeaderTitle = "<span class=""capitalize_red"">M</span>y Itinerary">
+			<cfinclude template="cftags/pageheaderrmobile.cfm">
+			<div id="real_body_middle" style="text-align:start;/*width:960px;*/ margin:0 auto;">
+				<div class="onlyPrinting">
+					<img src="images/logomyezplan.png" />
+					<h1><span class="capitalize_red">M</span>y Itinerary</h1>
+				</div>
+				<div style="position:relative;/*padding-left:218px;*/ text-align:center;">
+					<a id="buttonSaveAndFile" class="button-round-2 button-round-blue2 show_loader_gif" href="javascript:;" <!---title="Create new Itinerary"---> style="">New</a>
+					<a id="buttonGetUserItinerariesHidden" class="button-round-2 button-round-blue2 show_loader_gif" href="javascript:;" <!---title="See all my Itineraries"---> style="">My Itineraries</a>
+					<!---<button id="button-searchhotdeals" class="button-round-2 button-round-red2" style="/*float:right;*/">Hot Deals</button>
+					<img id="map-top-button-faq" src="images/faq.png" height="35" style="vertical-align:middle;/*float:right;*/" class="cursor" <!---title="Need Help?"---> />--->
+				</div>
+				<div id="real_body_middle-content" class="myitin" style="text-align:start;margin:0;">
+					<cfinclude template="data_ajax/myitinerary_content.cfm">
+				</div><!-- real_body_middle-content -->
+                <div id="footer" class="real_body_footer copyright" style="margin-top:-10px;"> <cfoutput>myezplan &copy; #Year(Now())# - All Rights Reserved.		</cfoutput> <a href="http://www.facebook.com/pages/Myezplan/480330711998380" target="_blank" class="followus"><img src="images/facebook.png" width="20" height="20" alt="follow us at Facebook" /></a> <a href="https://twitter.com/#!/myezplan1 " target="_blank" class="followus"><img src="images/twitter.png" width="20" height="20" alt="follow us at Twitter" /></a> <a href="http://myezplan.blogspot.com/" target="_blank" class="followus"><img src="images/blogger.png" width="20" height="20" alt="follow us at Blogger" /></a> </div>
+			</div><!-- real_body_middle -->
+			<div id="real_body_bottom">
+            
+				<!---<cfinclude template="footer.cfm">--->
+			</div>
+		</div><!--real_body-->
+		<br clear="all" />
+	</div><!--wrapper-->
+</div><!--wrap-->
+<div id="planpersonal-box" class="popup-inside popup-inside-round">
+<form data-errormessage="" data-changed="false">
+	<div class="box-header"><a href="#" class="close" <!---title="Close Window"---> alt="Close Window" >X</a><img src="images/logomyezplan.png" class="img_logo" <!---title="myezplan"---> alt="myezplan" />
+	<h1 style=" font-size:22px; width:50%; margin:0 auto;"><span class="capitalize_red">+</span>More</h1></div>
+	<div class="box-body body-rounded-10">
+	</div>
+	<div class="box-footer">
+    	<div id="message-planpersonal" class="message">
+			<span id="messageerror-planpersonal" class="message-error"></span>
+		</div>
+		<div style="margin-bottom:10px;" align="right">
+			<input id="user_submit" name="user_submit" type="submit" value="Save Changes" class="submit-button" <!---title="Add to My Itinerary"---> alt="Add to My Itinerary" style="width:160px; margin-top:20px; float:none;"/>
+		</div>
+	
+	</div>
+</form>
+</div>
+<div id="mapplanscity-box" class="popup-inside popup-inside-absolute popup-inside-round">
+	<div id="box-header" class="box-header"><a href="#" class="close" <!---title="Close Window"---> alt="Close Window" >X</a></div>
+	<div id="box-body" class="box-body" style="/*width:700px;*/ height:300px; margin-bottom:10px;">
+	<iframe id="iframe_mapplanscity" src="" style="width:100%; height:inherit; border-width:0;" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+	</div>
+</div>
+<div id="useritinerarieshidden-box" class="popup-inside popup-inside-round">
+	<div class="box-header"><a href="#" class="close" <!---title="Close Window"---> alt="Close Window" >X</a><img src="images/logomyezplan.png" class="img_logo" <!---title="myezplan"---> alt="myezplan" />
+	<h1><span class="capitalize_red">M</span>y Itineraries</h1></div>
+	<div class="box-body body-rounded-10">
+	</div>
+	<div class="box-footer">
+		<div id="message-useritinerarieshidden" class="message">
+			<span id="messageerror-useritinerarieshidden" class="message-error"></span>
+		</div>
+	</div>
+</div>
+<cfinclude template="cftags/mapshare.cfm">
+<cfinclude template="cftags/divmenu.cfm">
+
+
+
+	<div id="box-footer" class="box-footer">
+		<div id="message-mapplanscity" class="message">
+			<span id="messageerror-mapplanscity" class="message-error"></span>
+		</div>
+	</div>
+</div>
+<div id="userdealsitinerary-box" class="popup-inside popup-inside-round">
+	<div class="box-header"><a href="#" class="close" <!---title="Close Window"---> alt="Close Window" >X</a><img src="images/logomyezplan.png" class="img_logo" <!---title="myezplan"---> alt="myezplan" />
+	<h1><span class="capitalize_red">M</span>y Hot Deals</h1></div>
+	<div class="box-body body-rounded-10" style="width:600px;font-size:0.7em;max-height:225px;overflow-y:auto;"></div>
+	<div class="box-footer">
+		<div id="message-userdealsitinerary" class="message">
+			<span id="messageerror-userdealsitinerary" class="message-error"></span>
+		</div>
+	</div>
+</div>
+</body>
+</html>

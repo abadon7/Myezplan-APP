@@ -1,0 +1,247 @@
+﻿<cfparam name="uiid" type="integer" default="0">
+		<cfquery datasource="#application.dsn#" name="qry_getuseritineraries">
+			SELECT
+				ui_userid, ui_id, ui_name, ui_description, ui_updatedate, us_nombre, ui_likes,days,
+			<cfif isdefined("session.uid")>
+				( SELECT COUNT(1) FROM usersitineraryvotes WHERE uiv_upid=ui_id AND uiv_userid=#session.uid# ) AS votesperuser
+			<cfelse>
+				0 AS votesperuser
+			</cfif>
+			FROM 
+				usersitinerary_view
+			WHERE 1=1
+				AND ui_shareit = 1
+				AND ui_id =#uiid#
+			;
+		</cfquery>
+<cfquery datasource="#application.dsn#" name="qry_iti_name">
+select up_name,up_places,SUBSTRING(RTRIM(LTRIM(up_places)), 1 , CHARINDEX(N',', RTRIM(LTRIM(up_places))) - 1)as place,(select nombre from tbl_ciudad where id = up_plancityid)as nombrecity,up_plancityid from usersplans where up_id in(select top 1 uid_userplanid from usersitineraryday where ui_id = #qry_getuseritineraries.ui_id# and uid_userplanid <>''order by newid());
+</cfquery>
+<cfquery datasource="#application.dsn#" name="qry_PageTittles">
+			SELECT 
+				TOP 1 PERCENT * 
+			FROM 
+				titles_all
+			WHERE 
+				act_status = 1
+                AND page_ = 'I'
+			ORDER BY 
+				newid()
+			;
+</cfquery>
+<cfquery datasource="#application.dsn#" name="qry_PageKeyword">
+			SELECT 
+				TOP 4 keyword 
+			FROM 
+				[key_words_all]
+			WHERE
+				act_status = 1
+                AND page_='I'
+			ORDER BY 
+				newid()
+</cfquery>
+<cfset Keyw = ''>
+<cfloop query="qry_PageKeyword">
+<cfset Keyw = '#Keyw#,#qry_PageKeyword.keyword#'>
+</cfloop>
+<cfquery datasource="#application.dsn#" name="qry_PageDescription">
+			SELECT 
+				TOP 1 PERCENT desc_ 
+			FROM 
+				[pagedesc_all]
+			WHERE
+				act_status = 1
+                AND page_ = 'I'
+			ORDER BY 
+				newid()
+</cfquery>
+<cfquery datasource="#application.dsn#" name="qry_PagePhrase">
+			SELECT 
+				TOP 1 PERCENT endfrase_
+			FROM 
+				[endfrase_all]
+			WHERE
+				act_status = 1
+                AND page_ = 'I'
+			ORDER BY 
+				newid()
+</cfquery>
+<script type="text/javascript">
+faqpage='ideasitinerary';
+</script>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<cfoutput>
+<title>#qry_PageTittles.title_# #qry_iti_name.up_name# in #qry_iti_name.nombrecity# - myezplan.com</title>
+<META NAME="DESCRIPTION" CONTENT="#qry_PageDescription.desc_# #qry_iti_name.up_places#. #qry_PagePhrase.endfrase_#">
+<META NAME="KEYWORDS" CONTENT="#qry_iti_name.place##Keyw#"></cfoutput>
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+<cfinclude template="cftags/headmeta.cfm">
+<script type="text/javascript" src="js/ideasitynerary.js"></script>
+<script type="text/javascript" src="js/myitinerary.js"></script>
+<script type="text/javascript" src="js/infoplace.js"></script>
+<link href="style/infoplace.css" type="text/css" rel="stylesheet" />
+<style type="text/css">	
+.mask-faq {display: none;background-color: #111; left: 0; top: 0; z-index: 1501; width: 100%; height:100%; -moz-opacity:0.7; opacity:.70; filter: alpha(opacity=80); position:fixed;}
+div.popup-inside-faq { display:none; /*min-width:380px;*/ min-height:150px; padding: 10px; border: 2px solid #ddd; float: left; position: fixed; top: 5%; left: 50%; z-index: 1502; border-radius:5px 5px 5px 5px; }
+	#wrapper{ width:95%;}	
+	.caja_total_bs { font-size:12px; margin-top:15px; margin-bottom:10px; height:auto; overflow:auto; }
+	.caja_total_bs .group1 { height:auto; clear:both; }
+	/*.masmenos { background-image:url('images/menos.png'); background-repeat:no-repeat; background-position:center; cursor:pointer; width:40px;}*/
+	.planTables { }
+	.planTables td { padding-top:5px; }
+	h1.itmesaccount {text-align: left;padding-left: 320px;}
+	.selectfilter {padding: 4px; border-radius: 5px; border: thin inset lightgray;}
+	.like {display: inline-block; width: 36px; height: 36px; margin: 1px 3px; vertical-align: sub;}
+	.likeup {background-image: url(images/icons/16/like-up-icon.png);background-repeat: no-repeat; cursor:pointer; background-size:36px;}
+	.likedown {background-image: url(images/icons/16/like-up-icon-2.png);background-repeat: no-repeat;background-size:36px;}
+	.alltabs{ min-height:100px;}
+	/*.float_ri{ float:right;}*/
+	#tabitineraries-detail {
+		max-width: 600px;
+		margin: 0 auto;
+}
+	.ui-accordion .ui-accordion-content {padding: 1em 1em;}
+	a.link {color: white; font-size: medium;}
+	.viewplanlink {font-size: medium;}
+	.expand {float: right;}
+	#shareitplans-box{ width:90%;}
+	.myitin .text-name {width: inherit;}
+	@media screen and (min-width: 460px){
+		.rwd-break {display: none;}
+}
+	@media screen and (max-width: 460px){
+		.created_hide{ display:none;}
+		.tips_hide{ display:none;}
+	}
+	@media screen and (max-width: 300px){
+		.map_hide{ display:none;}
+	}
+#_div_save_tip{ display:none;}
+#mapplanscity-box #box-header { position:relative;} 
+/*#iframe_mapplanscity{ margin-top:-25px; }*/
+#plan_id_span_hide span{ display:none;}
+#buttonMyItinerary{ display:none;}
+</style>
+</head> 
+<body class="shareit" onload="showItineraryDetail(<cfoutput>#uiid#</cfoutput>)">
+<cfinclude template="cftags/lightboxsign_1_0.cfm">
+<div id="wrap"> 
+	<!-- wraper -->
+	<div id="wrapper">
+		<div id="real_body">
+			<cfset PageHeaderTitle = "<!---<span class=""capitalize_red"">I</span>tinerary View--->">
+			<cfinclude template="cftags/pageheaderrmobile.cfm">
+			<div id="real_body_middle" style="text-align:start;/*width:960px;*/ margin:0 auto;">
+            	<!---	<span style="float:left;">&nbsp;</span><a href="mapcity.cfm#" target="_blank" style="float:left;" class="button-round-2 button-round-red2">Create Myezplan</a>
+                <button id="button-searchhotdeals" class="button-round-2 button-round-red2" style="float:right;">Hot Deals</button>
+				<!---<img id="map-top-button-faq" src="images/faq.png" height="35" style="vertical-align:middle;float:right;" class="cursor" />--->
+                <span style="float:right;">&nbsp;</span>
+                <cfoutput><a id="button-shareitplan" class="button-round-2 button-round-blue2" title="Check out what other people is planning" href="javascript:;" onclick="ideasbutton(#qry_iti_name.up_plancityid#)" style="float:right;">Ideas</a></cfoutput>--->
+				<br class="clearboth" />
+				<div style="margin-top:-9px;">
+					<div id="tabitineraries" class="">
+						<div id="tabitineraries-result" class="body-rounded-10 alltabs" style="width:90%; margin:8px auto;">
+		<cfif qry_getuseritineraries.recordcount GT 0>
+			<table id="precaja2" border="0" cellpadding="0" cellspacing="0" class="body-table-2" style="width:100%; font-size:90%;">
+				<caption class="bold textredmyezplan" style="font-size:24px;padding:6px 0;background-color:lightgray;">Travel Ideas</caption>
+				<tr>
+						<th class="created_hide" width="150" align="center">Created By</th>
+						<th align="center">Itinerary</th>
+						<th class="map_hide" width="50" align="center">Map</th>
+						<th width="50" align="center">Days</th>
+                        <th class="tips_hide" width="50" align="center">Tips</th>
+						<th width="60" align="center">Like It</th>
+				</tr>
+				<cfoutput query="qry_getuseritineraries">
+					<tr id="row_#ui_id#" align="center">
+						<td class="created_hide" class="capitalize">#Left(lcase(us_nombre),18)#</td>
+						<td class="capitalize">#Left(lcase(ui_name),26)#</td>
+						<td class="map_hide"><a class="del_frame_top" href="javascript:;" id="buttonMapItinerary2" data-id="#ui_id#"><img src="images/icons/16/hearsound.png" style="vertical-align:middle; width:36px;" alt="See Map Itinerary" <!---title="See Map Itinerary"---> /></a></td>
+                        <td>#days#</td>
+						<td class="tips_hide"><cfif ui_description NEQ ""><a href="javascript:;" id="buttonTipItinerary" data-id="#ui_id#" data-description="#ui_description#" ><img src="images/icons/16/hearsound.png" style="vertical-align:middle; width:36px;" alt="See suggestions of this Itinerary" <!---title="See suggestions of this Itinerary"--->  /></a></cfif></td>
+						<td><span id="likevalue_#ui_id#" style="vertical-align:inherit;">#ui_likes#</span><span id="likeit_#ui_id#" class="like <cfif votesperuser EQ 0>likeup<cfelse>likedown</cfif>" <!---title="<cfif votesperuser GT 0>You already voted<cfelse>Vote for this Itinerary !!</cfif>"---> <cfif votesperuser EQ 0>onclick="itineraryLike('#ui_id#');</cfif>"></span></td>
+					</tr>  
+				</cfoutput>
+			</table>
+		<cfelse>
+			<h2 style="text-align:center; font-size:medium;">No results found for your selection</h2>
+		</cfif>
+						</div>
+						<div id="tabitineraries-detail" class="<!---body-rounded-10---> myitin alltabs" style="margin:0 auto;"></div>
+				
+					</div>
+				</div>
+			</div><!-- real_body_middle -->
+			<div id="real_body_bottom">
+				<!---<cfinclude template="footer.cfm">--->
+                <div id="footer" class="real_body_footer copyright" style="margin-top:5px;"> <cfoutput>myezplan &copy; #Year(Now())# - All Rights Reserved.		</cfoutput> <a href="http://www.facebook.com/pages/Myezplan/480330711998380" target="_blank" class="followus"><img src="images/facebook.png" width="20" height="20" alt="follow us at Facebook" /></a> <a href="https://twitter.com/#!/myezplan1 " target="_blank" class="followus"><img src="images/twitter.png" width="20" height="20" alt="follow us at Twitter" /></a> <a href="http://myezplan.blogspot.com/" target="_blank" class="followus"><img src="images/blogger.png" width="20" height="20" alt="follow us at Blogger" /></a> 
+                </div>
+			</div>
+			<!---<div id="real_body_footer"></div>--->
+		</div><!--real_body-->
+		<br class="clearboth" />
+	</div><!--wrapper-->
+</div><!--wrap-->
+
+
+<div id="mapplanscity-box" class="popup-inside popup-inside-absolute popup-inside-round">
+	<div id="box-header" class="box-header"><a href="#" class="close" <!---title="Close Window"---> alt="Close Window" >X</a></div>
+	<div id="box-body" class="box-body" style="/*width:700px;*/ height:300px;">
+	<iframe id="iframe_mapplanscity" src="" style="width:100%; height:inherit; border-width:0;" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+	</div>
+	<div id="box-footer" class="box-footer">
+		<div id="message-mapplanscity" class="message">
+			<span id="messageerror-mapplanscity" class="message-error"></span>
+		</div>
+	</div>
+</div>
+<div id="tipplan-box" class="popup-inside popup-inside-round">
+	<div class="box-header"><a href="#" class="close" <!---title="Close Window"---> alt="Close Window" >X</a><img src="images/logomyezplan.png" class="img_logo" <!---title="myezplan"---> alt="myezplan" />
+	<h1><span class="capitalize_red">T</span>ips</h1></div>
+	<div class="box-body body-rounded-10 textcenter">&nbsp;</div>
+	<div class="box-footer">&nbsp;</div>
+</div>
+
+
+<div id="tipitinerary-box" class="popup-inside popup-inside-round">
+	<div class="box-header"><a href="##" class="close" <!---title="Close Window"---> alt="Close Window" >X</a><img src="images/logomyezplan.png" class="img_logo" <!---title="myezplan"---> alt="myezplan" />
+	<h1><span class="capitalize_red">T</span>ips</h1></div>
+    <div class="box-body body-rounded-10">
+	<textarea id="tipitinerary_description" style="width:100%; height:80px;">#ui_description#</textarea><br />
+	
+   
+    <div class="clearboth"></div>
+	</div>
+	<div class="box-body body-rounded-10 textcenter">&nbsp;</div>
+	<div class="box-footer">&nbsp;</div>
+</div>
+
+
+
+
+<div id="planpersonal-box" class="popup-inside popup-inside-round">
+<form data-errormessage="" data-changed="false">
+	<div class="box-header"><a href="#" class="close" <!---title="Close Window"---> alt="Close Window" >X</a><img src="images/logomyezplan.png" class="img_logo" <!---title="myezplan"---> alt="myezplan" />
+	<h1 style=" font-size:22px; width:50%; margin:0 auto;"><span class="capitalize_red">+</span>More</h1></div>
+	<div class="box-body body-rounded-10">
+	</div>
+	<div class="box-footer">
+    	<div id="message-planpersonal" class="message">
+			<span id="messageerror-planpersonal" class="message-error"></span>
+		</div>
+		<div style="margin-bottom:10px;" align="right">
+			<input id="user_submit" name="user_submit" type="submit" value="Save Changes" class="submit-button" <!---title="Add to My Itinerary"---> alt="Add to My Itinerary" style="width:160px; margin-top:20px; float:none;"/>
+		</div>
+	
+	</div>
+</form>
+</div>
+<cfinclude template="cftags/mapshare.cfm">
+<cfinclude template="cftags/divmenu.cfm">
+</body>
+</html>

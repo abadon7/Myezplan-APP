@@ -1,0 +1,144 @@
+
+<!-- LightBox Sign -->
+<link href="style/lightboxsign.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" language="javascript" src="/js/lightboxsign.js"></script>
+<script type="text/javascript" language="javascript">signup_rnd = "<cfoutput>#rndString#</cfoutput>";</script>
+<div id="light_box"></div>
+<div id="light_box_cont_signin">
+		<form name="formsignin" id="formsignup" method="post" action="" onsubmit="return false;">
+	<div id="light_box_cont_signin_in" class="light_box_sign">
+		<div id="box-header" class="box-header"><a href="#" class="close" title="Close Window" alt="Close Window" onclick="cerrar_login();" >X</a><img src="images/logomyezplan.png" class="img_logo" title="myezplan" alt="myezplan" />
+			<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="capitalize_red">S</span>ign In</h1>
+		</div>
+		<div id="wait_msg"><a href="javascript:cerrar_login();lightboxr();">&nbsp;Wait! I am not a member</a></div>
+			<table class="table_boxes" width="90%" style="margin:0 auto;">
+				<tr>
+					<td class="label_td">Email:</td>
+					<td class="input_td"><input  name="usuariologin" id="usuariologin" type="email" autocomplete="off" /></td>
+				</tr>
+				<tr>
+					<td class="label_td">Password:</td>
+					<td class="input_td"><input  name="passlogin" id="passlogin" type="password" autocomplete="off" /></td>
+				</tr>
+			</table>
+			<input  name="light_box_cont_signin_num" id="light_box_cont_signin_num" type="hidden" value="" />
+			<input type="hidden" name="signorigin" id="signorigin" value="user" />
+			<div id="for_msg"><a href="javascript:cerrar_login();lightboxf();">&nbsp;Forgot your password ?</a></div>
+			<div id="inc_msg">Incorrect Email or Password. Please try again</div>
+			<!---<span id="singbutton" class="button-round-blue-sign" onclick="send_lightbox_signin();" title="Click Here">Sign In</span>--->
+			<input type="submit" id="singbutton" class="button-round-blue-sign" onclick="send_lightbox_signin();" title="Click Here" value="Sign In"/>
+		<br clear="all" />
+	</div>
+		</form>
+</div>
+<div id="light_box_cont_signup">
+	<div id="light_box_cont_signup_in" class="light_box_sign">
+		<div id="box-header" class="box-header"><a href="#" class="close" title="Close Window" alt="Close Window" onclick="cerrar_login();" >X</a><img src="images/logomyezplan.png" class="img_logo" title="myezplan" alt="myezplan" />
+			<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="capitalize_red">S</span>ign Up</h1>
+		</div>
+		<form name="formsignup" id="formsignup" method="post" action="" onsubmit="return send_lightbox_signup()">
+		<div id="wait_msg"><a href="javascript:cerrar_login();lightbox2();">Wait! I am  a member</a></div>
+		<table class="table_boxes" width="90%" style="margin:0 auto;">
+			<tr>
+				<td class="label_td">Name: <span class="required">*</span></td>
+				<td class="input_td"><input  name="signup_name" id="signup_name" type="text" /></td>
+			</tr>
+			<tr>
+				<td class="label_td">Email: <span class="required">*</span></td>
+				<td class="input_td"><img id="input_td_loading" style="display:none;" src="images/loader.gif" />
+					<input name="signup_email" id="signup_email" type="email" onblur="verify_email();" /></td>
+			</tr>
+			<tr>
+				<td class="label_td">Password: <span class="required">*</span></td>
+				<td class="input_td"><input name="signup_pass" id="signup_pass" type="password" onblur="verify_match();"/></td>
+			</tr>
+			<tr>
+				<td class="label_td">Confirm: <span class="required">*</span></td>
+				<td class="input_td"><input name="signup_pass2" id="signup_pass2" type="password" onblur="verify_match();"/></td>
+			</tr>
+			<tr>
+				<td class="label_td"></td>
+				<td ><table>
+						<tr>
+							<td>Male:</td>
+							<td class="radio_td"><input name="signup_gender" id="signup_gender_m" type="radio" checked="checked" value="m" /></td>
+							<td>Female:</td>
+							<td class="radio_td" style="text-align:left;">&nbsp;
+								<input name="signup_gender" id="signup_gender_f" type="radio" value="f" /></td>
+						</tr>
+						<tr>
+							<td>Age:</td>
+							<td class="radio_td"><input name="signup_age" id="signup_age_1" type="radio" checked="checked"  value="1" /></td>
+							<td>18-29</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="radio_td"><input name="signup_age" id="signup_age_2"  type="radio" value="2" /></td>
+							<td>30-39</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="radio_td"><input name="signup_age" id="signup_age_3"  type="radio" value="3" /></td>
+							<td>40-49</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="radio_td"><input name="signup_age" id="signup_age_4"  type="radio" value="4" /></td>
+							<td>50-59</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="radio_td"><input name="signup_age" id="signup_age_4"  type="radio" value="5" /></td>
+							<td>60+</td>
+							<td></td>
+						</tr>
+					</table></td>
+				</tr>
+				<tr>
+					<td class="label_td">&nbsp;</td>
+					<td><cfimage  action="captcha" fontSize="24" fonts="Times New Roman" width="190" height="50" text="#rndString#"></td>
+				</tr>
+				<tr>
+					<td class="label_td">Enter text in image:</td>
+					<td class="input_td"><input name="signup_captcha" id="signup_captcha" type="text" />
+						<input type="hidden" name="signup_captchahash" id="signup_captchahash" value="<cfoutput>#rndHash#</cfoutput>">
+						</td>
+				</tr>
+			<tr>
+				<td colspan="2" class="label_td"><br /><input type="checkbox" id="check_mail" name="check_mail" checked="checked"/> <label for="check_mail">News feeds subscription</label></td>
+				</tr>
+			<tr>
+				<td colspan="2" class="label_td"><br /><input type="checkbox" id="check_reg" name="check_reg" onclick="acc_pri();" /> <label for="check_reg">I agree to the <a target="_blank" href="privacypolicy.cfm">Privacy Policy</a> and <a href="termsofuse.cfm" target="_blank">Terms of Use</a></label></td>
+				</tr>
+			</table>
+			<input  name="light_box_cont_signup_num" id="light_box_cont_signup_num" type="hidden" value="" />
+			<div id="for_msgr"></div>
+			<div id="inc_msgr">&nbsp;</div>
+			<input type="submit" id="singbutton" class="button-round-blue-sign" title="Click Here" value="Sign Up"/>
+			<div id="divbr"></div>
+		</form>
+		<br clear="all" />
+	</div>
+</div>
+<div id="light_box_cont_forgot">
+	<div id="light_box_cont_forgot_in" class="light_box_sign">
+		<div id="box-header" class="box-header"><a href="#" class="close" title="Close Window" alt="Close Window" onclick="cerrar_login();" >X</a><img src="images/logomyezplan.png" class="img_logo" title="myezplan" alt="myezplan" />
+			<h1 style="padding-left:105px">&nbsp;&nbsp;&nbsp;<span class="capitalize_red">F</span>orgot Something</h1>
+		</div>
+		<div id="wait_msgf">Enter your e-mail address<br />and we will send your password</div>
+		<table class="table_boxes" width="90%" style="margin:0 auto;">
+			<tr>
+				<td class="label_td">E-mail:</td>
+				<td class="input_td"><input  name="send_pass" id="send_pass" type="text" /></td>
+			</tr>
+		</table>
+		<div id="inc_msgf">&nbsp;</div>
+		<span id="singbutton" class="button-round-blue-sign" onclick="send_lightbox_forgotpass();" title="Click Here">Submit</span>
+		<br clear="all" />
+	</div>
+</div>
+<!-- //LightBox Sign --> 

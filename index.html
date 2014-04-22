@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript">
+faqpage='index';
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+<title>Welcome to myezplan</title>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script> 
+<script type="text/javascript" charset="utf-8">
+
+    // Wait for PhoneGap to load
+    // 
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+    //
+    function onDeviceReady() {
+        checkConnection();
+    }
+
+    function checkConnection() {
+        var networkState = navigator.network.connection.type;
+
+        var states = {};
+        states[Connection.UNKNOWN]  = 'Unknown connection';
+        states[Connection.ETHERNET] = 'Ethernet connection';
+        states[Connection.WIFI]     = 'WiFi connection';
+        states[Connection.CELL_2G]  = 'Cell 2G connection';
+        states[Connection.CELL_3G]  = 'Cell 3G connection';
+        states[Connection.CELL_4G]  = 'Cell 4G connection';
+        states[Connection.NONE]     = 'No network connection';
+
+        alert('Connection type: ' + states[networkState]);
+    }
+
+    </script>
+<!-- <access origin="*" > --> 
+<link  href="style/infoplace-min.css" type="text/css" rel="stylesheet" />
+<!--<script  type="text/javascript"  src="http://maps.google.com/maps/api/js?sensor=false"></script>-->
+<!-- <cfinclude template="cftags/headmeta.cfm"> -->
+<style type="text/css">
+.mask-faq {display: none;background-color: #111; left: 0; top: 0; z-index: 1501; width: 100%; height:100%; -moz-opacity:0.7; opacity:.70; filter: alpha(opacity=80); position:fixed;}
+div.popup-inside-faq { display:none; /*min-width:380px;*/ min-height:150px; padding: 10px; border: 2px solid #ddd; float: left; position: fixed; top: 5%; left: 50%; z-index: 1502; border-radius:5px 5px 5px 5px; }
+#wrap{
+	width: 100%;
+	padding: 0;
+	display: table;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;}
+#wrapper{
+	padding: 0;
+	vertical-align: middle;
+	display: table-cell;
+	margin: 0;}
+#real_body{
+	/*width:90%;*/
+	max-width:650px;
+	/*background-color: #fff;*/
+	margin: 0 auto;
+	/*text-align: left;*/
+	padding: 10px;}
+@media screen and (min-width: 500px) {		
+	/*#wrapper{margin:0 auto; margin-top:7% !important; max-width:650px; height:75% !important; margin:auto !important; position:absolute; top:0; bottom:0; left:0; right:0;}*/
+	#logo_pp img{width:150px !important; height:100px !important;}}
+<!--@media screen and (max-width: 320px) {
+	#logo_pp img{width:100px !important;}
+}-->
+#real_body { 
+	background-color:white; 
+	border-radius:16px 16px 16px 16px; -moz-border-radius:16px 16px 16px 16px; -webkit-border-radius:16px 16px 16px 16px;
+	margin-top:2px; margin-bottom:8px; padding-top:6px; padding-bottom:8px;
+}
+#real_body_header{margin:0 auto !important; max-width:500px;}
+/*@media screen and (min-width: 1500px) {
+	#real_body_header { display: none;}
+	#footer_mobile {margin:0px 140px; float:right; text-align:center;}
+	.real_body_footer ul.alone_top_menu{display: none;}
+}*/
+#logo_ppb {display: none;}
+#footer_mobile img{display: none;}
+.real_body_footer ul.alone_top_menu{ margin:14px 15px 0 0px; text-align:center;}
+.real_body_footer ul.alone_top_menu li{ display: inline;  list-style:none; margin-left:14px; text-align:center;  }	
+#menusearchdeals-box{ /*margin-left:9px;*/ text-align:center;}
+#citymap-box{ margin-left:8px;}
+/*@media screen and (min-width: 510px) {	
+	#deal_title_popup{margin-right:60px;}
+}*/
+.resize_imgs{ width:95% !important; max-width:400px !important; height:auto; image-rendering: optimizeQuality; -ms-interpolation-mode: bicubic;}
+.button-round-green2{ /*width:50% !important;*/ font-size:larger !important;}
+.copyright ul{ font-size:18px;}
+#menusearchdeals-box { max-width:400px !important; height:auto !important; font-size:larger !important;}
+.button-round-2 {font-size:19px !important;}
+@media screen and (min-width: 473px) {
+	#deals_menu{ width:50%; float:right; margin-top:-75px; margin-right:20px;}}
+#deals_menu div{float:right;}
+#shareitplans-box h1{ font-size:22px;}
+#Faq_subtopics{ display:none;}
+.faq-quick{ margin-bottom:5px !important;}
+#div_ciudad select{	border-radius: 5px;-webkit-background-size: 1600px 32px;background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));-moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset; background: #f8f8f8; height:30px;border: 1px solid #eee;}
+.combo_small select {margin: 0 !important; width: 100% !important;}
+</style>
+<link rel="icon" type="image/png" href="favicon.png" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+<meta http-equiv="EXPIRES" content="01 Jan 1970 00:00:00 GMT">
+<meta http-equiv="PRAGMA" content="NO-CACHE">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta name="robots" content="NOODP">
+<meta name="robots" content="NOYDIR">
+<meta name="revisit-after" content="3 days">
+<meta name="google-site-verification" content="TeqSW2DyrBG6rxqrZ4lNqGb2C2JXinYyS73ABG1KjHc" />
+<!-- <script id="jquery_min" src="js/jquery/jquery-ui-1.10.3.custom.min.js"></script> -->
+<script  src="js/jquery/jquery-1.9.1.min.js"></script>
+<script  type="text/javascript"  src="js/jquery.cookie.js"></script>
+<script type="text/javascript">window.mapcity=window.mapcity||{};</script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/map.js"></script>
+<script type="text/javascript">faqpage='index';</script>
+<!--<script type="text/javascript" src="js/menutop.js"></script>-->
+<!--<script async type="text/javascript"  src="http://j.maxmind.com/app/geoip.js"></script>-->
+<!--<script async type="text/javascript"  src="js/mapconfigbasic.js"></script>-->
+<!--<script async type="text/javascript"  src="js/mapshared.js"></script>-->
+<script type="text/javascript"  src="js/menutop.js"></script>
+<script type="text/javascript"  src="js/infoplace.js"></script>
+<link id="bodystylecss" type="text/css" rel="stylesheet" href="style/bodystyle-min.css" />
+<link type="text/css" rel="stylesheet" href="style/color-min.css" />
+<link type="text/css" rel="stylesheet" href="style/fonts-min.css" />
+<link type="text/css" rel="stylesheet" href="js/jquery/jquery-ui-1.10.3.custom-min.css" />
+<link type="text/css" rel="stylesheet" href="style/jquery.mmenu.all.css" />
+<script  type="text/javascript"   src="js/myezplan.js"></script>
+<script  type="text/javascript"   src="js/lightboxsign.js"></script>
+<script  type="text/javascript"   src="js/utils.js"></script>
+<script type='text/javascript' src='js/knockout-3.1.0.js'></script>
+<script type="text/javascript" src="js/jquery.mmenu.js"></script>
+<script type="text/javascript">
+	myLocationMarkerIcon='ezmapas/maps_city/mylocationbase.png';
+	_img_map_preview="ezmapas/maps_city/citypicbase.jpg";
+	$.ajax({
+		type: "GET",
+		url: "http://myezplan.com/mobile/appdata/data_ajax/get_session_vars.cfm",
+		async:false, 
+		cache:false,
+		success: function(data){
+			var sessionVars = data.split(",");
+			cf_sid=sessionVars[0]; 
+		}
+	});
+	cf_sidP=false; 
+	cf_sidjs="";
+</script>
+<script type="text/javascript">
+$(window).load(function(e){
+	$.cookie("page", "cookietest");
+});
+
+</script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+<script type="application/javascript">
+	window.addEventListener('load', function() {
+		FastClick.attach(document.body);}, false);
+</script> 
+</head>
+<body class="page-index" >
+<div id="sign_div"></div>  
+<script>
+$( "#sign_div" ).load( "cftags/lightboxsign_1_0.html" );
+</script>
+<!-- wrap -->
+<div id="wrap"> 
+	<!-- wraper -->
+	<div id="wrapper">
+		<div id="real_body">
+			<div id="real_body_middle" class="real_body_middle">
+			<script type="text/javascript">
+				faqpage='index';
+			</script>
+			<script>
+				$( "#real_body_middle" ).load( "cftags/pageheaderrmobilehome.html" );
+			</script>
+			<div id="real_body_header">
+				<a id="header_cart_button">
+					
+				</a>
+				<a id="logo_pp" href="index.cfm" style="float:left;margin-left: 0px;">
+					<img id="pageheaderlogo" src="images/logo_border.png" alt="myezplan.com Deals and Tours all across United States" width="100px" height="66px">
+				</a>
+            <!--     <script type="text/javascript">
+				var clogo = $.cookie("PAGELOGO");
+				if(clogo && clogo!=''){
+				$('#pageheaderlogo').attr('src',clogo);
+				}
+				else{$('#pageheaderlogo').attr('src','images/logo_border.png');}
+                </script> -->
+<!-- 				<div>
+
+<ul id="template_top_menu">
+<script type="text/javascript">
+faqpage='index';
+</script>
+
+				
+				<li><a href="javascript:pedir_sesion(2)">Sign In</a></li>
+                <div id="btn_more_login"><img width="18px" height="15px" src="images/options.fw.png"></div>
+                <img id="map-top-button-faq" src="images/faq.png" width="35px" height="35" style="vertical-align:middle;/*float:right;*/" class="cursor">
+              <div id="more_opt_login" style="display: none;">
+                 <li><div class="click_menu_intem" style="cursor: pointer;" onclick="window.location='contactus.cfm';">Contact Us</div></li>
+                  <li><div class="click_menu_intem" style="cursor: pointer;" onclick="window.location='howitworks.cfm';">How it Works</div></li>
+                  <li><div class="click_menu_intem" style="cursor: pointer;" id="map-top-button-shareitplan" href="javascript:;">Ideas</div></li>
+                  
+                  <li><div id="map-top-button-newmap" class="click_menu_intem" style="cursor: pointer;">New</div></li>
+              </div>
+			
+    
+    
+</ul>
+
+                    <br>
+                    <div id="deals_menu" style="padding-top: 8px; list-style:none;" class="alone_bottom_menu">
+                <div><a id="button-searchhotdeals" class="button-round-2 button-round-red2">Hot Deals</a></div>
+                </div>
+				</div> -->
+                
+				<div id="title" style="float: left">
+					
+				</div>
+                
+				<div id="big_box_header"></div>
+				<div class="clearboth"></div>
+			</div>
+
+				<!-- alone menu -->
+				<!--<div id="logo_ppb" class="alone_menu menu_inner_fix">
+					<ul class="alone_top_menu">
+						<li><a href="contactus.cfm">Contact Us</a></li>
+						<cfif NOT isdefined('session.uid')>
+							<li><a href="howitworks.cfm">How it Works</a></li>
+							<li><a href="javascript:pedir_sesion(2);">Sign In</a></li>
+							<cfelse>
+							<li><a href="myaccount.cfm">My Account</a></li>
+							<li><a href="log_out.cfm">Sign Out</a></li>
+						</cfif>
+					</ul>-->
+					<!-- <img src="images/logo_border.png" width="207" height="124" alt="Myezplan.com Deals and Tours all across United States"  />
+					<ul style="padding-top: 8px;" class="alone_bottom_menu"> -->
+						<!-- <li><a id="linktobussines" href="cl_home.cfm">My Business</a></li> -->
+					<!--<cfif Session.Lasturlmap NEQ "">
+						<cfoutput><li><a href="#Session.Lasturlmap#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last Plan</a></li></cfoutput>
+					</cfif>-->
+					<!-- 	<li style="float:right;margin-right:22px;"><a id="button-searchhotdeals" class="button-round-2 button-round-red2">Hot Deals</a></li> -->
+                       
+						<!--<li style="float:right;margin-right:22px;"><a href="shareit.cfm">Share It</a></li>-->
+					</ul>
+					<div class="clearboth"></div>
+				</div>
+				 <!-- <div id="deals_menu" style="padding-top: 8px; list-style:none;" id="deals_menu" class="alone_bottom_menu">
+                <div><a id="button-searchhotdeals" class="button-round-2 button-round-red2">Hot Deals</a></div>
+                </div> -->
+				<div id="real_body_middle_inner_right" style="padding-top: 40px; text-align:center"> 
+					<div>
+					<img width="400px" height="71px" class="resize_imgs" src="images/step1.png" align="Myezxplan.com Step 1. Select Country Tour"  />
+					<div id="div_estado" class="combo_small" >
+
+						<select class="select_m" id="estado_sel" onChange="traer_ciudad(this.value)">
+							<option value="">Choose One ... </option>
+								<option value=></option>
+						</select>
+                     
+					</div>
+                       <script>
+						  $.ajax({
+							  type:"GET",
+							   url: "http://myezplan.com/getestados.cfm",
+							   async:true,
+							   crossDomain : true,
+							   success: function(datos) {
+								 /*alert("working");*/
+									$("#div_estado").html(datos);
+							   }
+						  });
+						</script>
+					</div>
+					<div style="margin:10px 0;">
+					<img width="400px" height="71px"  class="resize_imgs" src="images/step2.png" align="Myezxplan.com Step 2. Select City Tour"  />
+					<div class="combo_small" id="div_ciudad" >
+						<select class="select_m" id="ciudad_sel">
+							<option value="">Choose One ... </option>
+						</select>
+					</div>
+					</div>
+                    
+					<div>
+					<!--<img src="images/step3.png" align="Myezxplan.com Step 3. Select Name Tour"  />-->
+					</div>
+					<div style="margin-top:10px;">
+						<!-- <a id="map-top-button-area" class="button-round-2 button-round-blue2" title="Check out what other people is planning" href="javascript:;">Area</a> or --> 
+						<!--<a id="map-top-button-shareitplan" class="button-round-2 button-round-blue2" title="Check out what other people is planning" href="javascript:;">Ideas</a> or --> 
+						<a id="map-top-button-allareas" style="width:50%;" class="button-round-2 button-round-green2 "  href="javascript:;">Next</a>
+					</div>
+                  
+					
+					<div id="footer_mobile" class="real_body_footer copyright" >
+                  <!--  <ul class="alone_top_menu">
+						<li><a href="contactus.cfm">Contact Us</a></li>
+							<li><a href="howitworks.cfm">How it Works</a></li>
+					</ul>-->
+                    <br />
+                      
+                     myezplan &copy; <span id="year"></span>  - All Rights Reserved. <!--<a href="http://www.facebook.com/pages/Myezplan/480330711998380" target="_blank" class="followus"><img src="images/facebook.png" width="20" height="20" alt="follow us at Facebook" /></a> <a href="https://twitter.com/#!/myezplan1 " target="_blank" class="followus"><img src="images/twitter.png" width="20" height="20" alt="follow us at Twitter" /></a> <a href="http://myezplan.blogspot.com/" target="_blank" class="followus"><img src="images/blogger.png" width="20" height="20" alt="follow us at Blogger" /></a>--> </div>
+				</div>
+				<script>
+					var d = new Date();
+					var x = document.getElementById("year");
+					x.innerHTML=d.getFullYear();
+				</script>
+                
+			</div>
+			<!-- real_body_middle -->
+			<div id="real_body_bottom"></div>
+			<div id="real_body_footer"></div>
+            
+		</div>
+		<!--real_body-->
+		<div class="clearboth" />
+	</div>
+	<!--wrapper--> 
+</div>
+<!--wrap-->
+
+<div id="shareitplans-box" class="popup-inside popup-inside-round">
+	<div id="box-header" class="box-header"><a href="#" class="close" title="" alt="" >X</a><img width="70px" height="70px" src="images/logomyezplan.png" class="img_logo" alt="myezplan" /><h1><span class="capitalize_red">I</span>deas</h1></div>
+	<div id="box-body" class="box-body body-rounded-10" style=" max-height: 300px; overflow-y:auto;"></div>
+	<div id="box-footer" class="box-footer">
+		<span id="nombreciudad" style="float:left"></span><a style="margin-bottom:5px;" id="shareitplans-more" class="button-round-2 button-round-blue2" href="shareit.cfm">View +</a>
+		<div id="message-shareitplans" class="message">
+			<span id="messageerror-shareitplans" class="message-error"></span>
+		</div>
+	</div>
+</div>
+
+<div id="mapplanscity-box2" class="popup-inside popup-inside-absolute popup-inside-round">
+	<div id="box-header" class="box-header"><a href="#" class="closesmall" title="Close Window" alt="Close Window" >X</a></div>
+	<div id="box-body" class="box-body" style="/*width:700px;*/ height:350px;">
+	<iframe id="iframe_mapplanscity2" src="" style="width:100%; height:inherit; border-width:0;" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+	</div>
+	<div id="box-footer" class="box-footer">
+		<div id="message-mapplanscity2" class="message">
+			<span id="messageerror-mapplanscity2" class="message-error"></span>
+		</div>
+	</div>
+</div>
+<div id="mappreview-box" class="popup-inside popup-inside-round">
+	<div class="box-header"><a href="#" class="close" title="Close Window" alt="Close Window" >X</a><img width="70px" height="70px" src="images/logomyezplan.png" class="img_logo" alt="myezplan" /><h1>city</h1></div>
+	<div id="map_preview_box" class="box-body body-rounded-10" style="width:520px;">
+		<span id="div_tour" class="combo_small"><select id="tour_sel"><option value="">Choose One ... </option></select></span>
+		<span id="map-top-button-searchplans" class="button-round-2 button-round-blue2" style="float:right;margin-right: 20px;" onClick="viewPlans();">Go</span>
+		<div id="map_preview"><img id="img_map_preview" src="" alt="myezplan.com Preview Tour Map" width="510" height="270" /></div>
+	</div>
+	<div class="box-footer"><div id="message-mappreview" class="message"><span id="messageerror-mappreview" class="message-error"></span></div></div>
+</div>
+<div id="divmenu_div">
+
+</div>
+<script>
+	$( "#divmenu_div" ).load( "cftags/divmenu.html");
+</script>
+</body>
+</html>
